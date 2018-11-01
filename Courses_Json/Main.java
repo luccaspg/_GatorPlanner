@@ -27,6 +27,7 @@ public class Main {
 
         //AUTO IMPORT DOES NOT WORK
         HashMap<String,String> DepartmentTables = getCodeAndName();
+        
         // DepartmentTables.forEach((_code, _name)->{
         //     departmentCode = _code;
         //     URL = "https://one.uf.edu/apix/soc/schedule/?category=CWSP&class-num=&course-code=&course-title=&cred-srch=&credits=&day-f=&day-m=&day-r=&day-s=&day-t=&day-w=&days=false&dept=" + departmentCode +"&eep=&fitsSchedule=false&ge=&ge-b=&ge-c=&ge-d=&ge-h=&ge-m=&ge-n=&ge-p=&ge-s=&instructor=&last-control-number=0&level-max=--&level-min=--&no-open-seats=false&online-a=&online-c=&online-h=&online-p=&period-b=&period-e=&prog-level=UGRD&term=2188&wr-2000=&wr-4000=&wr-6000=&writing=";
@@ -37,23 +38,42 @@ public class Main {
         //     department.Count(mainURL);
         //     ExportJson(mainURL, departmentCode);
         // });
+
+        ArrayList<String> DepartmentArray = getCode();
+        for(String code : DepartmentArray){
+            departmentCode = code;
+            URL = "https://one.uf.edu/apix/soc/schedule/?category=CWSP&class-num=&course-code=&course-title=&cred-srch=&credits=&day-f=&day-m=&day-r=&day-s=&day-t=&day-w=&days=false&dept=" + departmentCode +"&eep=&fitsSchedule=false&ge=&ge-b=&ge-c=&ge-d=&ge-h=&ge-m=&ge-n=&ge-p=&ge-s=&instructor=&last-control-number=0&level-max=--&level-min=--&no-open-seats=false&online-a=&online-c=&online-h=&online-p=&period-b=&period-e=&prog-level=UGRD&term=2188&wr-2000=&wr-4000=&wr-6000=&writing=";
+            printURL = new URLSetter(URL);
+            mainURL = printURL.getURL();
+
+            department = new Department(mainURL);
+            department.Count(mainURL);
+            try{
+            ExportJson(mainURL, departmentCode);
+            }
+            catch(Exception e){
+                System.out.println(DepartmentTables.get(departmentCode) + "(ERROR EXPORTING)");
+            }
+            System.out.println(DepartmentTables.get(departmentCode)+ " (Successfuly Exported!)");
+
+        }
         
 
-        ExportJson(mainURL, departmentCode);
+        // ExportJson(mainURL, departmentCode);
         ArrayList<String> encodedString = department.getEncodedStrings();
         for(String string : encodedString){
             // System.out.println(string);
             // ExportJson()
         }
 
+        //UNKOWN ERROR BUT NOT NEEDED AT THIS POINT
+        // ArrayList<Course> CISECourses = defCourses(encodedString);
 
-        ArrayList<Course> CISECourses = defCourses(encodedString);
-
-
-        for(Course course : CISECourses){
-            System.out.println(course.getCodeAndName());
-            System.out.println(course.getDescription());
-        }
+        //Uncomment for print
+        // for(Course course : CISECourses){
+        //     System.out.println(course.getCodeAndName());
+        //     System.out.println(course.getDescription());
+        // }
 
         
 //        try{
@@ -109,39 +129,30 @@ public class Main {
 
             departmentTable.put(Code, Name);
         }
+        return departmentTable;
+    }
 
+    public static ArrayList<String> getCode()throws FileNotFoundException{
+        File file = new File("./DepartmentCodes.txt");
+        String bigString = "";
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            bigString = bigString + scan.nextLine();
+        }
+        // System.out.println(bigString);
+        ArrayList<String> departmentTable = new ArrayList<>();
 
+        char[] bigArray = bigString.toCharArray();
+        String Code;
+        String Name;
+        for(int i = 0; i < bigString.length(); i++){
+            Code = bigString.substring(bigString.indexOf("CODE")+7, bigString.indexOf(","));
+            Name = bigString.substring(bigString.indexOf("DESC")+8, bigString.indexOf("\"",bigString.indexOf("DESC")+9));
+            // System.out.println(Code + Name);
+            bigString = bigString.substring(bigString.indexOf("},")+3);
 
-        // Code = "";
-        // Name = "";
-        // bool dpt = true;
-        // bool CODE = false;
-        // bool DESC = false;
-        // bool DESCStart = false;
-        // for(char Char : bigArray){
-        //     if(Char == ':' & !dpt &){
-        //         CODE = true;
-
-        //     }
-        //     else if(Char == ':' & dpt){
-        //         dpt = false;
-        //     }
-        //     if(CODE){
-        //         Code = Code + Char;
-        //     }
-        //     if(Char == ','){
-        //         CODE = false;
-        //         DESC = true;
-        //     }
-        //     if(Char == ':' & DESC)
-
-        // }
-
-
-
-
-
-
+            departmentTable.add(Code);
+        }
         return departmentTable;
     }
 }
