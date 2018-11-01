@@ -264,7 +264,7 @@
 			"DESC": "History"
 		},
 		{
-			"CODE": "02030000",
+			"CODE": 02030000,
 			"DESC": "Honors Office"
 		},
 		{
@@ -280,7 +280,7 @@
 			"DESC": "Info Sys & Operations Mgt"
 		},
 		{
-			"CODE": "02070400",
+			"CODE": 02070400,
 			"DESC": "Innovation Academy"
 		},
 		{
@@ -712,7 +712,7 @@
 			"DESC": "Tourism Recreation & Sport Management"
 		},
 		{
-			"CODE": "02070000",
+			"CODE": 02070000,
 			"DESC": "Undergraduate Studies -SFCC"
 		},
 		{
@@ -732,7 +732,7 @@
 			"DESC": "Womens Studies"
 		},
 		{
-			"CODE": "02060000",
+			"CODE": 02060000,
 			"DESC": "Writing Program"
 		},
 		{
