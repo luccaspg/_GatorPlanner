@@ -84,7 +84,7 @@
 			"DESC": "Business Admin-General"
 		},
 		{
-			"CODE": "04040301",
+			"CODE": 04040301,
 			"DESC": "Career Development-Gen"
 		},
 		{
