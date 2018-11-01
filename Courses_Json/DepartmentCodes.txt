@@ -264,7 +264,11 @@
 			"DESC": "History"
 		},
 		{
+ luccas
 			"CODE": 02030000,
+
+			"CODE": "02030000",
+master
 			"DESC": "Honors Office"
 		},
 		{
@@ -280,7 +284,11 @@
 			"DESC": "Info Sys & Operations Mgt"
 		},
 		{
+ luccas
 			"CODE": 02070400,
+
+			"CODE": "02070400",
+ master
 			"DESC": "Innovation Academy"
 		},
 		{
@@ -712,7 +720,11 @@
 			"DESC": "Tourism Recreation & Sport Management"
 		},
 		{
+ luccas
 			"CODE": 02070000,
+
+			"CODE": "02070000",
+ master
 			"DESC": "Undergraduate Studies -SFCC"
 		},
 		{
@@ -732,7 +744,11 @@
 			"DESC": "Womens Studies"
 		},
 		{
+ luccas
 			"CODE": 02060000,
+
+			"CODE": "02060000",
+ master
 			"DESC": "Writing Program"
 		},
 		{
