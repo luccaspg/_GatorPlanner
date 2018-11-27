@@ -1,7 +1,7 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'),
-    ParkingLot = require("../models/parkinglot.server.model.js");
+    CourseList = require("../models/course.server.model.js");
 
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -15,7 +15,7 @@ var mongoose = require('mongoose'),
 
 exports.getLotFromCoordinates = function(req, res){
   var coordinates = {"latitude": req.query.latitude, "longitude": req.query.longitude}
-  ParkingLot.find({"coordinates": coordinates}, function(err, parkinglot){
+  CourseList.find({"coordinates": coordinates}, function(err, parkinglot){
     if(err){
       console.log(err);
     }
@@ -77,14 +77,3 @@ exports.updateRating = function(req, res){
     });
    res.send("Updated rating in lot " + name + "!");
 };
-
-
-
-
-/* 
-  Middleware: find a listing by its ID, then pass it to the next request handler. 
-
-  Find the listing using a mongoose query, 
-        bind it to the request object as the property 'listing', 
-        then finally call next
- */
