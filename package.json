@@ -1,0 +1,27 @@
+{
+  "name": "ParkingPicker",
+  "version": "1.0.0",
+  "engines": {
+    "node": "8.11.4",
+    "npm": "5.6.0"
+  },
+  "description": "A web application that allows users to rate the fullness of a parking garage around UF's campus",
+  "main": "server.js",
+  "author": "CommonFigInc",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.13.3",
+    "geojson": "^0.5.0",
+    "heroku": "^7.16.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^4.13.17",
+    "morgan": "^1.6.1",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "should": "^7.1.1",
+    "supertest": "^1.1.0"
+  }
+}

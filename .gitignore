@@ -1,0 +1,7 @@
+# osx
+.DS_Store
+
+# configuration files
+
+# node
+node_modules
