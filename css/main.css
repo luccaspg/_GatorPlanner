@@ -1,0 +1,36 @@
+body {
+	background-color: #FBFBFB;
+	margin: 0px;
+	font-family: Verdana;	
+}
+
+h1 {
+	text-align: center;
+}
+
+input {
+	display: inline-block;
+}
+
+#banner{
+	background-image: url("images/banner.JPG"),
+					  url("images/backgroundColor.JPG");
+	background-position: left;
+	background-size: contain;
+	height: 70px;
+	width: 100%;
+	margin-bottom: 10px;
+	background-repeat: no-repeat, repeat;
+}
+.btn{
+	background-color: DodgerBlue; /* Blue background */
+	border: none; /* Remove borders */
+	color: white; /* White text */
+	padding: 10px 10px; /* Some padding */
+	font-size: 16px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+.btn:hover{
+	background-color: RoyalBlue;
+}
+
