@@ -7,13 +7,52 @@
   <head>
   <body>
 	<div id=banner></div>
-	<input type ="button" class="btn" style ="position:absolute; right: 8%;" onclick="" value="Login"/>
-	<input type="button" class ="btn" style ="position:absolute; right: 1%;"  onclick="" value="Register"/>
-	<div id="mainContainer">
+	<input type ="button" class="btn" style ="position:absolute; right: 7%;" onclick="unhideL()" value="Login"/>
+	<input type="button" class ="btn" style ="position:absolute; right: 1%;"  onclick="unhideR()" value="Register"/>
+	<div class="dropdown">
+		<font size = "5" color="black">
+		<label>Choose a Department
+			<input list="browsers" name="myBrowser" style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;  " /></label>
+		</font>
+		<datalist  id="browsers">
+			<option value="Chrome">
+			<option value="Firefox">
+			<option value="Internet Explorer">
+			<option value="Opera">
+			<option value="Safari">
+			<option value="Microsoft Edge">
+		</datalist>
+	</div>
+	<div style="display: none;" id='login'>
+		<form name="loginLink">
+			<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
+			<font size = "5" color="black">
+				<lable style = "position: absolute; top: 5%; right: 30%;">UF Email</lable>
+				<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<label style ="position: absolute; top: 45%; right: 30%;">Password</label>
+				<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="" value="Login"/>
+			</font>
+			</div>
+		</form>
+	</div>
 
-		<!--Album tiles, icons, etc. will be dynamically displayed here. -->
-		</div>
-
+	<div style="display: none;" id='register'>
+		<form name="loginLink">
+			<font size = "5" color="black">
+				<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:500px;border:3px solid #1F35EA; background-color:white;">
+				<lable style = "position: absolute; top: 2%; right: 30%;">First Name</lable>
+				<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 8%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<label style ="position: absolute; top: 31%; right: 9%;">Last Name</label>
+				<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 35%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<label style ="position: absolute; top: 41%; right: 9%;">UF Email</label>
+				<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 45%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<label style ="position: absolute; top: 51%; right: 9%;">Password</label>
+				<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 55%; font-size: 18px;width: 250px;height: 40px;  "/>
+				<input style = "position: absolute; top: 62%; right: 5%;" type="button" onclick="" value="Register"/>
+				</div>
+			</font>
+		</form>
 	</div>
 	<script src="js/init.js"></script>
 

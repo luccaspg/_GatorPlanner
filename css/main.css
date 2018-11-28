@@ -23,14 +23,20 @@ input {
 	background-repeat: no-repeat, repeat;
 }
 .btn{
-	background-color: DodgerBlue; /* Blue background */
+	background-color: limegreen; /* Blue background */
 	border: none; /* Remove borders */
 	color: white; /* White text */
-	padding: 10px 10px; /* Some padding */
+	padding: 10px 13px; /* Some padding */
 	font-size: 16px; /* Set a font size */
 	cursor: pointer; /* Mouse pointer on hover */
 }
 .btn:hover{
-	background-color: RoyalBlue;
+	background-color: #1F35EA;
 }
+.dropdown{
+	margin-top: 70px;
+	margin-left: 20px;
+}
+
+
 
