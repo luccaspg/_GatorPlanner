@@ -7467,7 +7467,7 @@ var data = [
     }
 ]
 
-function seedDB(){
+function ciseDB(){
 	CourseList.count(function(err, count){
 		if(count == 0){
 
@@ -7484,4 +7484,4 @@ function seedDB(){
 	});
 }
 
-module.exports = seedDB;
+module.exports = ciseDB;

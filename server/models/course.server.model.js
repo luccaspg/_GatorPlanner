@@ -8,12 +8,20 @@ var courseSchema = new Schema ({
 		name: String,
 		description: String,
 		prerequisites: String,
-		sections: {
-			credits: Number,
+		sections: [{
+			credits: String,
 			instructors: [{
 				name: String
-			}]
-		}
+			}],
+			meetTimes: [{
+				meetNo: String,
+				meetDays: [String],
+				meetTimeBegin: String,
+				meetTimeEnd: String,
+				meetBuilding: String,
+				meetRoom: String
+			}],
+		}]
 	}],
 		  
     updatedAt: Date
