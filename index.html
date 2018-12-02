@@ -19,9 +19,9 @@
 			</div>
 		<h2 style="position:absolute; left:2%;" id="dep"></h2>
 	</div>
-	<div class ="right">
-		<input type ="button" class="btn" style ="position:absolute; right: 7%;" onclick="unhideL()" value="Login"/>
-		<input type="button" class ="btn" style ="position:absolute; right: 1%;"  onclick="unhideR()" value="Register"/>
+	<div class ="right" style="position: absolute; left:50%;">
+		<input type ="button" class="btn" style ="position:absolute; margin-left:78%;" onclick="unhideL()" value="Login"/>
+		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
 		<div style="display: none;" id='login'>
 			<form name="loginLink">
 				<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
@@ -53,17 +53,18 @@
 				</font>
 			</form>
 		</div>
-		<div id="myDIV" class="table" style="position:absolute; left:49%; top: 30%; height: 10px; width:400px; ">
-			<h2 style ="position:absolute; top: 5px; left: 15%;">Semesters Term</h2>
+		<h2 style="margin-top:15%;">Semester Term</h2>
+		<div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 30%; height: 10px; width:400px; ">
+			<h2 style ="position:absolute; top: 5px; left: 15%;"></h2>
 		</div>
 
-		<select style ="position:absolute; margin-left:72%; top:33%; height:30px; width:70px;" id="Semester">
+		<select style ="position:absolute; margin-left:28%; margin-top:-6%; height:30px; width:70px;" id="Semester">
 			<option value="1">Spring</option>
 			<option value="2">Fall</option>
 			<option value="3">Summer</option>
 		</select>
-		<button style="position:absolute; right:21%; top:34%;" onclick="" type="button">Go</button>
-		<table id="myUL" style=" position:absolute; left:49%; top: 40%; height: 10px; width:480px;">
+		<button style=" height: 30px; position:absolute; margin-left:38%; margin-top:-6%;" onclick="" type="button">Go</button>
+		<table id="myUL" style=" position:absolute; margin-left:0%; top: 40%; height: 10px; width:480px;">
 			<tr id="table">
 				<th>Course Name</th>
 				<th>Course Code</th>
@@ -77,16 +78,16 @@
 				<td id="d"></td>
 			</tr>
 
-		</table>
-		<table style=" position:absolute; left:49%; top: 70%; height: 10px; width:480px;">
-			<tr >
-				<th>Course Name</th>
-				<th>Course Code</th>
-				<th>Credits</th>
-				<th>Delete</th>
-			</tr>
+		<!--</table>-->
+		<!--<table style=" position:absolute; left:49%; top: 70%; height: 10px; width:480px;">-->
+			<!--<tr >-->
+				<!--<th>Course Name</th>-->
+				<!--<th>Course Code</th>-->
+				<!--<th>Credits</th>-->
+				<!--<th>Delete</th>-->
+			<!--</tr>-->
 
-		</table>
+		<!--</table>-->
 	</div>
 
 		<!--<input list="browsers" type ="text" name="myBrowser" style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;  " /></label>-->
