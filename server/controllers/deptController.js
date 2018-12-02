@@ -18,6 +18,7 @@ exports.create = function(req, res) {
 
 //list all departments
 exports.list = function(req, res) {
+  console.log("hello");
   models.departments.find({ }).exec(function(err, departments) {
     if (err){
       res.status(400).send(err);
