@@ -95,7 +95,7 @@ credits:{
 	required: true
 },
 instructor:{
-	type: String
+	type: String,
 	required: true
 }
 });
