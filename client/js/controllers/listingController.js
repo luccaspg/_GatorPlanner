@@ -1,12 +1,20 @@
-angular.module('listings').controller('ListingsController', ['$scope', 'Listings', 
+angular.module('listings').controller('CourseController', ['$scope', 'Listings', 
   function($scope, Listings) {
-    /* Get all the listings, then bind it to the scope */
-    Listings.getAll().then(function(response) {
+
+    /* Get all the departments, then bind it to the scope */
+    Listings.getAllDepartments().then(function(response) {
       $scope.listings = response.data;
     }, function(error) {
-      console.log('Unable to retrieve lots:', error);
+      console.log('Unable to retrieve departments:', error);
     });
 
+    /*
+    Listings.getDepartmentById().then(function(response) {
+      $scope.listings = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve department:', error);
+    });
+    /*
     $scope.detailedInfo = undefined;
 
     $scope.addRating = function() {
@@ -46,5 +54,6 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     $scope.showDetails = function(index) {
       $scope.detailedInfo = $scope.listings[index];
     };
+    */
   }
 ]);

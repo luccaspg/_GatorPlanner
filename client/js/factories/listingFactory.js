@@ -1,8 +1,8 @@
 angular.module('listings', []).factory('Listings', function($http) {
   var methods = {
 
-    getAll: function() {
-      return $http.get('http://parkingpicker.herokuapp.com/lot');
+    getAllDepartments: function() {
+      return $http.get('http://gatorplanner.herokuapp.com/dept');
     },
 	
 	  create: function(rating) {

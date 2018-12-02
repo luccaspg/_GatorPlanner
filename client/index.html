@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
   <head>
-  <body ng-app="gatorPlanner">
+  <body ng-app="gatorPlanner" ng-controller="CourseController">
 	<div id=banner></div>
 
 	<div class="left" style="position:absolute; top:3%;">
@@ -14,11 +14,41 @@
 			<font size = "5" color="black">
 				<label>Choose a Department</label>
 			</font>
-			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department">
+			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department" ng-model="newRating.name">
+				<option value="Select Department"  ng-value="listing.name" ng-repeat="listing in listings track by $index | orderBy: name">{{listing.departments.DESC}}</option>
+				
 			</select>
-			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="getDepartment()" type="button">Go</button>
+			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" ng-click="getDepartment()" type="button">Go</button>
 			</div>
 		<h2 style="position:absolute; left:2%;" id="dep"></h2>
+		<div class="tableWrapper">
+            <table class="table table-striped table-hover">
+              <tr>
+                <th>Code</th>
+                <th>Department</th>
+                <th></th>
+              </tr>
+              <!-- 
+
+                  Fill in the rest of the table:
+                      * populate the rows with the code and name of each listing
+                      * include a way to remove individual listings
+
+                --> 
+                <tbody>
+                  <tr ng-repeat="row in listings | orderBy: 'DESC' | filter: input">
+                    <td class="code1">{{row.}}</td>
+                    <td class="building1">{{row.name}}</td>
+                    <td style="width:40px"><button type="button" class="btn btn-default" ng-click="showDetails(listings.indexOf(row))">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button></td>
+                    <td style="width:40px"><button type="button" class="btn btn-default" ng-click="deleteListing(listings.indexOf(row))">
+                      <span class="glyphicon glyphicon-trash" style="color:red"></span>
+                    </button></td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
 	</div>
 	<div class ="right" style="position: absolute; left:50%;">
 		<input type ="button" class="btn" style ="position:absolute; margin-left:78%;" onclick="unhideL()" value="Login"/>
