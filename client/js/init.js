@@ -98,10 +98,10 @@ var obj = JSON.parse(courses);
         //}
     }
 //}
-var Department = document.getElementById("Department");
+/*var Department = document.getElementById("Department");
 for (var k = 0; k < departments.length; k++) {
     var option = document.createElement("OPTION");
     option.innerHTML = departments[k];
     console.log(option.innerHTML);
     Department.options.add(option);
-}
+}*/
