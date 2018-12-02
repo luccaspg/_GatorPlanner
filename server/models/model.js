@@ -19,7 +19,7 @@ var mongoose = require('mongoose'),
     type: String,
     required: false,
     unique: true
-  }
+  },
   fname: {
   	type: String,
   	required: true	
@@ -36,7 +36,7 @@ CODE: {
 	type: String,
 	required: true,
 	unique: true
-	}
+	},
 DESC: {
 	type: String,
 	required: true,
@@ -49,12 +49,12 @@ tableID: {
 	type: String,
 	required: true,
 	unique: true
-	}
+	},
 courseID: {
 	type: String,
 	required: true,
 	unique: true
-}
+},
 section: {
 	type: String,
 	required: true,
@@ -68,7 +68,7 @@ code: {
 	required: true,
 	unique: true
 	//check for method of creation
-}
+},
  deptCode: {
  	type: String,
  	required: true,
