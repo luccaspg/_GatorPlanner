@@ -4,6 +4,12 @@ function unhideL(){
 function unhideR(){
     document.getElementById('register').style = "display: block;";
 }
+function semesterTerm(){
+    var e = document.getElementById("Semester");
+    var strUser = e.options[e.selectedIndex].value;
+    //console.log(strUser);
+    document.getElementById('term').innerHTML = strUser + " Semester";
+}
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -29,6 +35,7 @@ function getDepartment(){
     var strUser = e.options[e.selectedIndex].value;
     //console.log(strUser);
     document.getElementById('dep').innerHTML = strUser;
+    document.getElementById('courseView').style = "display: block;";
 }
 
 var departments = [

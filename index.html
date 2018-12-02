@@ -4,6 +4,7 @@
 		Gator Course Planner
 	</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
   <body>
 	<div id=banner></div>
@@ -17,14 +18,21 @@
 			</select>
 			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="getDepartment()" type="button">Go</button>
 			</div>
-		<h2 style="position:absolute; left:2%;" id="dep"></h2>
+		<h2 style="position:absolute; margin-left:30%;" id="dep"></h2>
+		<div style="display: none;" id='courseView'>
+			<button class ="view" style= "position:absolute; margin-left:53%; margin-top:2%;" onclick=""><i class="fa fa-bars"></i>List</button>
+			<button class ="view" style="margin-left:60%; margin-top:2%;"  onclick=""><i class="fa fa-tree"></i>Tree</button>
+		</div>
 	</div>
+
+
+
 	<div class ="right" style="position: absolute; left:50%;">
 		<input type ="button" class="btn" style ="position:absolute; margin-left:78%;" onclick="unhideL()" value="Login"/>
 		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
 		<div style="display: none;" id='login'>
 			<form name="loginLink">
-				<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
+				<div style=" position: absolute; top: 7%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
 					<font size = "5" color="black">
 						<label style = "position: absolute; top: 5%; right: 30%;">UF Email</label>
 						<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
@@ -39,7 +47,7 @@
 		<div style="display: none;" id='register'>
 			<form name="loginLink">
 				<font size = "5" color="black">
-					<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:400px;border:3px solid #1F35EA; background-color:white;">
+					<div style=" position: absolute; top: 7%; right: 1%; width:280px;height:400px;border:3px solid #1F35EA; background-color:white;">
 						<label style = "position: absolute; top: 5%; right: 30%;">First Name</label>
 						<input type="text" name="email" class ="loginBox" required style=" position: absolute; top:13%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
 						<label style ="position: absolute; top: 25%; right: 30%;">Last Name</label>
@@ -54,17 +62,17 @@
 			</form>
 		</div>
 		<h2 style="margin-top:15%;">Semester Term</h2>
-		<div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 30%; height: 10px; width:400px; ">
-			<h2 style ="position:absolute; top: 5px; left: 15%;"></h2>
+		<div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 22%; height: 10px; width:400px; ">
+			<h2 id ="term" style ="position:absolute; top: 5%; left: 25%;"></h2>
 		</div>
 
 		<select style ="position:absolute; margin-left:28%; margin-top:-6%; height:30px; width:70px;" id="Semester">
-			<option value="1">Spring</option>
-			<option value="2">Fall</option>
-			<option value="3">Summer</option>
+			<option value="Spring">Spring</option>
+			<option value="Fall">Fall</option>
+			<option value="Summer">Summer</option>
 		</select>
-		<button style=" height: 30px; position:absolute; margin-left:38%; margin-top:-6%;" onclick="" type="button">Go</button>
-		<table id="myUL" style=" position:absolute; margin-left:0%; top: 40%; height: 10px; width:480px;">
+		<button class ="view" style=" height: 30px; position:absolute; margin-left:38%; margin-top:-6%;" onclick="semesterTerm()" type="button">Go</button>
+		<table id="myUL" style=" position:absolute; margin-left:0%; top: 32%; height: 10px; width:480px;">
 			<tr id="table">
 				<th>Course Name</th>
 				<th>Course Code</th>

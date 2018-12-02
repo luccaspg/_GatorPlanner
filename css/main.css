@@ -142,3 +142,12 @@ td, th {
 	/*border: 1px solid red;*/
 	/*box-sizing: border-box;*/
 }
+.view{
+	background-color: #1F35EA;
+	color: white;
+	height:30px;
+}
+.view:hover{
+	background-color: limegreen;
+	color: white;
+}

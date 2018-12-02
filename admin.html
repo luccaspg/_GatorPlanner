@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <title>Admin Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id=banner></div>
-    <input type="button" class ="btn" style ="position:absolute; right: 1%;"  onclick="" value="Sign Out"/>
+    <div class="left" style="position:absolute; top:3%;">
+        <div class="dropdown">
+            <font size = "5" color="black">
+                <label>Choose a Department</label>
+            </font>
+            <select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department">
+            </select>
+            <button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="getDepartment()" type="button">Go</button>
+        </div>
+
+        <div style="display: none;" id='courseView'>
+            <h2 style="position:absolute; margin-left:30%;" id="dep"></h2>
+            <button class ="view" style= "position:absolute; margin-left:53%; margin-top:2%;" onclick=""><i class="fa fa-bars"></i>List</button>
+            <button class ="view" style="margin-left:60%; margin-top:2%;"  onclick=""><i class="fa fa-tree"></i>Tree</button>
+        </div>
+    </div>
+
+    <div class ="right" style="position: absolute; left:50%;">
+        <button class ="btn" style="margin-left:87%;" onclick="" type="button">Sign Out</button>
+            <script src="js/admin.js"></script>
+    </div>
 </body>
 </html>
