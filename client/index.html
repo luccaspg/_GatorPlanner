@@ -15,7 +15,7 @@
 				<label>Choose a Department</label>
 			</font>
 			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department" ng-model="newRating.name">
-				<option value="Select Department"  ng-value="listing.departments.DESC" ng-repeat="listing in listings.departments track by $index | orderBy: name">{{listing.departments.DESC}}</option>
+				<option value="Select Department"  ng-value="listing.department" ng-repeat="listing in listings.departments track by $index | orderBy: name">{{listing.departments.DESC}}</option>
 			</select>
 			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" type="button">Go</button>
 			</div>
@@ -36,7 +36,7 @@
                 --> 
                 <tbody>
                   <tr ng-repeat="row in listings | orderBy: 'DESC' | filter: input">
-                    <td class="code1">{{row.}}</td>
+                    <td class="code1">{{row.code}}</td>
                     <td class="building1">{{row.name}}</td>
                     <td style="width:40px"><button type="button" class="btn btn-default" ng-click="showDetails(listings.indexOf(row))">
                       <span class="glyphicon glyphicon-search"></span>
