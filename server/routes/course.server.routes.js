@@ -2,7 +2,7 @@ var courselist = require('../controllers/course.server.controller.js'),
     events = require('../controllers/tableController.js'),
     users = require('../controllers/userController.js'),
     login = require('../controllers/course.server.controller.js'),
-    favorites = require('../controllers/deptController.js'),
+    departments = require('../controllers/deptController.js'),
     express = require('express'), 
     router = express.Router();
 

@@ -4,11 +4,16 @@ angular.module('listings', []).factory('Listings', function($http) {
     getAllDepartments: function() {
       return $http.get('http://gatorplanner.herokuapp.com/dept');
     },
-	
+
+    getDepartmentById: function() {
+      return $http.get('http://gatorplanner.herokuapp.com/deptById')
+    }
+  
+    /*
 	  create: function(rating) {
 	  return $http.put('http://parkingpicker.herokuapp.com/lot', rating);
     }//, 
-
+*/
     
     //delete: function(id) {
 	   /**TODO
