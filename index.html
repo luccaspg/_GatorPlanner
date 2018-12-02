@@ -15,16 +15,15 @@
 			<input list="browsers" type ="text" name="myBrowser" style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;  " /></label>
 		</font>
 		<datalist  id="browsers">
-			<select id="a">
 			<option value="Chemistry">
 			<option value="Mathematics">
 			<option value="Internet Explorer">
 			<option value="Opera">
 			<option value="Safari">
 			<option value="Microsoft Edge">
-			</select>
+
 		</datalist>
-			<button class ="btn" style="position:absolute; left:35%; top:18.5%;" onclick="display()" tpype="button">Go</button>
+			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="display(document.getElementById('browsers').value)" type="button">Go</button>
 	</div>
 	<div style="display: none;" id='login'>
 		<form name="loginLink">
@@ -58,20 +57,30 @@
 		</form>
 	</div>
 
-	<div id="myDIV" class="table" style="position:absolute; left:50%; top: 30%; height: 10px; width:400px; ">
-		<h2 style ="position:absolute; top: 5px; left: 30%;">Course Table</h2>
+	<div id="myDIV" class="table" style="position:absolute; left:49%; top: 30%; height: 10px; width:400px; ">
+		<h2 style ="position:absolute; top: 5px; left: 28%;">Course Table</h2>
 		<!--<input type="text" id="myInput" placeholder="Title...">-->
 		<!--<span onclick="newElement()" class="addBtn">Add</span>-->
 	</div>
-	<ul id="myUL" style=" position:absolute; left:50%; top: 40%; height: 10px; width:480px;">
-		<li>Hit the gym</li>
-		<li>Meet George</li>
-		<li>Buy eggs</li>
-		<li>Read a book</li>
-		<li>Organize office</li>
-	</ul>
+
+	<table id="myUL" style=" position:absolute; left:49%; top: 40%; height: 10px; width:480px;">
+		<tr id="table">
+			<th>Course Name</th>
+			<th>Course Code</th>
+			<th>Credits</th>
+			<th>Delete</th>
+		</tr>
+		<tr>
+			<td id="cn"></td>
+			<td id="cc"></td>
+			<td id="c"></td>
+			<td id="d"></td>
+		</tr>
+
+	</table>
 
 	<script src="js/init.js"></script>
   </body>
 </html>
+
 

@@ -25,5 +25,66 @@ for (i = 0; i < close.length; i++) {
     }
 }
 function display(value){
-    console.log(document.getElementById('a').option)
+    console.log(value)
 }
+
+var courses = '{ "Chemistry" : [' +
+    '{ "CourseCode": "CHM2211" ,"Name": "Chem1" , "Credits":"3" },' +
+    '{ "CourseCode": "CHM2212" ,"Name": "Chem2" , "Credits":"3" },' +
+    '{ "CourseCode": "CHM4100" ,"Name": "Org Chem1" , "Credits":"5" } ]}';
+
+var obj = JSON.parse(courses);
+
+//function newElement() {
+
+    for (var j = 0; j < obj.Chemistry.length; j++) {
+        console.log(obj.Chemistry[j].CourseCode);
+
+        var li = document.createElement("li");
+        var li2=  document.createElement("li");
+        var li3 = document.createElement("li");
+        var li4 = document.createElement("li");
+
+        var name =  obj.Chemistry[j].Name;
+        var code = obj.Chemistry[j].CourseCode;
+        var credit = obj.Chemistry[j].Credits;
+
+        var n = document.createTextNode(name);
+        var co = document.createTextNode(code);
+        var cr = document.createTextNode(credit);
+
+        li.appendChild(n);
+        li2.appendChild(co);
+        li3.appendChild(cr);
+
+        document.getElementById("cn").appendChild(li);
+        document.getElementById("cc").appendChild(li2);
+        document.getElementById("c").appendChild(li3);
+
+
+        var button = document.createElement("button");
+        button.className = "close";
+        button.innerHTML = "X";
+        li4.appendChild(button);
+        document.getElementById("d").appendChild(li4)
+        //var span = document.createElement("SPAN");
+        //var txt = document.createTextNode("\u00D7");
+        //span.className = "close";
+        //span.appendChild(txt);
+        //document.getElementById("d").appendChild(span);
+        //var d = document.createElement("li");
+        //var span = document.createElement("SPAN");
+        //var txt = document.createTextNode("\u00D7");
+        //d.className = "close";
+        //(d).appendChild(txt);
+        //doucument.getElementById(d).appendChild(d);
+        //li.appendChild(span);
+
+        //for (i = 0; i < close.length; i++) {
+          //  close[i].onclick = function () {
+            //    var div = this.parentElement;
+              //  div.style.display = "none";
+            //}
+        //}
+    }
+//}
