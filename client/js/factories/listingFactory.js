@@ -2,11 +2,11 @@ angular.module('listings', []).factory('Listings', function($http) {
   var methods = {
 
     getAllDepartments: function() {
-      return $http.get('//gatorplanner.herokuapp.com/dept');
+      return $http.get('//gatorplanner.herokuapp.com/course/dept');
     },
 
     getDepartmentById: function() {
-      return $http.get('//gatorplanner.herokuapp.com/deptById')
+      return $http.get('//gatorplanner.herokuapp.com/course/deptById')
     }
   
     /*

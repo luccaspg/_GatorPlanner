@@ -58,16 +58,16 @@ function createDescription(code){
 
 }
 
-      function filterPreReqs(){
+      function filterPreReqs(jsonData){
           var x;
-          for(i = 0; i < cisejson[0].COURSES.length; i++){
-            cisejson[0].COURSES[i].code.replace(/ /g, '');
-            cisejson[0].COURSES[i].prerequisites = cisejson[0].COURSES[i].prerequisites.replace(/ /g, '');
+          for(i = 0; i < jsonData[0].COURSES.length; i++){
+            jsonData[0].COURSES[i].code.replace(/ /g, '');
+            jsonData[0].COURSES[i].prerequisites = jsonData[0].COURSES[i].prerequisites.replace(/ /g, '');
 
-            // cisejson[0].COURSES[i].prerequisites = cisejson[0].COURSES[i].prerequisites.replace(/(?![A-Z])./g, '');
-            var x = cisejson[0].COURSES[i].prerequisites.search("Prereq:") + 7;
+            // jsonData[0].COURSES[i].prerequisites = jsonData[0].COURSES[i].prerequisites.replace(/(?![A-Z])./g, '');
+            var x = jsonData[0].COURSES[i].prerequisites.search("Prereq:") + 7;
               
-            cisejson[0].COURSES[i].prerequisites = cisejson[0].COURSES[i].prerequisites.slice(x,x+7);
+            jsonData[0].COURSES[i].prerequisites = jsonData[0].COURSES[i].prerequisites.slice(x,x+7);
           }
       }
 
