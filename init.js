@@ -10,6 +10,9 @@ function semesterTerm(){
     //console.log(strUser);
     document.getElementById('term').innerHTML = strUser + " Semester";
 }
+function treeView(){
+    document.getElementById('listView').style = "display: none;";
+}
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -36,6 +39,7 @@ function getDepartment(){
     //console.log(strUser);
     document.getElementById('dep').innerHTML = strUser;
     document.getElementById('courseView').style = "display: block;";
+    document.getElementById('listView').style = "display: none;";
 }
 
 var departments = [
@@ -111,4 +115,7 @@ for (var k = 0; k < departments.length; k++) {
     option.innerHTML = departments[k];
     console.log(option.innerHTML);
     Department.options.add(option);
+}
+function listView(){
+    document.getElementById('listView').style = "display: block;";
 }

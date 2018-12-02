@@ -20,8 +20,18 @@
 			</div>
 		<h2 style="position:absolute; margin-left:30%;" id="dep"></h2>
 		<div style="display: none;" id='courseView'>
-			<button class ="view" style= "position:absolute; margin-left:53%; margin-top:2%;" onclick=""><i class="fa fa-bars"></i>List</button>
-			<button class ="view" style="margin-left:60%; margin-top:2%;"  onclick=""><i class="fa fa-tree"></i>Tree</button>
+			<button class ="view" style= "position:absolute; margin-left:53%; margin-top:2%;" onclick="listView()"><i class="fa fa-bars"></i>List</button>
+			<button class ="view" style="margin-left:60%; margin-top:2%;"  onclick="treeView()"><i class="fa fa-tree"></i>Tree</button>
+		</div>
+		<div style="display: none;" id='listView'>
+		<table id="tree" style=" position:absolute; margin-left:1%; top: 32%; height: 10px; width:480px;">
+			<tr id="course">
+				<th>Course Name</th>
+				<th>Course Code</th>
+				<th>Credits</th>
+				<th>More Info</th>
+			</tr>
+		</table>
 		</div>
 	</div>
 
