@@ -63,7 +63,7 @@ exports.update = function(req, res) {
 };
 
 exports.deptByID = function(req, res, next, id) {
-  models.department.findById(id).exec(function(err, event) {
+  models.departments.findById(id).exec(function(err, department) {
     if(err) {
       res.status(400).send(err);
     } else {

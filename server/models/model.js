@@ -101,10 +101,10 @@ instructor:{
 });
 
 
-var users = mongoose.model('newUser', User);
-var departments = mongoose.model('newDepartment', Department);
-var courses = mongoose.model('newCourse', Course);
-var tables = mongoose.model('newTable', Table);
+var users = mongoose.model('newusers', User);
+var departments = mongoose.model('newdepartments', Department);
+var courses = mongoose.model('newcourses', Course);
+var tables = mongoose.model('newtables', Table);
 
 /* Export the model to make it avaiable to other parts of your Node application */
 module.exports = {
