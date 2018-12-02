@@ -147,3 +147,14 @@ td, th {
 	max-height: 400px;
 	overflow: auto;
   }
+
+  .chart{
+	border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+	margin-left: 20px;
+	width: 80%;
+	overflow-y: auto;
+	
+}
