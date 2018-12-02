@@ -134,4 +134,11 @@ td, th {
 	padding: 8px;
 }
 
-
+.left, .right {
+	display: inline-block;
+	width: 50%;
+	height: 100%;
+	margin-right: -4px;
+	/*border: 1px solid red;*/
+	/*box-sizing: border-box;*/
+}

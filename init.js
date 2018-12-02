@@ -5,28 +5,36 @@ function unhideR(){
     document.getElementById('register').style = "display: block;";
 }
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
+//var myNodelist = document.getElementsByTagName("LI");
+//var i;
+//for (i = 0; i < myNodelist.length; i++) {
+  //  var span = document.createElement("SPAN");
+   // var txt = document.createTextNode("\u00D7");
+   // span.className = "close";
+    //span.appendChild(txt);
+   // myNodelist[i].appendChild(span);
+//}
 
 // Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
+//var close = document.getElementsByClassName("close");
+//var i;
+//for (i = 0; i < close.length; i++) {
+  //  close[i].onclick = function() {
+    //    var div = this.parentElement;
+      //  div.style.display = "none";
+    //}
+//}
+function getDepartment(){
+    var e = document.getElementById("Department");
+    var strUser = e.options[e.selectedIndex].value;
+    //console.log(strUser);
+    document.getElementById('dep').innerHTML = strUser;
 }
-function display(value){
-    console.log(value)
-}
+
+var departments = [
+    "Chemistry", "Mathematics", "Zoology"
+];
+
 
 var courses = '{ "Chemistry" : [' +
     '{ "CourseCode": "CHM2211" ,"Name": "Chem1" , "Credits":"3" },' +
@@ -34,7 +42,7 @@ var courses = '{ "Chemistry" : [' +
     '{ "CourseCode": "CHM4100" ,"Name": "Org Chem1" , "Credits":"5" } ]}';
 
 var obj = JSON.parse(courses);
-
+//var ojb2 = JSON.parse(departments);
 //function newElement() {
 
     for (var j = 0; j < obj.Chemistry.length; j++) {
@@ -66,7 +74,9 @@ var obj = JSON.parse(courses);
         button.className = "close";
         button.innerHTML = "X";
         li4.appendChild(button);
-        document.getElementById("d").appendChild(li4)
+        document.getElementById("d").appendChild(li4);
+
+
         //var span = document.createElement("SPAN");
         //var txt = document.createTextNode("\u00D7");
         //span.className = "close";
@@ -88,3 +98,10 @@ var obj = JSON.parse(courses);
         //}
     }
 //}
+var Department = document.getElementById("Department");
+for (var k = 0; k < departments.length; k++) {
+    var option = document.createElement("OPTION");
+    option.innerHTML = departments[k];
+    console.log(option.innerHTML);
+    Department.options.add(option);
+}
