@@ -68,15 +68,15 @@ code: {
 	required: true,
 	unique: true
 	//check for method of creation
-//}
+}
  deptCode: {
  	type: String,
  	required: true,
- }
+ },
 name: {
 	type: String,
 	required: true,
-}
+},
 // time: {
 // 	type: Number,
 // 	required: false
@@ -84,7 +84,7 @@ name: {
 description: {
 	type: String,
 	required: false
-}
+},
 //courseNum: {
 //	type: String,
 //	required: true,
@@ -93,13 +93,11 @@ description: {
 credits:{
 	type: Number,
 	required: true
-}
+},
 instructor:{
 	type: String
 	required: true
 }
-
-
 });
 
 
