@@ -32,7 +32,7 @@ module.exports.init = function() {
   /**TODO 
   Go to homepage for all routes not specified */ 
   app.get('/', function(req, res){
-    res.redirect('../index.html');
+    res.redirect('../../client/index.html');
   })
   return app;
 };  
