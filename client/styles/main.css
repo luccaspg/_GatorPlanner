@@ -13,8 +13,8 @@ input {
 }
 
 #banner{
-	background-image: url("images/banner.JPG"),
-					  url("images/backgroundColor.JPG");
+	background-image: url("../images/banner.JPG"),
+					  url("../images/backgroundColor.JPG");
 	background-position: left;
 	background-size: contain;
 	height: 70px;
