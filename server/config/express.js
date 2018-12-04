@@ -28,6 +28,7 @@ module.exports.init = function() {
   /**TODO 
   Use the listings router for requests to the api */
   app.use('/course', courseRouter);
+  console.log("check");
 
   /**TODO 
   Go to homepage for all routes not specified */ 

@@ -5,11 +5,13 @@ var courselist = require('../controllers/course.server.controller.js'),
     express = require('express'), 
     router = express.Router();
 
+    /*
 router.route('/')
   .get(courselist.getAll)
   .put(courselist.updateRating);
 router.route('/:name')
   .get(courselist.getInfo);
+  */
 
 /* for calls to /api/functions/user */
 router.route('/user')
