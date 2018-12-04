@@ -4,15 +4,51 @@
 	<meta charset="UTF-8">
 	<title>Main Page</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<div class="tab">
+		<font size="5px;">
 		<a>CISE Course Planner</a>
-		<button style="margin-left:40%;" class="tablinks" onclick="window.location.href='Planner.html'">Course Planner</button>
+		<button style="margin-left:12%;" class="tablinks" onclick="window.location.href='Planner.html'">Course Planner</button>
 		<button class="tablinks" onclick="window.location.href='http://localhost:8081/semesterTracker.html'">CISE Semster Tracker</button>
 		<button class="tablinks" onclick="window.location.href='Ratings.html'">Course Reviews</button>
+		<button style="margin-left:10%;" class="tablinks" onclick ="document.getElementById('login').style.display='block'" style="width:200px; margin-left:160px; margin-top:200px;">Login</button>
+		<button class="tablinks" onclick="document.getElementById('register').style.display='block'" style="width:200px; margin-left:160px; margin-top:200px;">Register</button>
+		</font>
 	</div>
 	<div id="image"></div>
 </head>
 <body>
+<center>
+	<p>GENERAL INFO .............................................</p>
+	<p>...........................................................</p>
+	<div id="login" class="modal">
+		<form>
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Login">&times;</span>
+				<img alt="User" class="user">
+			</div>
+			<div class="container">
+				<input type="text" placeholder="Enter Username" name="uname">
+				<input type="text" placeHolder="Enter Password" name="psw">
+				<button id="authenticate" type="submit">Login</button>
+			</div>
+		</form>
+	</div>
+	<div id="register" class="modal2">
+		<form>
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Register">&times;</span>
+				<img alt="User2" class="user2">
+			</div>
+			<div class="container2">
+				<input type="text" placeholder="Username" name="uname">
+				<button id="reg" type="submit">Register</button>
+			</div>
+		</form>
+	</div>
 
+
+
+</center>
 </body>
 </html>

@@ -126,17 +126,7 @@ ul li.checked::before {
 }
 
 /* Style the close button */
-.close {
-	/*position: absolute;*/
-	/*right: 0;*/
-	/*top: 0;*/
-	/*padding: 12px 16px 12px 16px;*/
-}
 
-.close:hover {
-	background-color: #FF6600;
-	color: white;
-}
 td, th {
 	border: 1px solid #dddddd;
 	text-align: center;
@@ -206,7 +196,7 @@ td, th {
 	border-top: none;
 }
 iframe{
-	margin-top:2%;
+	margin-top:8%;
 	height:1500px;
 	width:100%;
 }
@@ -235,5 +225,109 @@ iframe{
 .right {
 	margin-top:1%;
 	right: 0;
+}
 
+.semView{
+	display: inline;
+	background-color:darkblue;
+	color:white;
+	height:30px;
+	width:150px;
+}
+.semView:hover{
+	background-color:dodgerblue;
+}
+.modal{
+	display:none;
+	position:fixed;
+	z-index:1;
+	left:67%;
+	top: 5%;
+	width:30%;
+	height:40%;
+	overflow:auto;
+	background-color:white;
+	border: 5px solid black;
+}
+.modal2{
+	display:none;
+	position:fixed;
+	z-index:1;
+	left:67%;
+	top: 5%;
+	width:30%;
+	height:50%;
+	overflow:auto;
+	background-color:white;
+	border: 5px solid black;
+}
+.modal-content{
+	background-color:#fefefe;
+	margin: 4% auto 15% auto;
+	border: 1px solid #888;
+	width:40%;
+	padding-bottom: 30px;
+}
+.modal2-content{
+	background-color:#fefefe;
+	margin: 4% auto 15% auto;
+	border: 1px solid #888;
+	width:40%;
+	padding-bottom: 30px;
+}
+.close{
+	position: absolute;
+	right:25px;
+	top:0;
+	color:#000;
+	font-size:35px;
+	font-weight:bold;
+}
+.close:hover,.close:focus{
+	color:red;
+	cursor:pointer;
+}
+.imgcontainer{
+	text-align:center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+.user{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	background-image: url("images/user.jpg");
+	margin-top:10%;
+	background-position: center;
+}
+.user2{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	background-image: url("images/user2.JPG");
+	margin-top:10%;
+	background-position: center;
+}
+input[type=text], input[type=password]{
+	width:85%;
+	padding: 12px 26px;
+	margin: 8px 26px;
+	display:inline-block;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+	font-size:16px;
+}
+#authenticate{
+	background-color:darkblue;
+	color:white;
+	padding: 14px 20px;
+	margin: 8px 26px;
+	border: none;
+	cursor: pointer;
+	width:85%;
+	font-size: 26px;
+}
+#authenticate:hover{
+	background-color:dodgerblue;
+	color:white;
 }
