@@ -2,6 +2,7 @@ angular.module('listings', []).factory('Listings', function($http) {
   var methods = {
 
     getAllDepartments: function() {
+      console.log("hello");
       return $http.get('//gatorplanner.herokuapp.com/course/dept');
     },
 
