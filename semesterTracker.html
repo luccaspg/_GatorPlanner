@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracker</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <div class="tab">
+        <div class="tab">
+            <a>CISE Course Planner</a>
+            <button style="margin-left:40%;" class="tablinks" onclick="window.location.href='http://localhost:8081/semesterTracker.html'">Home</button>
+            <button  class="tablinks" onclick="window.location.href='Planner.html'">Course Planner</button>
+            <button class="tablinks" onclick="window.location.href='Ratings.html'">Course Reviews</button>
+        </div>
+    </div>
+    <div class="Major">
+        <label>CISE Major</label>
+        <select id="major">
+            <option value="CS">Computer Science</option>
+            <option value="CE">Computer Engineering</option>
+        </select>
+        <button onclick="getMajor()" type="button">Go</button>
+
+    </div>
+</head>
+<body>
+
+<script src="js/init.js"></script>
+</body>
+</html>
