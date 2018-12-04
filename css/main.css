@@ -13,7 +13,7 @@ input {
 	display: inline-block;
 }
 
-#banner{
+.banner{
 	background-image: url("images/binary2.JPG");
 	background-position: left;
 	//background-size: contain;
@@ -156,6 +156,7 @@ td, th {
 	overflow: hidden;
 	border: 1px solid #ccc;
 	background-color: #f1f1f1;
+	margin-top:0%;
 }
 .tab a{
 	margin-top:1%;
@@ -215,14 +216,14 @@ iframe{
 
 /* Control the left side */
 .left {
-	margin-top:5%;
+	margin-top:10%;
 	left: 0;
 
 }
 
 /* Control the right side */
 .right {
-	margin-top:5%;
+	margin-top:10%;
 	right: 0;
 }
 
