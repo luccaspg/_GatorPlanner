@@ -9,12 +9,12 @@ angular.module('listings').controller('ListingController', ['$scope', 'Listings'
       console.log('Unable to retrieve departments:', error);
     });
 
-    /*
-    Listings.getDepartmentById().then(function(response) {
-      $scope.listings = response.data;
+    Listings.getDepartmentById(index).then(function(response) {
+      $scope.department = response.data;
     }, function(error) {
       console.log('Unable to retrieve department:', error);
     });
+  
     /*
     $scope.detailedInfo = undefined;
 

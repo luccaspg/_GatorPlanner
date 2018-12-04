@@ -5,8 +5,9 @@ angular.module('listings', []).factory('Listings', function($http) {
       return $http.get('//localhost:8080/course/dept');
     },
 
-    getDepartmentById: function() {
-      return $http.get('//localhost:8080/course/deptById')
+    getDepartmentById: function(index) {
+      console.log(index);
+      return $http.get('//localhost:8080/course/deptById', index)
     }
   
     /*

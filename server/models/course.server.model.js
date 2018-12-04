@@ -3,12 +3,13 @@ var mongoose = require('mongoose'),
 
 var courseSchema = new Schema ({
 	COURSES: [{
-		code: String,
-		courseId: String,
+		code: {type: String, unique: true},
+		courseId: {type: String, unique: true},
 		name: String,
 		description: String,
 		prerequisites: String,
 		sections: [{
+			deptCode: String,
 			credits: String,
 			instructors: [{
 				name: String
