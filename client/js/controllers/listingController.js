@@ -1,4 +1,4 @@
-angular.module('listings').controller('CourseController', ['$scope', 'Listings', 
+angular.module('listings').controller('ListingController', ['$scope', 'Listings', 
   function($scope, Listings) {
 
     /* Get all the departments, then bind it to the scope */
