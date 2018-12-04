@@ -4,15 +4,15 @@
 // function unhideR(){
 //     document.getElementById('register').style = "display: block;";
 // }
-// function semesterTerm(){
-//     var e = document.getElementById("Semester");
-//     var strUser = e.options[e.selectedIndex].value;
-//     //console.log(strUser);
-//     document.getElementById('term').innerHTML = strUser + " Semester";
-// }
-// function treeView(){
-//     document.getElementById('listView').style = "display: none;";
-// }
+function semesterTerm(){
+    var e = document.getElementById("Semester");
+    var strUser = e.options[e.selectedIndex].value;
+    //console.log(strUser);
+    document.getElementById('term').innerHTML = strUser + " Semester";
+}
+function treeView(){
+    document.getElementById('listView').style = "display: none;";
+}
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -33,22 +33,22 @@
       //  div.style.display = "none";
     //}
 //}
-// function getDepartment(){
-//     var e = document.getElementById("Department");
-//     var strUser = e.options[e.selectedIndex].value;
-//     //console.log(strUser);
-//     document.getElementById('dep').innerHTML = strUser;
-//     document.getElementById('courseView').style = "display: block;";
-//     document.getElementById('listView').style = "display: none;";
-// }
+function getDepartment(){
+    var e = document.getElementById("Department");
+    var strUser = e.options[e.selectedIndex].value;
+    //console.log(strUser);
+    document.getElementById('dep').innerHTML = strUser;
+    document.getElementById('courseView').style = "display: block;";
+    document.getElementById('listView').style = "display: none;";
+}
 function getMajor(){
     var e = document.getElementById("major");
     var strUser = e.options[e.selectedIndex].value;
 }
 
-// var departments = [
-//     "Chemistry", "Mathematics", "Zoology"
-// ];
+var departments = [
+    "Chemistry", "Mathematics", "Zoology"
+];
 //
 //
 // var courses = '{ "Chemistry" : [' +
@@ -111,43 +111,22 @@ function getMajor(){
               //  div.style.display = "none";
             //}
         //}
-    }
+   // }
 //}
-// var Department = document.getElementById("Department");
-// for (var k = 0; k < departments.length; k++) {
-//     var option = document.createElement("OPTION");
-//     option.innerHTML = departments[k];
-//     console.log(option.innerHTML);
-//     Department.options.add(option);
-// }
-// function listView(){
-//     document.getElementById('listView').style = "display: block;";
-// }
-
-// Get the modal
-var modal = document.getElementById('loginPage');
-
-// Get the button that opens the modal
-var btn = document.getElementById("login");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
+var Department = document.getElementById("Department");
+for (var k = 0; k < departments.length; k++) {
+    var option = document.createElement("OPTION");
+    option.innerHTML = departments[k];
+    console.log(option.innerHTML);
+    Department.options.add(option);
 }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+function listView(){
+    document.getElementById('listView').style = "display: block;";
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+//user clicks outside modal it will close
+var modal = document.getElementById('login');
+window.onclick = function(event){
+    if(event.target==modal){
+        modal.style.display="none";
     }
-}
-
-
+};

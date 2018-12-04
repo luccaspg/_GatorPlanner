@@ -14,14 +14,13 @@ input {
 }
 
 #banner{
-	background-image: url("images/banner.JPG"),
-					  url("images/backgroundColor.JPG");
+	background-image: url("images/binary2.JPG");
 	background-position: left;
-	background-size: contain;
+	//background-size: contain;
 	height: 70px;
 	width: 100%;
 	margin-bottom: 10px;
-	background-repeat: no-repeat, repeat;
+
 }
 #image{
 	margin-top:0;
@@ -216,14 +215,14 @@ iframe{
 
 /* Control the left side */
 .left {
-	margin-top:1%;
+	margin-top:5%;
 	left: 0;
 
 }
 
 /* Control the right side */
 .right {
-	margin-top:1%;
+	margin-top:5%;
 	right: 0;
 }
 
@@ -299,14 +298,17 @@ iframe{
 	background-image: url("images/user.jpg");
 	margin-top:10%;
 	background-position: center;
+	background-repeat: no-repeat;
 }
 .user2{
-	width:200px;
-	height:200px;
-	border-radius:50%;
+	width:230px;
+	height:230px;
+	/*border-radius:99%;*/
 	background-image: url("images/user2.JPG");
 	margin-top:10%;
 	background-position: center;
+	background-repeat: no-repeat;
+
 }
 input[type=text], input[type=password]{
 	width:85%;
@@ -317,7 +319,16 @@ input[type=text], input[type=password]{
 	box-sizing:border-box;
 	font-size:16px;
 }
-#authenticate{
+input[type=text], input[type=text], input[type=text], input[type=password]{
+	width:85%;
+	padding: 12px 26px;
+	margin: 8px 26px;
+	display:inline-block;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+	font-size:16px;
+}
+.authenticate{
 	background-color:darkblue;
 	color:white;
 	padding: 14px 20px;
@@ -327,7 +338,7 @@ input[type=text], input[type=password]{
 	width:85%;
 	font-size: 26px;
 }
-#authenticate:hover{
+.authenticate:hover{
 	background-color:dodgerblue;
 	color:white;
 }
