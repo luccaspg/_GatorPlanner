@@ -4,6 +4,7 @@ angular.module('listings').controller('ListingController', ['$scope', 'Listings'
     /* Get all the departments, then bind it to the scope */
     Listings.getAllDepartments().then(function(response) {
       $scope.listings = response.data;
+      console.log($scope.listings);
     }, function(error) {
       console.log('Unable to retrieve departments:', error);
     });

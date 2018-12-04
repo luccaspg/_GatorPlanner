@@ -21,6 +21,7 @@ router.route('/user')
 router.route('/dept')
   .get(departments.list)
   .post(departments.create);
+  console.log("router");
 
 router.route('/deptById')
   .get(departments.deptByID);
