@@ -14,10 +14,10 @@
 			<font size = "5" color="black">
 				<label>Choose a Department</label>
 			</font>
-			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department">
-				<option value="Select Department"  ng-model="selectedDepartment" ng-value="listing.department" ng-repeat="listing in listings track by $index | orderBy: DESC">{{listing.DESC}}</option>
+			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="pickedDepartment">
+				<option value="Select Department" ng-model="selectedDepartment" ng-value="listing.department" ng-repeat="listing in listings track by $index | orderBy: DESC">{{listing.DESC}}</option>
 			</select>
-			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" ng-click="getDepartmentById(listings.indexOf(listing))" type="button">Go</button>
+			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" ng-click="getCode" type="button">Go</button>
 			</div>
 		<h2 style="position:absolute; left:2%;" id="dep">
 			<div class="tableWrapper">
@@ -142,6 +142,7 @@
 	<script src="js/controllers/listingController.js"></script>
 	<!--<script src="js/tree.js"></script>-->
 	<script src="js/init.js"></script>
+	<script src="js/controllers/getDepartment.js"></script>
   </body>
 </html>
 
