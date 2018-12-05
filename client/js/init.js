@@ -41,7 +41,28 @@ function viewSelect() {
 
 
 function loginFunc(){
+    var user = document.getElementById('loginForm');
+    var ufemail = user.elements[0].value;
+    // alert(ufemail);
+    var password = user.elements[1].value;
+
+    // alert(ufemail + password);
     
+    var url = "http://localhost:8080/course/user/" + ufemail;
+	var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    
+    xhr.onload = function(){
+        var data = JSON.parse(this.response);
+        if(password == data[0].password){
+            alert("login success");
+            
+        }
+        else{
+            alert('wrong information');
+        }
+    }
+    xhr.send();
 }
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
