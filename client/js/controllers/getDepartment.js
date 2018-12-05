@@ -773,8 +773,8 @@ function getDepartmentCode(){
 	xhr.send();
 }
 
-google.charts.load('current', {packages:["orgchart"]});
-      google.charts.setOnLoadCallback(drawChart);
+	google.charts.load('current', {packages:["orgchart"]});
+    google.charts.setOnLoadCallback(drawChart);
     
     
       function drawChart(jsonData) {
@@ -785,13 +785,31 @@ google.charts.load('current', {packages:["orgchart"]});
        filterPreReqs(jsonData);
 
         // For each orgchart box, provide the name, manager, and tooltip to show.
-        var i;
+		
+		var i;
+
+
+		var courseCode = "";
+        var preReq = "";
+        var courseName = "";
         for(i = 0; i < jsonData[0].length; i++){
+            courseCode = jsonData[0][i].code;
+            preReq = jsonData[0][i].prerequisites;
+            courseName = jsonData[0][i].name;
+            
             
           data.addRows([
-          [jsonData[0][i].code, jsonData[0][i].prerequisites, '']
+          [{v:courseCode, f: courseCode + '<div style="color:red; font -style:italic">' + courseName + '</div>'}, preReq, '']
           ]);
-        }
+		}
+		
+
+        // for(i = 0; i < jsonData[0].length; i++){
+            
+        //   data.addRows([
+        //   [jsonData[0][i].code, jsonData[0][i].prerequisites, '']
+        //   ]);
+        // }
 
         // Create the chart.
         var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
@@ -807,26 +825,45 @@ google.charts.load('current', {packages:["orgchart"]});
         //EVENT LISTENER FOR THE POPULATE
         google.visualization.events.addListener(chart, 'select', popDescription);
               
-function popDescription(){
+		function popDescription(){
 
     
-    var selectedItem = chart.getSelection()[0];
-    if (selectedItem) {
-      var courseCode = data.getValue(selectedItem.row, 0);
-    //   alert(data.getValue(selectedItem.row, 3));
-
-    //CREATING POP UP
-    var popUp = document.createElement('div');
-    popUp.setAttribute('class', "popup");
-    popUp.textContent = courseCode;
-    var divsection = document.getElementById("description");
-    divsection.appendChild(popUp);
-    popUp.classList.toggle("show");
-    
-    // createDescription(topping);
-    }
-
-}
+			var selectedItem = chart.getSelection()[0];
+			if (selectedItem) {
+			var courseCode = data.getValue(selectedItem.row, 0);
+			//   alert(data.getValue(selectedItem.row, 3));
+		
+			//CREATING DESCRIPTION TABLE
+		
+			// var table = document.getElementById("course_listing");
+			// table.setAttribute('class', "table_description");
+			// popUp.textContent = courseCode
+			var course;
+			var descriptionCode = document.getElementById("description_code");
+			var descriptionName = document.getElementById("description_name");
+			var descriptionCredits = document.getElementById("description_credits");
+			var descriptionDescription = document.getElementById("description_description");
+			var descriptionInstructor = document.getElementById("description_instructor")
+			
+			//SUBSTUTUTE THIS LOOP FOR DB QUERY
+			for(i = 0; i < jsonData[0].length; i++){
+				if(jsonData[0][i].code == courseCode){
+					descriptionCode.textContent = "Code: " + courseCode;
+					descriptionName.textContent = "Course Name: " +  jsonData[0][i].name;
+					descriptionCredits.textContent = "Credits: " + jsonData[0][i].sections[0].credits;
+					descriptionDescription.textContent = "Description: " + jsonData[0][i].description;
+					descriptionInstructor.textContent = "Instructor: " + jsonData[0][i].sections[0].instructors[0].name;
+					break;
+				}
+			}
+		
+		
+			
+			
+			// createDescription(topping);
+			}
+		
+		}
 
 function createDescription(code){
 
