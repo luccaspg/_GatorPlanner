@@ -287,5 +287,18 @@ function changeCourseCode(){
 
     var courseForm = document.getElementById('course_form');
     var courseCode = courseForm.elements[0].value; //should have the text field variable
-    
+
+}
+
+
+//TODO
+function registerFunc(){
+    var register = document.getElementById('registerLink');
+    var ufemail = register.elements[0].value;
+    if(ufemail.includes('@ufl.edu')){
+        alert(ufemail + ' successfully registered!');
+    }
+    else{
+        alert('register an UF email');
+    }
 }
