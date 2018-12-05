@@ -26,11 +26,12 @@ exports.list = function(req, res) {
   });
 };
 
-exports.listByEmail = function(email, res)
+exports.listByEmail = function(req, res)
  {
-  
-  models.users.find({email:email}, function(err, user)
+  var email = req.params.email;
+  models.users.find({'email':email}, function(err, user)
   {
+    console.log(email);
     if(err)
     {
       console.log(err);
@@ -38,10 +39,41 @@ exports.listByEmail = function(email, res)
     }
     else
     {
-      res.json(user.password);
+      res.json(user);
     }
   });
 };
+
+// exports.listByEmail = function(req, res)
+//  {
+//   code = req.params.email;
+  
+//   CourseList.find({}, function(err, courses)
+//   {
+//     if(err)
+//     {
+//       console.log(err);
+//       res.status(404).send(err);
+//     }
+//     else
+//     {
+//       allCourses = [];
+//       courses.forEach(function(index)
+//       {
+
+//         if(index.COURSES.length != 0 && index.COURSES != undefined)
+//         {
+//           if(code == index.COURSES[0].sections[0].deptCode)
+//          {
+//            console.log(index.COURSES[0].name);
+//            allCourses.push(index.COURSES);
+//          }
+//         }
+//       });
+//       res.json(allCourses);
+//     }
+//   });
+// };
 
 // delete a user
 exports.delete = function(req, res) {

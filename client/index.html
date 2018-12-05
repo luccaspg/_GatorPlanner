@@ -82,14 +82,14 @@
 		<input type ="button" class="btn" style ="position:absolute; margin-left:72%;" onclick="unhideL()" value="Login"/>
 		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
 		<div style="display: none;" id='login'>
-			<form name="loginLink">
+			<form name="loginLink" id='loginForm'>
 				<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
 					<font size = "5" color="black">
 						<label style = "position: absolute; top: 5%; right: 30%;">UF Email</label>
 						<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
 						<label style ="position: absolute; top: 45%; right: 30%;">Password</label>
 						<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="" value="Login"/>
+						<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="loginFunc()" value="Login"/>
 					</font>
 				</div>
 			</form>
