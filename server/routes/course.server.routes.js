@@ -24,7 +24,7 @@ router.route('/dept')
   console.log("router");
 
 router.route('/:CODE')
-  .get(courses.coursesByCode)
+  .get(courselist.coursesByCode)
   //.post(departments.create);
   console.log("router");
 

@@ -40,9 +40,10 @@ exports.getLotFromDecal = function(req, res){
 };
 
 */
-exports.coursesByCode = function(res, req)
+exports.coursesByCode = function(req, res)
  {
-  code = req.CODE;
+  code = req.params.CODE;
+  
   CourseList.find({}, function(err, courses)
   {
     if(err)
@@ -65,7 +66,6 @@ exports.coursesByCode = function(res, req)
          }
         }
       });
-      console.log(allCourses);
       res.json(allCourses);
     }
   });
