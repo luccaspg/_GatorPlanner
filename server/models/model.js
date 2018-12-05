@@ -42,14 +42,14 @@ DESC: {
 var Table = new Schema({
 userID: {
 	type: String,
-	required: true,
-	unique: true
+	unique: false
 	},
 courses: [{
 	deptCode: String,
 	credits: String,
 	name: String
-}]});
+}]
+});
 
 var Course= new Schema({
 code: {
