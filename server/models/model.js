@@ -45,16 +45,10 @@ userID: {
 	required: true,
 	unique: true
 	},
-name: {
-	type: String,
-	required: true,
-	unique: true
-},
-section: {
-	type: String,
-	required: true,
-	unique: true
-}
+courses: [{
+	deptCode: String,
+	credits: String,
+	name: String
 });
 
 var Course= new Schema({
