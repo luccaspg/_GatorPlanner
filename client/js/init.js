@@ -243,32 +243,49 @@ function adminFunc(){
     }
 
 
-    var courseCode = document.getElementById("description_code").innerHTML;
+    var courseCode = document.getElementById("description_description").innerHTML;
 		if (courseCode) {
         // var courseCode = data.getValue(selectedItem.row, 0);
         
 
     var courseForm = document.createElement('form');
+    courseForm.setAttribute('id', 'course_form');
 
     right.appendChild(courseForm);
 
-    courseForm.textContent = "Code:"
+    courseForm.textContent = "Description:"
     courseForm.appendChild(document.createElement('br'));
     var code = document.createElement('input');
     code.setAttribute('type', 'text');
     code.setAttribute('value', courseCode);
-    courseForm.appendChild(code);
-
-
-    courseCode = document.getElementById('description_name').innerHTML;
-    courseForm.textContent = "Name:"
     courseForm.appendChild(document.createElement('br'));
-    code = document.createElement('input');
-    code.setAttribute('type', 'text');
-    code.setAttribute('value', courseCode);
+
+    // courseForm.appendChild()
+    // courseForm.textContent = courseForm.textContent + "Name:"
+    // courseCode = document.getElementById('description_name').innerHTML;
+    // // courseForm.textContent = "Name:"
+    // courseForm.appendChild(document.createElement('br'));
+    // code = document.createElement('input');
+    // code.setAttribute('type', 'text');
+    // code.setAttribute('value', courseCode);
     courseForm.appendChild(code);
+
+    var submitBtn = document.createElement("input");
+    submitBtn.setAttribute('type', 'submit');
+    submitBtn.setAttribute('value', 'submit');
+    submitBtn.setAttribute('onclick', 'changeCourseCode()');
+    courseForm.appendChild(submitBtn);
     
     // right.appendChild(tablesdiv);
         }
 
+}
+
+
+function changeCourseCode(){
+    //TODO POST COURSE FUNCTION
+
+    var courseForm = document.getElementById('course_form');
+    var courseCode = courseForm.elements[0].value; //should have the text field variable
+    
 }
