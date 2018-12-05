@@ -15,9 +15,9 @@
 				<label>Choose a Department</label>
 			</font>
 			<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department">
-				<option value="Select Department"  ng-model="selectedDepartment" ng-value="listing.department" ng-repeat="listing in listings track by $index | orderBy: DESC">{{listing.DESC}}</option>
+				<option value="Select Department"  ng-model="selectedDepartment" ng-value="listing.department" ng-repeat="listing in listings track by $index | orderBy: DESC"> {{listing.DESC}}</option>
 			</select>
-			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" ng-click="getDepartmentById(listings.indexOf(listing))" type="button">Go</button>
+			<button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" ng-click="showDetails($index)" type="button">Go</button>
 			</div>
 		<h2 style="position:absolute; left:2%;" id="dep">
 			<div class="tableWrapper">
@@ -27,7 +27,18 @@
 					<th>Name</th>
 					<th>Prerequisites</th>
 				  </tr>
-				 
+				 <div class="col-md-6">
+        </div>
+
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h2>Detailed Information</h2>
+            <h4>{{detailedInfo.name}}</h4>
+            <p>Address: {{detailedInfo.DESC}}</p>
+            <p>Building Code: {{detailedInfo.CODE}}</p>
+            <p>{{selectedDepartment}}</p>
+          </div>
+        </div>
 					<tbody>
 					  <tr ng-repeat="row in listings | orderBy: 'DESC' | filter: input">
 						<td class="code1">{{row.CODE}}</td>

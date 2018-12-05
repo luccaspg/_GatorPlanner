@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
  */
 
 
-exports.getLotFromCoordinates = function(req, res){
+/*exports.getLotFromCoordinates = function(req, res){
   var coordinates = {"latitude": req.query.latitude, "longitude": req.query.longitude}
   CourseList.find({"coordinates": coordinates}, function(err, parkinglot){
     if(err){
@@ -24,7 +24,8 @@ exports.getLotFromCoordinates = function(req, res){
     }
   });
 };
-
+*/
+/*
 exports.getLotFromDecal = function(req, res){
   var decal = Number(req.query.decal)
   console.log(decal);
@@ -38,16 +39,47 @@ exports.getLotFromDecal = function(req, res){
   });
 };
 
+*/
+exports.coursesByCode = function(res, code)
+ {
+
+  CourseList.find({}, function(err, courses)
+  {
+    if(err)
+    {
+      console.log(err);
+      res.status(404).send(err);
+    }
+    else
+    {
+      allCourses = [];
+      courses.forEach(function(index)
+      {
+
+        if(index.COURSES.length != 0 && index.COURSES != undefined)
+        {
+          if(code == index.COURSES[0].sections[0].deptCode)
+         {
+           console.log(index.COURSES[0].name);
+           allCourses.push(index.COURSES);
+         }
+        }
+      });
+      console.log(allCourses);
+      res.json(allCourses);
+    }
+  });
+};
 
 exports.getAll = function(req, res) {
-  ParkingLot.find({}, function(err, parkinglots){
+  CourseList.find({}, function(err, courses){
     if(err){
       console.log(err);
       res.status(404).send(err);
     }else{
       newObject = [];
-      parkinglots.forEach(function(lot, index){
-          newObject[index] = lot;
+      courses.forEach(function(course, index){
+          newObject[index] = course;
       });
 
       res.json(newObject);

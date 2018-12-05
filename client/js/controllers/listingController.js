@@ -8,12 +8,20 @@ angular.module('listings').controller('ListingController', ['$scope', 'Listings'
     }, function(error) {
       console.log('Unable to retrieve departments:', error);
     });
+      $scope.detailedInfo = undefined;
+      
+      $scope.showDetails = function(index)
+     {
+      $scope.detailedInfo = $scope.listings[index];
+    };
+  }
 
-    Listings.getDepartmentById(index).then(function(response) {
-      $scope.department = response.data;
-    }, function(error) {
-      console.log('Unable to retrieve department:', error);
-    });
+    //Listings.getDepartmentById(index).then(function(response) {
+    //  $scope.department = response.data;
+    //}, function(error) {
+     // console.log('Unable to retrieve department:', error);
+   // });
+
   
     /*
     $scope.detailedInfo = undefined;
@@ -56,5 +64,7 @@ angular.module('listings').controller('ListingController', ['$scope', 'Listings'
       $scope.detailedInfo = $scope.listings[index];
     };
     */
-  }
+
+    
+
 ]);
