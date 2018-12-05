@@ -45,7 +45,7 @@
 			</tr>
 		</table>
 	</div>
-	<div class ="right" style="position: absolute; right:3%;">
+	<div class ="right" style="position: absolute; right:3%;" id="right_side">
 		<input type ="button" class="btn" style ="position:absolute; margin-left:72%;" onclick="unhideL()" value="Login"/>
 		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
 		<div style="display: none;" id='login'>
@@ -55,7 +55,7 @@
 						<label style = "position: absolute; top: 5%; right: 30%;">UF Email</label>
 						<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
 						<label style ="position: absolute; top: 45%; right: 30%;">Password</label>
-						<input type="text" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>
+						<input type="password" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>
 						<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="loginFunc()" value="Login"/>
 					</font>
 				</div>
@@ -153,7 +153,9 @@
 			<!--</tr>-->
 
 		<!--</table>-->
+		<div id="tables_div"></div>
 	</div>
+	
 
 		<!--<input list="browsers" type ="text" name="myBrowser" style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;  " /></label>-->
 		<!--</font>-->

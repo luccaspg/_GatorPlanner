@@ -8,7 +8,7 @@ exports.create = function(req, res) {
   var ID = req.params.ID;
   console.log(ID);
   table.userID = ID;
-  table._id = 5;
+  //table._id = 5;
   table.save(function(err) {
     if(err) {
       console.log(err);

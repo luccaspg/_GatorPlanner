@@ -7,6 +7,7 @@ function unhideR(){
     document.getElementById('login').style = "display: none";
 }
 var view = true;
+var globaluser;
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -56,13 +57,65 @@ function loginFunc(){
         var data = JSON.parse(this.response);
         if(password == data[0].password){
             alert("login success");
-            
+            globaluser = data;
+            populateTables();
         }
         else{
             alert('wrong information');
         }
     }
     xhr.send();
+}
+
+
+function populateTables(){
+    cleanRight();
+    var right = document.getElementById('right_side');
+    var tablesdiv = document.createElement('div');
+   
+    // right.appendChild(tablesdiv);
+
+
+    var userButton = document.createElement('button');
+    userButton.setAttribute('class', 'btn');
+    userButton.textContent = "Profile";
+    right.appendChild(userButton);
+
+    if(globaluser[0].isAdmin){
+        var adminButton = document.createElement('button');
+        adminButton.setAttribute('class', 'btn');
+        adminButton.textContent = "Admin";
+        right.appendChild(adminButton);
+
+        adminButton.setAttribute('onclick', 'adminFunc()');
+    }
+    
+    right.appendChild(tablesdiv);
+
+    var tables = document.createElement('table');
+    var headings = document.createElement('tr');
+    var name = document.createElement('th');
+    name.textContent = "Course Name";
+    var code = document.createElement('th');
+    code.textContent = "Code";
+    var credits = document.createElement('th');
+    credits.textContent = "Credits";
+    var deleteBtn = document.createElement('th');
+    deleteBtn.textContent = "Delete";
+
+
+    tables.appendChild(headings);
+    headings.appendChild(name);
+    headings.appendChild(code);
+    headings.appendChild(credits);
+    headings.appendChild(deleteBtn);
+    tablesdiv.appendChild(tables);
+
+
+
+
+
+
 }
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
@@ -159,3 +212,63 @@ for (var k = 0; k < departments.length; k++) {
     console.log(option.innerHTML);
     Department.options.add(option);
 }*/
+
+function cleanRight(){
+    let myNode = document.getElementById("right_side");
+    while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+    }
+}
+
+function adminFunc(){
+    cleanRight();
+    var right = document.getElementById('right_side');
+    // var tablesdiv = document.createElement('div');
+   
+    // right.appendChild(tablesdiv);
+
+
+    var userButton = document.createElement('button');
+    userButton.setAttribute('class', 'btn');
+    userButton.textContent = "Profile";
+    right.appendChild(userButton);
+
+    if(globaluser[0].isAdmin){
+        var adminButton = document.createElement('button');
+        adminButton.setAttribute('class', 'btn');
+        adminButton.textContent = "Tables";
+        right.appendChild(adminButton);
+
+        adminButton.setAttribute('onclick', 'populateTables()');
+    }
+
+
+    var courseCode = document.getElementById("description_code").innerHTML;
+		if (courseCode) {
+        // var courseCode = data.getValue(selectedItem.row, 0);
+        
+
+    var courseForm = document.createElement('form');
+
+    right.appendChild(courseForm);
+
+    courseForm.textContent = "Code:"
+    courseForm.appendChild(document.createElement('br'));
+    var code = document.createElement('input');
+    code.setAttribute('type', 'text');
+    code.setAttribute('value', courseCode);
+    courseForm.appendChild(code);
+
+
+    courseCode = document.getElementById('description_name').innerHTML;
+    courseForm.textContent = "Name:"
+    courseForm.appendChild(document.createElement('br'));
+    code = document.createElement('input');
+    code.setAttribute('type', 'text');
+    code.setAttribute('value', courseCode);
+    courseForm.appendChild(code);
+    
+    // right.appendChild(tablesdiv);
+        }
+
+}
