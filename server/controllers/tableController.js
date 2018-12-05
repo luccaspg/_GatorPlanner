@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 /* Create a table */
 exports.create = function(req, res) {
 
-  var table = new models.tables(req.body);
+  var table = new models.tables(req.params.ID);
   user.save(function(err) {
     if(err) {
       console.log(err);

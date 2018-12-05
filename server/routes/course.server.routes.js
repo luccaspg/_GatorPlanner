@@ -56,7 +56,7 @@ router.route('/dept/:deptID')
 .post(departments.update);
 */
 
-router.param('tableID', events.tableByID);
+router.param('tableID', tables.tableByID);
 //router.param('courseID', courses.courseByID);
 router.param('deptID', departments.deptByID);
 

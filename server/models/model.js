@@ -49,7 +49,7 @@ courses: [{
 	deptCode: String,
 	credits: String,
 	name: String
-});
+}]});
 
 var Course= new Schema({
 code: {
