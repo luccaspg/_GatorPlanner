@@ -134,9 +134,17 @@ td, th {
 	padding: 8px;
 }
 
-.left, .right {
+.left {
 	display: inline-block;
-	width: 50%;
+	width: 70%;
+	height: 100%;
+	margin-left: 4px;
+	/*border: 1px solid red;*/
+	/*box-sizing: border-box;*/
+}
+.right {
+	display: inline-block;
+	width: 30%;
 	height: 100%;
 	margin-right: -4px;
 	/*border: 1px solid red;*/
@@ -148,13 +156,34 @@ td, th {
 	overflow: auto;
   }
 
-  .chart{
+.chart{
 	border: 1px solid black;
+	/* border-collapse: separate !important; */
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 20px;
 	margin-left: 20px;
-	width: 80%;
+	width: 90%;
 	overflow-y: auto;
 	
+}
+
+table.google-visualization-orgchart-table {
+	border-collapse: separate !important;
+}
+
+.table_description {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 90%;
+	border: 1px solid #ddd;
+	margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+	margin-left: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
 }
