@@ -17,7 +17,7 @@ exports.create = function(req, res) {
 
 //list all users
 exports.list = function(req, res) {
-  models.courses.find({ }).exec(function(err, users) {
+  models.users.find({ }).exec(function(err, users) {
     if (err){
       res.status(400).send(err);
     } else {
@@ -26,12 +26,28 @@ exports.list = function(req, res) {
   });
 };
 
+exports.listByEmail = function(email, res)
+ {
+  
+  models.users.find({email:email}, function(err, user)
+  {
+    if(err)
+    {
+      console.log(err);
+      res.status(404).send(err);
+    }
+    else
+    {
+      res.json(user.password);
+    }
+  });
+};
 
 // delete a user
 exports.delete = function(req, res) {
 
   var user = req.user;
-  course.remove(function(err){
+  user.remove(function(err){
     if(err){
       console.log(err);
       res.status(400).send(err);
