@@ -1,9 +1,12 @@
 function unhideL(){
     document.getElementById('login').style = "display: block;";
+    document.getElementById('register').style = "display: none";
 }
 function unhideR(){
     document.getElementById('register').style = "display: block;";
+    document.getElementById('login').style = "display: none";
 }
+var view = true;
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -24,6 +27,36 @@ function unhideR(){
       //  div.style.display = "none";
     //}
 //}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function viewSelect() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+// function displayInfo(info){
+//     document.getElementById(info).classList.toggle("show");
+//     // info.classList.toggle('show');
+
+// }
+
+
+function loginFunc(){
+    
+}
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 function getDepartment(){
     var e = document.getElementById("Department");
     var strUser = e.options[e.selectedIndex].value;

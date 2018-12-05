@@ -743,7 +743,20 @@ var departmentCodes = [
 			"DESC": "Zoology"
 		}
     ];
-    
+
+
+function chooseView(view){
+	this.view = view;
+	// viewSelect();
+	var button = document.getElementById("viewbutton");
+	if(view){
+		button.textContent = "Tree View";
+	}
+	else{
+		button.textContent = "List View";
+	}
+
+}
 function getDepartmentCode(){
 	var CODE;
     var value = document.getElementById('pickedDepartment').value;
@@ -767,7 +780,12 @@ function getDepartmentCode(){
 
 	xhr.onload = function(){
 		var data = JSON.parse(this.response);
-		drawChart(data);
+		if(view){
+			drawChart(data);
+		}
+		else{
+			drawList(data);
+		}
 	}
 	
 	xhr.send();
@@ -889,4 +907,176 @@ function createDescription(code){
   
 
 
+}
+
+function drawList(jsonData){
+	cleanList();
+	// element.parentNode.removeChild(element);
+	
+	var chart = document.getElementById('chart_div');
+	var container;
+	var courseDrop;
+
+	// courseDrop.textContent = "TEST";
+
+	
+
+
+	var courseInfo;
+
+	var courseTable;
+	var courseCode;
+	var courseName;
+	var credits;
+	var name;
+	var code;
+	var newCourse;
+	var courseCredits;
+	var courseDescription;
+	var courseInstructor;
+	var addButton;
+	var courseInfoTwo
+	var self;
+	
+
+	for(var i = 0; i < jsonData[0].length; i++){
+		container = document.createElement('div');
+		courseDrop = document.createElement('button');
+		courseInfo = document.createElement('div');
+		courseInfo.setAttribute('class','courseinfo');
+		courseDrop.setAttribute('class','dropcourse');
+		self = 'info_' + i;
+		courseInfo.setAttribute('id', self);
+		container.appendChild(courseDrop);
+		courseDrop.textContent = jsonData[0][i].name;
+
+
+		courseTable = document.createElement('table');
+		newCourse = document.createElement('tr');
+	 	courseName = document.createElement('td');
+	 	courseCode = document.createElement('td');
+		courseCredits = document.createElement('td');
+
+		courseInfoTwo = document.createElement('tr');
+		courseDescription = document.createElement('td');
+		courseInstructor = document.createElement('td');
+		addButton = document.createElement('td');
+
+
+		 
+
+
+		courseInfo.appendChild(courseTable);
+
+
+		//add onclick function to add to table
+		// courseDrop.setAttribute('onclick', 'displayInfo(\"' + self + '\")');
+	
+
+		courseTable.appendChild(newCourse);
+		newCourse.appendChild(courseName);
+		newCourse.appendChild(courseCode);
+		newCourse.appendChild(courseCredits);
+		courseInfoTwo.appendChild(courseDescription);
+		courseInfoTwo.appendChild(courseInstructor);
+		// newCourse.appendChild()
+		courseTable.appendChild(courseInfoTwo);
+
+		name = jsonData[0][i].name;
+		code = jsonData[0][i].code;
+		credits = jsonData[0][i].sections[0].credits;
+
+		courseName.textContent = name;
+		courseCode.textContent = code;
+		courseCredits.textContent = credits;
+		courseDescription.textContent = jsonData[0][i].description;
+		courseInstructor.textContent = jsonData[0][i].sections[0].instructors[0].name;
+
+
+
+
+		
+		
+
+
+
+
+
+
+		container.appendChild(courseInfo);
+		chart.appendChild(container);
+
+		
+
+
+	}
+
+
+
+	
+	
+
+
+	//OLD LIST VIEW
+	// var courseTable = document.createElement('table');
+	// var headings = document.createElement('tr');
+	// var courseName = document.createElement('th');
+	// var courseCode = document.createElement('th');
+	// // var courseCredits = document.createElement('th');
+	// courseName.textContent = "Course Name";
+	// courseCode.textContent = "Code";
+
+	// courseTable.appendChild(headings);
+	// headings.appendChild(courseName);
+	// headings.appendChild(courseCode);
+
+	// var name;
+	// var code;
+	// var newCourse;
+	// var courseName;
+	// var courseCode
+	// for(var i = 0; i < jsonData[0].length; i++){
+	// 	newCourse = document.createElement('tr');
+	// 	courseName = document.createElement('th');
+	// 	courseCode = document.createElement('th');
+
+	// 	courseTable.appendChild(newCourse);
+	// 	newCourse.appendChild(courseName);
+	// 	newCourse.appendChild(courseCode);
+
+	// 	name = jsonData[0][i].name;
+	// 	code = jsonData[0][i].code;
+
+	// 	courseName.textContent = name;
+	// 	courseCode.textContent = code;
+		
+
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	chart.appendChild(courseTable);
+
+
+
+
+}
+
+function cleanList(){
+    let myNode = document.getElementById("chart_div");
+    while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+    }
 }

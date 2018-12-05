@@ -14,7 +14,7 @@ router.route('/:name')
   */
 
 /* for calls to /api/functions/user */
-router.route('/user')
+router.route('/user/:ufemail')
   .post(users.create);
 
 /* for calls to /api/functions/event */
