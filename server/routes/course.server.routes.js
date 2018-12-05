@@ -16,6 +16,7 @@ router.route('/:name')
 /* for calls to /api/functions/user */
 router.route('/user/:ufemail')
   .post(users.create);
+  console.log("router");
 
 /* for calls to /api/functions/event */
 router.route('/dept')

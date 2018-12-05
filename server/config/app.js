@@ -1,7 +1,7 @@
 var config = require('./config'), 
     mongoose = require('mongoose'),   
     express = require('./express'),
-    populateDB = require("../../server/populate.js");
+    //populateDB = require("../../server/populate.js");
     createDB = require("../../server/departments.js");
 
 module.exports.start = function() {

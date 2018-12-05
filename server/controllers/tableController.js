@@ -28,7 +28,7 @@ exports.list = function(req, res) {
 
 exports.listUserTable = function(req, res){
   var id = req.user.tableID;  //get org name from logged in user
-  console.log("looking for table owned by " + tableID);
+  console.log("looking for table owned by " + userID);
   models.tables.find({ tableID: id }).exec(function(err, tables) {
     if (err){
       res.status(400).send(err);
@@ -58,7 +58,7 @@ exports.update = function(req, res) {
   var table = req.table;
 
   table.tableID = req.body.tableID;
-  table.courseID= req.body.courseID;
+  table.name= req.body.name;
   table.section = req.body.section;
 
 
