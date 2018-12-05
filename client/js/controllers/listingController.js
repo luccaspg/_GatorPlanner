@@ -22,6 +22,14 @@ angular.module('listings').controller('ListingController', ['$scope', 'Listings'
      // console.log('Unable to retrieve department:', error);
    // });
 
+<<<<<<< HEAD
+=======
+    Listings.getDepartmentById().then(function(response) {
+      $scope.department = response.data;
+    }, function(error) {
+      console.log('Unable to retrieve department:', error);
+    });
+>>>>>>> 12e3f851e2fc87daa4fdd95a04f575da03ef6f80
   
     /*
     $scope.detailedInfo = undefined;
