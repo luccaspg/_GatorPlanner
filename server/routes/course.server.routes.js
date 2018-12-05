@@ -1,5 +1,5 @@
 var courselist = require('../controllers/course.server.controller.js'),
-    events = require('../controllers/tableController.js'),
+    tables = require('../controllers/tableController.js'),
     users = require('../controllers/userController.js'),
     departments = require('../controllers/deptController.js'),
     express = require('express'), 
@@ -35,9 +35,9 @@ router.route('/deptById')
 //router.route('/event/org')
   //.get(events.listByOrganizer);
 
-router.route('/table')
-  .get(events.listUserTable)
-  .post(events.create);
+router.route('/table:ID')
+  .get(tables.listUserTable)
+  .post(tables.create);
 /*
 //params routes
 router.route('/table/:tableID')

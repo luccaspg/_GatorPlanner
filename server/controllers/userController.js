@@ -29,7 +29,7 @@ exports.list = function(req, res) {
 exports.listByEmail = function(email, res)
  {
   
-  models.users.find({email:email}, function(err, user)
+  models.users.find({'email':email}, function(err, user)
   {
     if(err)
     {
