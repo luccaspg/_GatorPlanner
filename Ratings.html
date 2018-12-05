@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <title>Ratings</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
 <div class="banner"></div>
 <div class="tab">
+    <font size="4px;">
     <a>CISE Course Planner</a>
     <button style="margin-left:40%;" class="tablinks" onclick="window.location.href='http://localhost:8081/'">Home</button>
     <button  class="tablinks" onclick="window.location.href='Planner.html'">Course Planner</button>
     <button class="tablinks" onclick="window.location.href='http://localhost:8081/semesterTracker.html'">CISE Semster Tracker</button>
+    </font>
 </div>
 <div class ="split left">
-    <center><h2>Student Ratings</h2>
-    <button class="semView" onclick="">Professor</button>
-    <button class ="semView" onclick="">Courses</button>
-    </center>
+    <div align ="center" class="split2 leftH" style="margin-top:9%">
+        <h2>Student Ratings</h2>
+    </div>
+    <div class="split2 rightH" align="left" style="margin-top:10%;">
+        <button class="semView" onclick=""><i class="fa fa-user"></i> Professor</button>
+        <button class ="semView" onclick=""><i class="fa fa-book"></i> Courses</button>
+    </div>
 </div>
+
 <div class="split right">
 <div id="UF">
     <iframe src="http://www.ratemyprofessors.com/"></iframe>

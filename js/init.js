@@ -1,9 +1,9 @@
-function unhideL(){
-    document.getElementById('login').style = "display: block;";
-}
-function unhideR(){
-    document.getElementById('register').style = "display: block;";
-}
+// function unhideL(){
+//     document.getElementById('login').style = "display: block;";
+// }
+// function unhideR(){
+//     document.getElementById('register').style = "display: block;";
+// }
 function semesterTerm(){
     var e = document.getElementById("Semester");
     var strUser = e.options[e.selectedIndex].value;
@@ -49,48 +49,48 @@ function getMajor(){
 var departments = [
     "Chemistry", "Mathematics", "Zoology"
 ];
-
-
-var courses = '{ "Chemistry" : [' +
-    '{ "CourseCode": "CHM2211" ,"Name": "Chem1" , "Credits":"3" },' +
-    '{ "CourseCode": "CHM2212" ,"Name": "Chem2" , "Credits":"3" },' +
-    '{ "CourseCode": "CHM4100" ,"Name": "Org Chem1" , "Credits":"5" } ]}';
-
-var obj = JSON.parse(courses);
-//var ojb2 = JSON.parse(departments);
-//function newElement() {
-
-    for (var j = 0; j < obj.Chemistry.length; j++) {
-        console.log(obj.Chemistry[j].CourseCode);
-
-        var li = document.createElement("li");
-        var li2=  document.createElement("li");
-        var li3 = document.createElement("li");
-        var li4 = document.createElement("li");
-
-        var name =  obj.Chemistry[j].Name;
-        var code = obj.Chemistry[j].CourseCode;
-        var credit = obj.Chemistry[j].Credits;
-
-        var n = document.createTextNode(name);
-        var co = document.createTextNode(code);
-        var cr = document.createTextNode(credit);
-
-        li.appendChild(n);
-        li2.appendChild(co);
-        li3.appendChild(cr);
-
-        document.getElementById("cn").appendChild(li);
-        document.getElementById("cc").appendChild(li2);
-        document.getElementById("c").appendChild(li3);
-
-
-        var button = document.createElement("button");
-        button.className = "close";
-        button.innerHTML = "X";
-        li4.appendChild(button);
-        document.getElementById("d").appendChild(li4);
-
+//
+//
+// var courses = '{ "Chemistry" : [' +
+//     '{ "CourseCode": "CHM2211" ,"Name": "Chem1" , "Credits":"3" },' +
+//     '{ "CourseCode": "CHM2212" ,"Name": "Chem2" , "Credits":"3" },' +
+//     '{ "CourseCode": "CHM4100" ,"Name": "Org Chem1" , "Credits":"5" } ]}';
+//
+// var obj = JSON.parse(courses);
+// //var ojb2 = JSON.parse(departments);
+// //function newElement() {
+//
+//     for (var j = 0; j < obj.Chemistry.length; j++) {
+//         console.log(obj.Chemistry[j].CourseCode);
+//
+//         var li = document.createElement("li");
+//         var li2=  document.createElement("li");
+//         var li3 = document.createElement("li");
+//         var li4 = document.createElement("li");
+//
+//         var name =  obj.Chemistry[j].Name;
+//         var code = obj.Chemistry[j].CourseCode;
+//         var credit = obj.Chemistry[j].Credits;
+//
+//         var n = document.createTextNode(name);
+//         var co = document.createTextNode(code);
+//         var cr = document.createTextNode(credit);
+//
+//         li.appendChild(n);
+//         li2.appendChild(co);
+//         li3.appendChild(cr);
+//
+//         document.getElementById("cn").appendChild(li);
+//         document.getElementById("cc").appendChild(li2);
+//         document.getElementById("c").appendChild(li3);
+//
+//
+//         var button = document.createElement("button");
+//         button.className = "close";
+//         button.innerHTML = "X";
+//         li4.appendChild(button);
+//         document.getElementById("d").appendChild(li4);
+//
 
         //var span = document.createElement("SPAN");
         //var txt = document.createTextNode("\u00D7");
@@ -111,7 +111,7 @@ var obj = JSON.parse(courses);
               //  div.style.display = "none";
             //}
         //}
-    }
+   // }
 //}
 var Department = document.getElementById("Department");
 for (var k = 0; k < departments.length; k++) {
@@ -123,3 +123,10 @@ for (var k = 0; k < departments.length; k++) {
 function listView(){
     document.getElementById('listView').style = "display: block;";
 }
+//user clicks outside modal it will close
+var modal = document.getElementById('login');
+window.onclick = function(event){
+    if(event.target==modal){
+        modal.style.display="none";
+    }
+};

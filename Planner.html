@@ -11,79 +11,94 @@
 <body>
 <div class="banner"></div>
 <div class="tab">
+    <font size="4px;">
     <a>CISE Course Planner</a>
     <button style="margin-left:40%;" class="tablinks" onclick="window.location.href='http://localhost:8081/'">Home</button>
     <button class="tablinks" onclick="window.location.href='http://localhost:8081/semesterTracker.html'">CISE Semster Tracker</button>
     <button class="tablinks" onclick="window.location.href='Ratings.html'">Course Reviews</button>
+    </font>
 </div>
 
-<div class="left" style="position:absolute; top:3%;">
+<div class ="split left">
     <div class="dropdown">
-        <font size = "5" color="black">
-            <label>Choose a Department</label>
-        </font>
-        <select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="Department">
-        </select>
-        <button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="getDepartment()" type="button">Go</button>
+    <font size = "5" color="black">
+    <label>Department</label>
+    </font>
+    <select style = " margin-left: 1%; font-size: 18px;width: 220px;height: 40px;" id="Department">
+    </select>
+    <button class ="btn" style="position:relative; margin-left:.2%; top:18.5%;" onclick="getDepartment()" type="button">Go</button>
     </div>
-    <div style=" position: absolute; top: 12%; margin-left:2%; width:600px;height:400px;border:3px solid #1F35EA; background-color:white;"></div>
-    <h2 style="position:absolute; margin-left:30%;" id="dep"></h2>
-    <div style="display: none;" id='courseView'>
-        <button class ="view" style= "position:absolute; margin-left:53%; margin-top:2%;" onclick="listView()"><i class="fa fa-bars"></i>List</button>
-        <button class ="view" style="margin-left:60%; margin-top:2%;"  onclick="treeView()"><i class="fa fa-tree"></i>Tree</button>
+    <!--<div style=" position: absolute; top: 12%; margin-left:2%; width:600px;height:400px;border:3px solid #1F35EA; background-color:white;"></div>-->
+
+    <div align="right" style="display: none;" id='courseView'>
+        <div class="split2 leftH" style="margin-top:17%;">
+            <h2 align="center" id="dep"></h2>
+        </div>
+        <div class="split2 rightH" align="left" style="margin-top:18%;">
+            <button class ="view" onclick="listView()"><i class="fa fa-bars"></i>List</button>
+            <button class ="view" onclick="treeView()"><i class="fa fa-tree"></i>Tree</button>
+        </div>
     </div>
     <div style="display: none;" id='listView'>
-        <table id="tree" style=" position:absolute; margin-left:1%; top: 32%; height: 10px; width:480px;">
-            <tr id="course">
-                <th>Course Name</th>
-                <th>Course Code</th>
-                <th>Credits</th>
-                <th>More Info</th>
-            </tr>
-        </table>
+    <table id="tree" style=" position:absolute; margin-left:1%; top: 32%; height: 10px; width:480px;">
+    <tr id="course">
+    <th>Course Name</th>
+    <th>Course Code</th>
+    <th>Credits</th>
+    <th>More Info</th>
+    </tr>
+    </table>
+    </div>
+
+</div>
+
+<div class ="split right">
+    <h2 style="margin-top:17%;">Semester Term</h2>
+    <div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 22%; height: 10px; width:400px; ">
+    <h2 id ="term" style ="position:absolute; top: 5%; left: 25%;"></h2>
     </div>
 </div>
 
 
 
-<div class ="right" style="position: absolute; left:50%;">
+<!--<div class ="right" style="position: absolute; left:50%;">-->
 
-    <h2 style="margin-top:15%;">Semester Term</h2>
-    <div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 22%; height: 10px; width:400px; ">
-        <h2 id ="term" style ="position:absolute; top: 5%; left: 25%;"></h2>
-    </div>
+    <!--<h2 style="margin-top:15%;">Semester Term</h2>-->
+    <!--<div id="myDIV" class="table" style="position:absolute; margin-left:0%; top: 22%; height: 10px; width:400px; ">-->
+        <!--<h2 id ="term" style ="position:absolute; top: 5%; left: 25%;"></h2>-->
+    <!--</div>-->
 
-    <select style ="position:absolute; margin-left:28%; margin-top:-6%; height:30px; width:70px;" id="Semester">
-        <option value="Spring">Spring</option>
-        <option value="Fall">Fall</option>
-        <option value="Summer">Summer</option>
-    </select>
-    <button class ="view" style=" height: 30px; position:absolute; margin-left:38%; margin-top:-6%;" onclick="semesterTerm()" type="button">Go</button>
-    <table id="myUL" style=" position:absolute; margin-left:0%; top: 27%; height: 10px; width:480px;">
-        <tr id="table">
-            <th>Course Name</th>
-            <th>Course Code</th>
-            <th>Credits</th>
-            <th>Delete</th>
-        </tr>
-        <tr>
-            <td id="cn"></td>
-            <td id="cc"></td>
-            <td id="c"></td>
-            <td id="d"></td>
-        </tr>
-
-        <!--</table>-->
-        <!--<table style=" position:absolute; left:49%; top: 70%; height: 10px; width:480px;">-->
-        <!--<tr >-->
-        <!--<th>Course Name</th>-->
-        <!--<th>Course Code</th>-->
-        <!--<th>Credits</th>-->
-        <!--<th>Delete</th>-->
+    <!--<select style ="position:absolute; margin-left:28%; margin-top:-6%; height:30px; width:70px;" id="Semester">-->
+        <!--<option value="Spring">Spring</option>-->
+        <!--<option value="Fall">Fall</option>-->
+        <!--<option value="Summer">Summer</option>-->
+    <!--</select>-->
+    <!--<button class ="view" style=" height: 30px; position:absolute; margin-left:38%; margin-top:-6%;" onclick="semesterTerm()" type="button">Go</button>-->
+    <!--<table id="myUL" style=" position:absolute; margin-left:0%; top: 27%; height: 10px; width:480px;">-->
+        <!--<tr id="table">-->
+            <!--<th>Course Name</th>-->
+            <!--<th>Course Code</th>-->
+            <!--<th>Credits</th>-->
+            <!--<th>Delete</th>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td id="cn"></td>-->
+            <!--<td id="cc"></td>-->
+            <!--<td id="c"></td>-->
+            <!--<td id="d"></td>-->
         <!--</tr>-->
 
-        <!--</table>-->
-</div>
+        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table style=" position:absolute; left:49%; top: 70%; height: 10px; width:480px;">&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr >&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Course Name</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Course Code</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Credits</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Delete</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+<!--</div>-->
 
 <!--<input list="browsers" type ="text" name="myBrowser" style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;  " /></label>-->
 <!--</font>-->

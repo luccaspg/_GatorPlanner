@@ -19,7 +19,7 @@ input {
 	//background-size: contain;
 	height: 70px;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 
 }
 #image{
@@ -31,7 +31,7 @@ input {
 	width: 100%;
 }
 .btn{
-	background-color: limegreen; /* Blue background */
+	background-color: darkblue; /* Blue background */
 	border: none; /* Remove borders */
 	color: white; /* White text */
 	padding: 12px 13px; /* Some padding */
@@ -39,11 +39,12 @@ input {
 	cursor: pointer; /* Mouse pointer on hover */
 }
 .btn:hover{
-	background-color: #1F35EA;
+	background-color: dodgerblue;
 }
 .dropdown{
-	margin-top: 70px;
-	margin-left: 20px;
+	margin-top: 3%;
+	margin-left:5%;
+
 }
 .table {
 	background-color: #1F35EA;
@@ -141,12 +142,12 @@ td, th {
 	/*box-sizing: border-box;*/
 }
 .view{
-	background-color: #1F35EA;
+	background-color: darkblue;
 	color: white;
 	height:30px;
 }
 .view:hover{
-	background-color: limegreen;
+	background-color: dodgerblue;
 	color: white;
 }
 /* Style the tab */
@@ -197,7 +198,7 @@ td, th {
 }
 iframe{
 	margin-top:8%;
-	height:1500px;
+	height:500px;
 	width:100%;
 }
 .Major{
@@ -225,6 +226,22 @@ iframe{
 .right {
 	margin-top:10%;
 	right: 0;
+}
+
+.split2{
+	height: 100%;
+	width: 25%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+.rightH{
+	left:25%;
+}
+.leftH{
+	left:0;
 }
 
 .semView{
