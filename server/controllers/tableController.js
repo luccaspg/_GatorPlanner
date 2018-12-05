@@ -8,11 +8,7 @@ exports.create = function(req, res) {
   var ID = req.params.ID;
   console.log(ID);
   table.userID = ID;
-<<<<<<< HEAD
   //table._id = 5;
-=======
-  // table._id = 5;
->>>>>>> 8c2a389c65e06a6b1a54dc853ffe6ba1f7ae9274
   table.save(function(err) {
     if(err) {
       console.log(err);
