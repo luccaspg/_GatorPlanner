@@ -15,11 +15,6 @@ var mongoose = require('mongoose'),
     type: Boolean,
     required: true
   },
-  tableID: {
-    type: String,
-    required: false,
-    unique: true
-  },
   fname: {
   	type: String,
   	required: true	
@@ -45,12 +40,12 @@ DESC: {
 });
 
 var Table = new Schema({
-tableID: {
+userID: {
 	type: String,
 	required: true,
 	unique: true
 	},
-courseID: {
+name: {
 	type: String,
 	required: true,
 	unique: true

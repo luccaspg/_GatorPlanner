@@ -50,7 +50,6 @@ exports.update = function(req, res) {
   user.email = req.body.email;
   user.password = req.body.password;
   user.isAdmin = req.body.isAdmin;
-  user.tableID = req.body.tableID;
   user.fname = req.body.fname;
   user.lname = req.body.lname;
 
