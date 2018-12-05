@@ -27,7 +27,18 @@
 					<th>Name</th>
 					<th>Prerequisites</th>
 				  </tr>
-				 
+				 <div class="col-md-6">
+        </div>
+
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h2>Detailed Information</h2>
+            <h4>{{detailedInfo.name}}</h4>
+            <p>Address: {{detailedInfo.DESC}}</p>
+            <p>Building Code: {{detailedInfo.CODE}}</p>
+            <p>{{selectedDepartment}}</p>
+          </div>
+        </div>
 					<tbody>
 					  <tr ng-repeat="row in listings | orderBy: 'DESC' | filter: input">
 						<td class="code1">{{row.CODE}}</td>
