@@ -28,11 +28,8 @@ exports.list = function(req, res) {
 
 exports.listByEmail = function(req, res)
  {
-<<<<<<< HEAD
   
-=======
   var email = req.params.email;
->>>>>>> cff1bcd4a6c1ac2ca95eca718378852c1bb0763a
   models.users.find({'email':email}, function(err, user)
   {
     console.log(email);

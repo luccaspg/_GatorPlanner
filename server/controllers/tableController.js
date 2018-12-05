@@ -3,9 +3,13 @@ var mongoose = require('mongoose'),
 
 /* Create a table */
 exports.create = function(req, res) {
-
-  var table = new models.tables(req.body);
-  user.save(function(err) {
+  console.log('creating');
+  var table = new models.tables();
+  var ID = req.params.ID;
+  console.log(ID);
+  table.userID = ID;
+  table._id = 5;
+  table.save(function(err) {
     if(err) {
       console.log(err);
       res.status(400).send(err);
@@ -57,7 +61,7 @@ exports.update = function(req, res) {
 
   var table = req.table;
 
-  table.tableID = req.body.tableID;
+  table.userID = req.body.userID;
   table.name= req.body.name;
   table.section = req.body.section;
 

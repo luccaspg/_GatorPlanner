@@ -36,8 +36,8 @@ router.route('/deptById')
 //router.route('/event/org')
   //.get(events.listByOrganizer);
 
-router.route('/table:ID')
-  .get(tables.listUserTable)
+router.route('/table/:ID')
+  //.get(tables.listUserTable)
   .post(tables.create);
 /*
 //params routes
@@ -56,7 +56,7 @@ router.route('/dept/:deptID')
 .post(departments.update);
 */
 
-router.param('tableID', events.tableByID);
+router.param('tableID', tables.tableByID);
 //router.param('courseID', courses.courseByID);
 router.param('deptID', departments.deptByID);
 
