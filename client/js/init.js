@@ -56,13 +56,46 @@ function loginFunc(){
         var data = JSON.parse(this.response);
         if(password == data[0].password){
             alert("login success");
-            
+            populateTables();
         }
         else{
             alert('wrong information');
         }
     }
     xhr.send();
+}
+
+
+function populateTables(){
+    cleanRight();
+    var right = document.getElementById('right_side');
+    var tablesdiv = document.getElementById('tables_div');
+
+
+    var userButton = document.createElement('button');
+    userButton.setAttribute('class', 'btn');
+    userButton.textContent = "Profile";
+    right.appendChild(userButton);
+
+    var tables = document.createElement('table');
+    var headings = document.createElement('tr');
+    var name = document.createElement('th');
+    name.textContent = "Course Name";
+    var code = document.createElement('th');
+    code.textContent = "Code";
+    var credits = document.createElement('th');
+    credits.textContent = "Credits";
+
+    headings.appendChild(name);
+    headings.appendChild(code);
+    headings.appendChild(credits);
+    tablesdiv.appendChild(tables);
+
+
+
+
+
+
 }
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
@@ -159,3 +192,10 @@ for (var k = 0; k < departments.length; k++) {
     console.log(option.innerHTML);
     Department.options.add(option);
 }*/
+
+function cleanRight(){
+    let myNode = document.getElementById("right_side");
+    while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+    }
+}
