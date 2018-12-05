@@ -287,5 +287,5 @@ function changeCourseCode(){
 
     var courseForm = document.getElementById('course_form');
     var courseCode = courseForm.elements[0].value; //should have the text field variable
-
+    
 }
