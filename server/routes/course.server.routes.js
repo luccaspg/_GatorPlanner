@@ -23,6 +23,11 @@ router.route('/dept')
   .post(departments.create);
   console.log("router");
 
+router.route('/:CODE')
+  .get(courses.coursesByCode)
+  //.post(departments.create);
+  console.log("router");
+
 router.route('/deptById')
   .get(departments.deptByID);
 

@@ -40,9 +40,9 @@ exports.getLotFromDecal = function(req, res){
 };
 
 */
-exports.coursesByCode = function(res, code)
+exports.coursesByCode = function(res, req)
  {
-
+  code = req.CODE;
   CourseList.find({}, function(err, courses)
   {
     if(err)
