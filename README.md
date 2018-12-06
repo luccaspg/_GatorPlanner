@@ -39,3 +39,5 @@ Gator Planner - Web Apps Project
 			</div>
 		</div>
 	</div>
+
+<input type ="button" class="btn" onclick="unhideU()" value="Manager Courses"/>
