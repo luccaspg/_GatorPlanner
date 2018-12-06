@@ -36,14 +36,9 @@ router.route('/deptById')
 //router.route('/event/org')
   //.get(events.listByOrganizer);
 
-router.route('/table')
-  //.get(tables.listUserTable)
-  .get(tables.list);
 router.route('/table/:ID')
   //.get(tables.listUserTable)
-  .post(tables.create)
-  .delete(tables.delete)
-  .get(tables.listUserTable);
+  .post(tables.create);
 
   router.route('/user/:email/:fname/:lname/:password')
   .post(users.createUser);
@@ -62,10 +57,15 @@ router.route('/table/:ID')
   router.route('/user/:id')
   .delete(users.delete);
 
-  router.route('/prereq/:code/:newcode')
-  .post(courselist.updatePrereq);
+  // router.route('/prereq/:code/:newcode')
+  // .post(courselist.updatePrereq);
 
 
+  router.route('/department/:courseCode/:deptCode')
+  .get(courselist.getCourse);
+
+  // router.route('/:deptCode/:courseCode/:courseName/:prereq')
+  // .put(courselist.updateCourse);
 
   router.put('/:id/:newcode', function(req, res, next) {
     courselist.findByIdAndUpdate(req.params.id, req.body, function (err, post) {

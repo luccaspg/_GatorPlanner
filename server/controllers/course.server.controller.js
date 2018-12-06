@@ -130,6 +130,62 @@ exports.updateRating = function(req, res){
 //   })
 // 
 // };
-exports.updatePrereq = function(req, res){
+
+// exports.getCourse = function(req, res)
+//  {
   
+//   var code = req.params.courseCode;
+//   model.CourseList.find({'code':code}, function(err, code)
+//   {
+//     console.log(code);
+//     if(err)
+//     {
+//       console.log(err);
+//       res.status(404).send(err);
+//     }
+//     else
+//     {
+//       res.json(code);
+//     }
+//   });
+// };
+
+exports.getCourse = function(req, res){
+  code = req.params.deptCode;
+  courseCode = req.params.courseCode;
+  
+  CourseList.find({}, function(err, courses)
+  {
+    if(err)
+    {
+      console.log(err);
+      res.status(404).send(err);
+    }
+    else
+    {
+      allCourses = [];
+      courses.forEach(function(index)
+      {
+
+        if(index.COURSES.length != 0 && index.COURSES != undefined)
+        {
+          if(code == index.COURSES[0].sections[0].deptCode)
+         {
+           console.log(index.COURSES[0].name);
+           allCourses.push(index.COURSES);
+         }
+        }
+      });
+      var chosenCourse;
+      for(var i = 0; i < allCourses[0].length; i++){
+        console.log(allCourses[0][i].code);
+        if(allCourses[0][i].code == courseCode){
+          chosenCourse = allCourses[0][i];
+          break;
+        }
+
+      }
+      res.json(chosenCourse);
+    }
+  });
 };
