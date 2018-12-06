@@ -43,20 +43,24 @@ router.route('/table/:ID')
   router.route('/user/:email/:fname/:lname/:password')
   .post(users.createUser);
 
-  router.route('/user/name/:fname/:newname')
+  // router.route('/user/name/:email/:newfname')
+  // .put(users.updateUser);
+
+  // router.route('/user/lname/:email/:newlname')
+  // .put(users.updateUser);
+
+  // router.route('/user/pswchg/:email/:newpsw')
+  // .put(users.updateUser);
+  router.route('/user/:id/:fname/:lname/:password')
   .put(users.updateUser);
 
-  router.route('/user/lname/:lname/:newname')
-  .put(users.updateUser);
-
-  router.route('/user/pswchg/:email/:newpsw')
-  .put(users.updateUser);
-
-  router.route('/user/:email')
+  router.route('/user/:id')
   .delete(users.delete);
 
   router.route('/prereq/:code/:newcode')
   .post(courselist.updatePrereq);
+
+
 
   router.put('/:id/:newcode', function(req, res, next) {
     courselist.findByIdAndUpdate(req.params.id, req.body, function (err, post) {

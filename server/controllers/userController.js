@@ -106,16 +106,20 @@ exports.listByEmail = function(req, res)
 // delete a user
 exports.delete = function(req, res) {
 
-  var user = req.user;
-  user.remove(function(err){
-    if(err){
-      console.log(err);
-      res.status(400).send(err);
-    }
-    else{
-      console.log("user deleted");
-    }
-  });
+  models.users.findByIdAndRemove({_id: req.params.id}, function(err,users){
+    if(err) res.json(err);
+    else res.json("remove");
+  })
+  // var user = req.user;
+  // user.remove(function(err){
+  //   if(err){
+  //     console.log(err);
+  //     res.status(400).send(err);
+  //   }
+  //   else{
+  //     console.log("user deleted");
+  //   }
+  // });
 };
 
 //update user
@@ -152,22 +156,22 @@ exports.userByID = function(req, res, next, id) {
 };
 
 exports.updateUser = function(req, res){
-  // var data = users.findByIdAndUpdate(req.params.email, req body, function(err), post){
+  models.users.findById(req.params.id, function(err, user){
+    if(!user)
+      return next(new Error('not found'));
+    else{
+        user.password = req.params.password;
+        user.fname = req.params.fname;
+        user.lname = req.params.lname;
 
-  // }
-      
-  //   var user = new models.users(data);
-  //     user.save(function(err) {
-  //       if(err) {
-  //         console.log(err);
-  //         res.status(400).send(err);
-  //       } else {
-  //         res.json(user);
-  //       }
-  //     })
-  
-  // res.status(200).json(data);
-  
+        user.save().then(user =>{
+          res.json('updated');
+        })
+        .catch(err =>{
+          res.status(400).send('not working');
+        });
+    }
+  });
 
   
-}
+};
