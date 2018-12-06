@@ -12,6 +12,12 @@ function createUser(){
 	xhr.open('POST', url, true);
 
 	xhr.onload = function(){
+    document.getElementById("regfname").value = "";
+    document.getElementById("reglname").value; "";
+    document.getElementById("regemail").value = "";
+    document.getElementById("regpassword").value = "";
+
+    alert("User succesfully registered!")
 	}
 	
 	xhr.send();
