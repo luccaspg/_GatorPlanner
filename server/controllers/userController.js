@@ -150,3 +150,24 @@ exports.userByID = function(req, res, next, id) {
     }
   });
 };
+
+exports.updateUser = function(req, res){
+  // var data = users.findByIdAndUpdate(req.params.email, req body, function(err), post){
+
+  // }
+      
+  //   var user = new models.users(data);
+  //     user.save(function(err) {
+  //       if(err) {
+  //         console.log(err);
+  //         res.status(400).send(err);
+  //       } else {
+  //         res.json(user);
+  //       }
+  //     })
+  
+  // res.status(200).json(data);
+  
+
+  
+}
