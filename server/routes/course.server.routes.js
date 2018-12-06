@@ -65,7 +65,7 @@ router.route('/table/:ID')
   .get(courselist.getCourse);
 
   router.route('/:id')
-  .get(courselist.getCourse);
+  .get(courselist.getCourseById);
 
   // router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   // .put(courselist.updateCourse);
