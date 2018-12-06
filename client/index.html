@@ -81,36 +81,69 @@
 	<div class ="right" style="position: absolute; right:3%;" id="right_side">
 		<input type ="button" class="btn" style ="position:absolute; margin-left:72%;" onclick="unhideL()" value="Login"/>
 		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
-		<div style="display: none;" id='login'>
-			<form name="loginLink" id='loginForm'>
-				<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">
-					<font size = "5" color="black">
-						<label style = "position: absolute; top: 5%; right: 30%;">UF Email</label>
-						<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<label style ="position: absolute; top: 45%; right: 30%;">Password</label>
-						<input type="password" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="loginFunc()" value="Login"/>
-					</font>
+		<!--<div style="display: none;" id='login'>-->
+		<div id="login" class="modal">
+
+				<!--<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:200px;border:3px solid #1F35EA; background-color:white;">-->
+						<div class="imgcontainer">
+							<span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Login">&times;</span>
+							<img  class="user">
+						</div>
+						<div class="container">
+							<form name="loginLink" id='loginForm'>
+							<input type="text" placeholder="Enter UF Email" name="email">
+							<input type="password" placeHolder="Enter Password" name="password">
+							<input class="authenticate" type="button" onclick="loginFunc()" value="Login"></input>
+							</form>
+						</div>
+						<!--<label style = "position: absolute; top: 5%; right: 30%;">UF Email</label>-->
+						<!--<input type="text" name="email" class ="loginBox" required style=" position: absolute; top: 23%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<label style ="position: absolute; top: 45%; right: 30%;">Password</label>-->
+						<!--<input type="password" name="password" class ="loginBox" required style=" position:absolute; right:5%; top: 63%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<input style = "position: absolute; top: 87%; right: 5%;" type="button" onclick="loginFunc()" value="Login"/>-->
 				</div>
-			</form>
+
+
+
+		<!--<div style="display: none;" id='register'>-->
+		<div id="register" class="modal2">
+					<!--<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:400px;border:3px solid #1F35EA; background-color:white;">-->
+						<!--<label style = "position: absolute; top: 5%; right: 30%;">First Name</label>-->
+						<!--<input type="text" id="regfname" class ="loginBox" required style=" position: absolute; top:13%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<label style ="position: absolute; top: 25%; right: 30%;">Last Name</label>-->
+						<!--<input type="text" id="reglname" class ="loginBox" required style=" position:absolute; right:5%; top: 33%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<label style ="position: absolute; top: 45%; right: 30%;">UF Email</label>-->
+						<!--<input type="text" id="regemail" class ="loginBox" required style=" position:absolute; right:5%; top: 53%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<label style ="position: absolute; top: 65%; right: 30%;">Password</label>-->
+						<!--<input type="password" id="regpassword" class ="loginBox" required style=" position:absolute; right:5%; top: 73%; font-size: 18px;width: 250px;height: 40px;  "/>-->
+						<!--<input style = "position: absolute; top: 85%; right: 5%;" type="button" onclick=createUser() value="Register"/>-->
+						<div class="imgcontainer">
+							<span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Register">&times;</span>
+							<img  class="user2">
+						</div>
+						<div class="container2">
+							<form name="registrationgit" id='registerLink'>
+							<input type="text" placeholder="Enter First Name" id="regfname" name="fname">
+							<input type="text" placeHolder="Enter Last Name" id="reglname" name="lname">
+							<input type="text" placeholder="Enter UF Email" id="regemail" name="uname">
+							<input type="text" placeHolder="Enter Password" id="regpassword" name="psw">
+							<input class="authenticate" type="button" onclick=createUser() value="Register">
+							</form>
+						</div>
+					</div>
+		<div id="profPop" class="modal">
+			<div class="container">
+				<form name="">
+					<input type="text" placeholder="Update First Name" id="updateFname">
+					<input type="text" placeholder="Update Last Name" id="updateLname">
+					<input type="password" placeholder="Update password" id="updatePassword">
+					<input class="authenticate" type="button" onclick="" value="Update">
+				</form>
+			</div>
 		</div>
 
-		<div style="display: none;" id='register'>
-			<form name="registrationgit" id='registerLink'>
-				<font size = "5" color="black">
-					<div style=" position: absolute; top: 20%; right: 1%; width:280px;height:400px;border:3px solid #1F35EA; background-color:white;">
-						<label style = "position: absolute; top: 5%; right: 30%;">First Name</label>
-						<input type="text" id="regfname" class ="loginBox" required style=" position: absolute; top:13%; right:5%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<label style ="position: absolute; top: 25%; right: 30%;">Last Name</label>
-						<input type="text" id="reglname" class ="loginBox" required style=" position:absolute; right:5%; top: 33%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<label style ="position: absolute; top: 45%; right: 30%;">UF Email</label>
-						<input type="text" id="regemail" class ="loginBox" required style=" position:absolute; right:5%; top: 53%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<label style ="position: absolute; top: 65%; right: 30%;">Password</label>
-						<input type="password" id="regpassword" class ="loginBox" required style=" position:absolute; right:5%; top: 73%; font-size: 18px;width: 250px;height: 40px;  "/>
-						<input style = "position: absolute; top: 85%; right: 5%;" type="button" onclick=createUser() value="Register"/>
-					</div>
-				</font>
-			</form>
+
+
 			<!-- <form class="modal-content" action="/action_page.php">
 				<div class="container">
 					<h1>Sign Up</h1>

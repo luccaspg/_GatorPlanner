@@ -50,10 +50,7 @@ function loginFunc(){
 
     // alert(ufemail + password);
     var testfake = false;
-    if(ufemail == 'test@ufl.edu'){
-        ufemail = 'josephvlam@ufl.edu';
-        testfake = true;
-    }
+
     var url = "http://localhost:8080/course/user/" + ufemail;
 	var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -65,9 +62,15 @@ function loginFunc(){
             alert("login success");
             globaluser = data;
             // testuser = data;
-            if(testfake){
-                globaluser[0].isAdmin = false;
-            }
+            //popup
+            var a = document.getElementById("profPop");
+            var userButton = document.createElement('button');
+            userButton.setAttribute('class', 'btn');
+            userButton.setAttribute('id','profile');
+            userButton.setAttribute=('onclick','profilePopup();' );
+            //userButton.onclick=function(){profilePopup();};
+            userButton.textContent = "Profile";
+            //right.appendChild(userButton);
             populateTables();
         }
         
@@ -103,7 +106,7 @@ function populateTables(){
     var addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn');
     addButton.textContent = "New Table";
-    addButton.setAttribute()
+    //addButton.setAttribute()
     right.appendChild(addButton);
     
     right.appendChild(tablesdiv);
@@ -244,10 +247,13 @@ function adminFunc(){
     // right.appendChild(tablesdiv);
 
 
-    var userButton = document.createElement('button');
-    userButton.setAttribute('class', 'btn');
-    userButton.textContent = "Profile";
-    right.appendChild(userButton);
+    // var userButton = document.createElement('button');
+    // userButton.setAttribute('class', 'btn');
+    // userButton.setAttribute('id','profile');
+    // userButton.setAttribute('onclick','profilePopup();' );
+    // userButton.onclick=function(){profilePopup();};
+    // userButton.textContent = "Profile";
+    // right.appendChild(userButton);
 
     if(globaluser[0].isAdmin){
         var adminButton = document.createElement('button');
@@ -321,4 +327,8 @@ function registerFunc(){
     else{
         alert('register an UF email');
     }
+}
+//view modal
+function profilePopup(){
+    document.getElementById('profPop').style = "display: block;";
 }
