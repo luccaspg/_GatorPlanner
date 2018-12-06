@@ -36,9 +36,14 @@ router.route('/deptById')
 //router.route('/event/org')
   //.get(events.listByOrganizer);
 
+router.route('/table')
+  //.get(tables.listUserTable)
+  .get(tables.list);
 router.route('/table/:ID')
   //.get(tables.listUserTable)
-  .post(tables.create);
+  .post(tables.create)
+  .delete(tables.delete)
+  .get(tables.listUserTable);
 
   router.route('/user/:email/:fname/:lname/:password')
   .post(users.createUser);

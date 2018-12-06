@@ -21,23 +21,23 @@ exports.create = function(req, res) {
 
 //list all tables
 exports.list = function(req, res) {
-  models.tables.find({ }).exec(function(err, users) {
+  models.tables.find().exec(function(err, table) {
     if (err){
       res.status(400).send(err);
     } else {
-      res.json(tables);
+      res.json(table);
     }
   });
 };
 
 exports.listUserTable = function(req, res){
-  var id = req.user.tableID;  //get org name from logged in user
-  console.log("looking for table owned by " + userID);
-  models.tables.find({ tableID: id }).exec(function(err, tables) {
+  var id = req.params.ID;  //get org name from logged in user
+  console.log("looking for table owned by " + id);
+  models.tables.find({ userID: id }).exec(function(err, tables) {
     if (err){
       res.status(400).send(err);
     } else {
-      res.json(table);
+      res.json(tables);
     }
   });
 }
@@ -63,8 +63,6 @@ exports.update = function(req, res) {
 
   table.userID = req.body.userID;
   table.name= req.body.name;
-  table.section = req.body.section;
-
 
   table.save(function(err) {
     if (err) {
