@@ -25,6 +25,33 @@ exports.list = function(req, res) {
     }
   });
 };
+//Luccas on CRUD Attacks again
+
+exports.createUser = function(req, res){
+  var data = {
+        "email": req.params.email,
+        "password": req.params.password,
+        "isAdmin" : false,
+        "fname": req.params.fname,
+        "lname": req.params.lname
+        
+      };
+      
+    var user = new models.users(data);
+      user.save(function(err) {
+        if(err) {
+          console.log(err);
+          res.status(400).send(err);
+        } else {
+          res.json(user);
+        }
+      })
+  
+  // res.status(200).json(data);
+  
+
+  
+}
 
 exports.listByEmail = function(req, res)
  {
