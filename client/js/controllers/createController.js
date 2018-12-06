@@ -60,7 +60,7 @@ createApp.controller('createController', function($scope, createFactory){
       //   window.alert('You must provide a valid University of Florida email for this service.');
       // }
       //check if username is entered
-      else if($scope.username.length === 0){
+      if($scope.username.length === 0){
         window.alert('You must provide a Username.');
       }
       //check if password is entered
