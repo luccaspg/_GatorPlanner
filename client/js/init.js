@@ -8,6 +8,7 @@ function unhideR(){
 }
 var view = true;
 var globaluser;
+var testuser;
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -48,18 +49,28 @@ function loginFunc(){
     var password = user.elements[1].value;
 
     // alert(ufemail + password);
-    
+    var testfake = false;
+    if(ufemail == 'test@ufl.edu'){
+        ufemail = 'josephvlam@ufl.edu';
+        testfake = true;
+    }
     var url = "http://localhost:8080/course/user/" + ufemail;
 	var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
+    
     
     xhr.onload = function(){
         var data = JSON.parse(this.response);
         if(password == data[0].password){
             alert("login success");
             globaluser = data;
+            // testuser = data;
+            if(testfake){
+                globaluser[0].isAdmin = false;
+            }
             populateTables();
         }
+        
         else{
             alert('wrong information');
         }
@@ -89,6 +100,11 @@ function populateTables(){
 
         adminButton.setAttribute('onclick', 'adminFunc()');
     }
+    var addButton = document.createElement('button');
+    addButton.setAttribute('class', 'btn');
+    addButton.textContent = "New Table";
+    addButton.setAttribute()
+    right.appendChild(addButton);
     
     right.appendChild(tablesdiv);
 
@@ -241,6 +257,10 @@ function adminFunc(){
 
         adminButton.setAttribute('onclick', 'populateTables()');
     }
+    var addButton = document.createElement('button');
+    addButton.setAttribute('class', 'btn');
+    addButton.textContent = "New Table";
+    right.appendChild(addButton);
 
 
     var courseCode = document.getElementById("description_description").innerHTML;
@@ -294,7 +314,7 @@ function changeCourseCode(){
 //TODO
 function registerFunc(){
     var register = document.getElementById('registerLink');
-    var ufemail = register.elements[0].value;
+    var ufemail = register.elements[2].value;
     if(ufemail.includes('@ufl.edu')){
         alert(ufemail + ' successfully registered!');
     }

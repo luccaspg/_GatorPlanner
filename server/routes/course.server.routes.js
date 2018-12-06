@@ -39,6 +39,19 @@ router.route('/deptById')
 router.route('/table/:ID')
   //.get(tables.listUserTable)
   .post(tables.create);
+
+  router.route('/user/:email/:fname/:lname/:password')
+  .put(users.createUser);
+
+  router.route('/prereq/:code/:newcode')
+  .post(courselist.updatePrereq);
+
+  router.put('/:id/:newcode', function(req, res, next) {
+    courselist.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+  });
 /*
 //params routes
 router.route('/table/:tableID')
@@ -55,6 +68,25 @@ router.route('/dept/:deptID')
 .delete(departments.delete)
 .post(departments.update);
 */
+//Luccas messing up with CRUD
+// router.post('/user/:email/:fname/:lname/:password', function(req, res){
+//   var data = {
+//     "email": req.params.email,
+//     "password": req.params.password,
+//     "fname": req.params.fname,
+//     "lname": req.params.lname,
+//     "isAdmin" : false
+//   };
+//   res.status(200).send.json(data);
+// });
+
+// router.post('/user/:email/:fname/:lname/:password', function(req, res){
+//   users.create(req.body, function (err, post) {
+//     if (err) return next(err);
+//     res.json(post);
+//   });
+
+// });
 
 router.param('tableID', tables.tableByID);
 //router.param('courseID', courses.courseByID);

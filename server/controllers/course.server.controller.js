@@ -109,3 +109,27 @@ exports.updateRating = function(req, res){
     });
    res.send("Updated rating in lot " + name + "!");
 };
+
+
+// exports.updatePrereq = function(req, res){
+//   var old = req.params.code;
+//   var newcode = req.params.newcode;
+//   CourseList.findById(old, function(err, CourseList){
+//     if(!CourseList)
+//     console.log("error");
+//     else{
+//       CourseList.prerequisite = newcode;
+
+//       CourseList.save().then(CourseList => {
+//         res.json('Update complete');
+//     })
+//     .catch(err => {
+//           res.status(400).send("unable to update the database");
+//     });
+//     }
+//   })
+// 
+// };
+exports.updatePrereq = function(req, res){
+  
+};
