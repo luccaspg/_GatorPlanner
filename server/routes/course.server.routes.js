@@ -41,7 +41,19 @@ router.route('/table/:ID')
   .post(tables.create);
 
   router.route('/user/:email/:fname/:lname/:password')
-  .put(users.createUser);
+  .post(users.createUser);
+
+  router.route('/user/name/:fname/:newname')
+  .put(users.updateUser);
+
+  router.route('/user/lname/:lname/:newname')
+  .put(users.updateUser);
+
+  router.route('/user/pswchg/:email/:newpsw')
+  .put(users.updateUser);
+
+  router.route('/user/:email')
+  .delete(users.delete);
 
   router.route('/prereq/:code/:newcode')
   .post(courselist.updatePrereq);
