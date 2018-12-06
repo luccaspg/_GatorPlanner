@@ -69,6 +69,9 @@ router.route('/table/:ID')
 
   // router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   // .put(courselist.updateCourse);
+
+  //working route example
+  //localhost:8080/course/19140000/CIS4930/Special Topics/Prereq: CAP 3027/3/Combines the traditional media production pipeline and software engineering processes to synthesize an approach geared for the production of works incorporating both artistic and computational elements. 
    router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   .put(courselist.updateCourse);
 
