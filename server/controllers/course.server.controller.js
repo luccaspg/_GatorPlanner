@@ -178,7 +178,7 @@ exports.getCourse = function(req, res){
       });
       var chosenCourse;
       for(var i = 0; i < allCourses[0].length; i++){
-        console.log(allCourses[0][i].code);
+        // console.log(allCourses[0][i].code);
         if(allCourses[0][i].code == courseCode){
           chosenCourse = allCourses[0][i];
           break;
@@ -188,4 +188,99 @@ exports.getCourse = function(req, res){
       res.json(chosenCourse);
     }
   });
+};
+
+// exports.getCourse = function(req, res, next, id) {
+//   CourseList.CourseList.findById(id).exec(function(err, event) {
+//     if(err) {
+//       res.status(400).send(err);
+//     } else {
+//       req.user = user;
+//       next();
+//     }
+//   });
+// };
+
+
+
+// exports.updateCourse = function(req, res){
+//   code = req.params.deptCode;
+//   courseCode = req.params.courseCode;
+//   courseName = req.params.courseName;
+//   prereq = req.params.prereq;
+//   credits = req.params.credits;
+//   description = req.params.description;
+  
+//   CourseList.find({}, function(err, courses)
+//   {
+//     if(err)
+//     {
+//       console.log(err);
+//       res.status(404).send(err);
+//     }
+//     else
+//     {
+//       allCourses = [];
+//       courses.forEach(function(index)
+//       {
+
+//         if(index.COURSES.length != 0 && index.COURSES != undefined)
+//         {
+//           if(code == index.COURSES[0].sections[0].deptCode)
+//          {
+//            console.log(index.COURSES[0].name);
+//            allCourses.push(index.COURSES);
+//          }
+//         }
+//       });
+//       var chosenCourse;
+//       for(var i = 0; i < allCourses[0].length; i++){
+//         // console.log(allCourses[0][i].code);
+//         if(allCourses[0][i].code == courseCode){
+//           chosenCourse = allCourses[0][i];
+//           allCourses[0][i].code = courseCode;
+//           allCourses[0][i].name = courseName;
+//           allCourses[0][i].prerequisites = prereq;
+//           allCourses[0][i].sections[0].credits = credits;
+//           allCourses[0][i].description = description;
+
+//           console.log(allCourses[0][i]);
+
+//           allCourses.save().then(allCourses =>{
+//             res.json('updated');
+//           })
+//           .catch(err =>{
+//             res.status(400).send('not working');
+//           });
+//           break;
+//         }
+//       }
+//       //update
+      
+
+
+//       res.json(chosenCourse);
+//     }
+//   });
+// };
+
+exports.updateCourse = function(req, res){
+  CourseList.CourseList.findById(req.params.courseCode, function(err, user){
+    if(!user)
+      return next(new Error('not found'));
+    else{
+        console.log(user);
+
+        user.save().then(user =>{
+          res.json('updated');
+        })
+        .catch(err =>{
+          res.status(400).send('not working');
+        });
+    }
+  });
+
+
+
+
 };

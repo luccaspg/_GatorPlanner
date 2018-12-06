@@ -64,8 +64,13 @@ router.route('/table/:ID')
   router.route('/department/:courseCode/:deptCode')
   .get(courselist.getCourse);
 
-  // router.route('/:deptCode/:courseCode/:courseName/:prereq')
+  router.route('/:id')
+  .get(courselist.getCourse);
+
+  // router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   // .put(courselist.updateCourse);
+   router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
+  .put(courselist.updateCourse);
 
   router.put('/:id/:newcode', function(req, res, next) {
     courselist.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
