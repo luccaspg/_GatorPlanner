@@ -264,6 +264,15 @@ th, td {
 #User{
 	display:none;
 }
+#logout{
+	display:none;
+}
+#adminUser{
+	display:none;
+}
+#upCourse{
+	display:none;
+}
 .modal2{
 	display:none;
 	position:fixed;
@@ -357,5 +366,10 @@ input[type=text], input[type=text], input[type=text], input[type=password]{
 .authenticate:hover{
 	background-color:dodgerblue;
 	color:white;
+}
+iframe{
+	margin-top:75%;
+	height:500px;
+	width:100%;
 }
 

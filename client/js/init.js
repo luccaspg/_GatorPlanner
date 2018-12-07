@@ -60,6 +60,7 @@ function loginFunc(){
         var data = JSON.parse(this.response);
         if(password == data[0].password){
             document.getElementById("User").style.display = 'block';
+            document.getElementById("logout").style.display='block';
             alert("login success");
             globaluser = data;
             // testuser = data;
@@ -97,12 +98,14 @@ function populateTables(){
     // right.appendChild(userButton);
 
     if(globaluser[0].isAdmin){
-        var adminButton = document.createElement('button');
-        adminButton.setAttribute('class', 'btn');
-        adminButton.textContent = "Admin";
-        right.appendChild(adminButton);
-
-        adminButton.setAttribute('onclick', 'adminFunc()');
+        document.getElementById("adminUser").style.display='block';
+        document.getElementById("upCourse").style.display='block';
+        // var adminButton = document.createElement('button');
+        // adminButton.setAttribute('class', 'btn');
+        // adminButton.textContent = "Admin";
+        // right.appendChild(adminButton);
+        //
+        // adminButton.setAttribute('onclick', 'adminFunc()');
     }
     var addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn');
@@ -258,12 +261,12 @@ function adminFunc(){
 
     if(globaluser[0].isAdmin){
 
-        var adminButton = document.createElement('button');
-        adminButton.setAttribute('class', 'btn');
-        adminButton.textContent = "Tables";
-        right.appendChild(adminButton);
-
-        adminButton.setAttribute('onclick', 'populateTables()');
+        // var adminButton = document.createElement('button');
+        // adminButton.setAttribute('class', 'btn');
+        // adminButton.textContent = "Tables";
+        // right.appendChild(adminButton);
+        //
+        // adminButton.setAttribute('onclick', 'populateTables()');
     }
     var addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn');
@@ -385,4 +388,10 @@ function updateUsername(_id) {
 	};
 	
 	xhr.send();
+}
+function unhideAdmin(){
+    document.getElementById('Users').style = "display: block;";
+}
+function unhideCourse(){
+    document.getElementById('Course').style = "display: block;";
 }
