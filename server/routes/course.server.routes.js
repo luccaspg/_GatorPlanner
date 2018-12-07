@@ -2,6 +2,7 @@ var courselist = require('../controllers/course.server.controller.js'),
     tables = require('../controllers/tableController.js'),
     users = require('../controllers/userController.js'),
     departments = require('../controllers/deptController.js'),
+    lists = require('../controllers/listController.js'),
     express = require('express'), 
     router = express.Router();
 
@@ -14,6 +15,13 @@ router.route('/:name')
   */
 router.route('/list')
   .get(users.list);
+
+router.route('/list/:ID/:code/:credits/:name')
+  .put(lists.create);
+
+router.route('/lists/:ID')
+  .get(lists.getList)
+  .delete(lists.delete);
 
 router.route('/e')
   .get(users.listEmails);
@@ -44,6 +52,18 @@ router.route('/table/:ID')
   //.get(tables.listUserTable)
   .post(tables.create);
 
+  router.route('/table/:ID')
+  //.get(tables.listUserTable)
+  .get(tables.listUserTable);
+
+  router.route('/table/:tableID/')
+  //.get(tables.listUserTable)
+  .delete(tables.delete);
+
+  router.route('/table/:add_delete/:code/:index/:ID')
+  .put(tables.update);
+  
+
   router.route('/user/:email/:fname/:lname/:password')
   .post(users.createUser);
 
@@ -69,10 +89,13 @@ router.route('/table/:ID')
   .get(courselist.getCourse);
 
   router.route('/:id')
-  .get(courselist.getCourse);
+  .get(courselist.getCourseById);
 
   // router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   // .put(courselist.updateCourse);
+
+  //working route example
+  //localhost:8080/course/19140000/CIS4930/Special Topics/Prereq: CAP 3027/3/Combines the traditional media production pipeline and software engineering processes to synthesize an approach geared for the production of works incorporating both artistic and computational elements. 
    router.route('/:deptCode/:courseCode/:courseName/:prereq/:credits/:description')
   .put(courselist.updateCourse);
 
@@ -119,6 +142,7 @@ router.route('/dept/:deptID')
 // });
 
 router.param('tableID', tables.tableByID);
+//router.param('name', lists.listByID);
 //router.param('courseID', courses.courseByID);
 router.param('deptID', departments.deptByID);
 

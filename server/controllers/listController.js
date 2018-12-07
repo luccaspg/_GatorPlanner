@@ -5,57 +5,63 @@ var mongoose = require('mongoose'),
 /* Create a table */
 exports.create = function(req, res) {
   console.log('creating');
-  var table = new models.tables();
+
+  var list = new models.lists();
   var ID = req.params.ID;
+  var code = req.params.code;
+  var credits = req.params.credits;
+  var name = req.params.name;
+
+  list.tableID = ID;
+  list.course.deptCode = code;
+  list.course.credits = credits;
+  list.course.name = name;
+
   console.log(ID);
-  table.userID = ID;
+  console.log(code);
+  console.log(credits);
+  console.log(name);
+
+
+
   //table._id = 5;
-  table.save(function(err) {
+  list.save(function(err) {
     if(err) {
       console.log(err);
       res.status(400).send(err);
     } else {
-      res.json(table);
+      res.json(list);
     }
   });
 };
 
-//list all tables
-exports.list = function(req, res) {
-  models.tables.find().exec(function(err, table) {
-    if (err){
-      res.status(400).send(err);
-    } else {
-      res.json(table);
-    }
-  });
-};
 
-exports.listUserTable = function(req, res){
+exports.getList = function(req, res){
   var id = req.params.ID;  //get org name from logged in user
   console.log("looking for table owned by " + id);
-  models.tables.find({ userID: id }).exec(function(err, tables) {
+  models.lists.find({ tableID : id }).exec(function(err, lists) {
     if (err){
       res.status(400).send(err);
     } else {
-      res.json(tables);
+      res.json(lists);
     }
   });
 }
+
 // delete a table
 exports.delete = function(req, res) {
 
-  var table = req.table;
-  table.remove(function(err){
-    if(err){
-      console.log(err);
+  var id = req.params.ID;  //get org name from logged in user
+  console.log("looking for table owned by " + id);
+  models.lists.remove({ _id : id }).exec(function(err, lists) {
+    if (err){
       res.status(400).send(err);
-    }
-    else{
-      console.log("table deleted");
+    } else {
+      console.log("deleted");
+      res.json(lists);
     }
   });
-};
+}
 
 //update table
 exports.update = function(req, res) {
@@ -121,12 +127,12 @@ exports.update = function(req, res) {
   // });
 };
 
-exports.tableByID = function(req, res, next, id) {
-  models.tables.findById(id).exec(function(err, event) {
+exports.listByID = function(req, res, next, id) {
+  models.lists.find(id).exec(function(err, event) {
     if(err) {
       res.status(400).send(err);
     } else {
-      req.table = event;
+      req.list = event;
       next();
     }
   });
