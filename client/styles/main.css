@@ -367,4 +367,9 @@ input[type=text], input[type=text], input[type=text], input[type=password]{
 	background-color:dodgerblue;
 	color:white;
 }
+iframe{
+	margin-top:75%;
+	height:500px;
+	width:100%;
+}
 
