@@ -9,7 +9,7 @@ function unhideR(){
 var view = true;
 var globaluser;
 var testuser;
-var globalHost = "localhost:8080/course/";
+var globalHost = "http://localhost:8080/course/";
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -111,29 +111,30 @@ function populateTables(){
     var addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn');
     addButton.textContent = "New Table";
-    //addButton.setAttribute()
+    addButton.setAttribute("onclick", 'createNewTable()');
     right.appendChild(addButton);
     
-    right.appendChild(tablesdiv);
+    populateTable();
+    // right.appendChild(tablesdiv);
 
-    var tables = document.createElement('table');
-    var headings = document.createElement('tr');
-    var name = document.createElement('th');
-    name.textContent = "Course Name";
-    var code = document.createElement('th');
-    code.textContent = "Code";
-    var credits = document.createElement('th');
-    credits.textContent = "Credits";
-    var deleteBtn = document.createElement('th');
-    deleteBtn.textContent = "Delete";
+    // var tables = document.createElement('table');
+    // var headings = document.createElement('tr');
+    // var name = document.createElement('th');
+    // name.textContent = "Course Name";
+    // var code = document.createElement('th');
+    // code.textContent = "Code";
+    // var credits = document.createElement('th');
+    // credits.textContent = "Credits";
+    // var deleteBtn = document.createElement('th');
+    // deleteBtn.textContent = "Delete";
 
 
-    tables.appendChild(headings);
-    headings.appendChild(name);
-    headings.appendChild(code);
-    headings.appendChild(credits);
-    headings.appendChild(deleteBtn);
-    tablesdiv.appendChild(tables);
+    // tables.appendChild(headings);
+    // headings.appendChild(name);
+    // headings.appendChild(code);
+    // headings.appendChild(credits);
+    // headings.appendChild(deleteBtn);
+    // tablesdiv.appendChild(tables);
 
 
 
@@ -244,6 +245,13 @@ function cleanRight(){
     }
 }
 
+// function clearTables(){
+//     var elem = document.getElementById;
+//     elem.parentNode.removeChild(elem);
+//     return false;
+//     }
+// }
+
 function adminFunc(){
     cleanRight();
     var right = document.getElementById('right_side');
@@ -272,6 +280,7 @@ function adminFunc(){
     var addButton = document.createElement('button');
     addButton.setAttribute('class', 'btn');
     addButton.textContent = "New Table";
+    addButton.setAttribute('onclick', 'createNewTable()');
     right.appendChild(addButton);
 
 
@@ -404,10 +413,173 @@ function createNewTable(){
     var xhr = new XMLHttpRequest();
     var url = 'user/' + globaluser[0].email;
     xhr.open('GET', globalHost + url, true );
+    console.log(globalHost + url);
 
     xhr.onload = function(){
-        userID = parse.JSON(this.response)
+        userID = JSON.parse(this.response)
+        var request = new XMLHttpRequest();
+        request.open('POST', globalHost + 'table/' + userID, true);
+        request.send();
+        // alert('table created');
+        createTableElement();
+    };
+    xhr.send();
+}
+
+
+function populateTable(){
+    // clearTables();
+    var tableList;
+    var div = document.getElementById('tables_place');
+
+    
+    var userID;
+    var xhr = new XMLHttpRequest();
+    var url = 'user/' + globaluser[0].email;
+    xhr.open('GET', globalHost + url, true );
+
+    xhr.onload = function(){
+        userID = JSON.parse(this.response);
+        var request = new XMLHttpRequest();
+        request.open('GET', globalHost + 'table/' + userID, true);
+        request.onload =  function() {
+            tableList = JSON.parse(this.response);
+            for(var i = 0; i < tableList.length; i++){
+
+                createTableElement(tableList[i]._id);
+            }
+
+            
+
+
+        };
+        request.send();
+    };
+
+    xhr.send();
+
+
+}
+var selectedTable;
+function selectTable(id){
+    selectedTable = id;
+
+}
+
+function createTableElement(id){
+    var div = document.getElementById('right_side');
+    var newTable = document.createElement('table');
+    var headings = document.createElement('tr');
+    var name = document.createElement('th');
+    name.textContent = "Course Name";
+    //test area
+    var select = document.createElement('button');
+    select.textContent = 'Select';
+    name.appendChild(select);
+    select.setAttribute('onclick', 'selectTable(\"' + id + '\")');
+    //
+
+
+    var code = document.createElement('th');
+    code.textContent = "Code";
+    var credits = document.createElement('th');
+    credits.textContent = "Credits";
+    var deleteBtn = document.createElement('th');
+    var deleteClick = document.createElement('button')
+    deleteBtn.appendChild(deleteClick);
+    deleteClick.textContent = "Delete";
+    deleteClick.setAttribute('onclick', 'deleteTable(\"' + id +'\")');
+    newTable.setAttribute('id', toString(id));
+
+
+    newTable.appendChild(headings);
+    headings.appendChild(name);
+    headings.appendChild(code);
+    headings.appendChild(credits);
+    headings.appendChild(deleteBtn);
+
+    // newTable.appendChild(tables);
+    // var div = document.getElementById('tables_place');
+    div.appendChild(newTable);
+
+    populateCoursesTable(id)
+
+
+
+    
+    
+}
+
+function deleteTable(id){
+    
+    // var userID;
+    var xhr = new XMLHttpRequest();
+    var url = 'table/' + id;
+    console.log(globalHost + url);
+    xhr.open('DELETE', globalHost + url, true );
+
+    // xhr.onreadystatechange = function(){
+    //     // let user = JSON.parse(this.response);
+    //     if(this.readyState == 4 && this.status == 200){
+    //         populateTable();
+
+    //     }
+
+    xhr.send();
+
+    var elem = document.getElementById(toString(id));
+    elem.parentNode.removeChild(elem);
+    return false;
+
+    
+
+}
+
+function populateCoursesTable(id){
+    var table = document.getElementById(toString(id));
+
+    var row = document.createElement('tr')
+    table.appendChild(row);
+    var name = document.createElement('td');
+    var code = document.createElement('td');
+    var credits = document.createElement('td');
+
+    var xhr = new XMLHttpRequest();
+    var url = 'list/' + id;
+    console.log(globalHost + url);
+    xhr.open('GET', globalHost + url, true );
+
+    xhr.onload = function(){
+        var list = this.response;
+        for(var i = 0; i < list.length; i++){
+            name.textContent = list[i].course;
+            code.textContent = list[i].course.name;
+            credits.textContent = list[i].course.credits;
+            
+            row.appendChild(name);
+            row.appendChild(code);
+            row.appendChild(credits);
+            //append the delete element
+            name = document.createElement('td');
+            code = document.createElement('td');
+            credits = document.createElement('td');
+            row = document.createElement('tr')
+            table.appendChild(row);
+
+
+        }
+        
     }
+
+
+    xhr.send();
+
+}
+
+function courseToTable(id){
+    var table = document.getElementById(toString(id));
+
+
 }
 
 function createCourse(){
