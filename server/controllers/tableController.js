@@ -1,4 +1,4 @@
-var mongoose = require('mongoose').set('debug',true),
+var mongoose = require('mongoose'),
   models = require('../models/model.js');
   
 

@@ -9,6 +9,7 @@ function unhideR(){
 var view = true;
 var globaluser;
 var testuser;
+var globalHost = "localhost:8080/course/";
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;
@@ -394,4 +395,17 @@ function unhideAdmin(){
 }
 function unhideCourse(){
     document.getElementById('Course').style = "display: block;";
+}
+
+
+function createNewTable(){
+    var userID;
+
+    var xhr = new XMLHttpRequest();
+    var url = 'user/' + globaluser[0].email;
+    xhr.open('GET', globalHost + url, true );
+
+    xhr.onload = function(){
+        userID = parse.JSON(this.response)
+    }
 }
