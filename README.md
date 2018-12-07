@@ -12,3 +12,5 @@ ADMIN
 	-create admins 
 	-delete users 
 	-and update his/her information 
+	
+Deployed on Heroku
