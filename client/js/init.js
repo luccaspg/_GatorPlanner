@@ -716,6 +716,34 @@ function courseToTable(id){
 
 }
 
+function deleteCourse(ID){
+
+// var code = "CEN3031";
+// var credits = "4";
+// var name = "joseph order a pizza";
+
+// var code = document.getElementById('description_code').value;
+// var name = document.getElementById('description_name').value;
+// var credits = document.getElementById('description_credits').value;
+
+
+
+var url = globalHost + "/lists/" + ID;
+   //  var course = document.getElementById('COURSE');
+   //  var name = course.elements[0].value;
+   //  // alert(ufemail);
+   //  var code = course.elements[1].value;
+   //  var credits = course.elements[2].value;
+   //  var ID = 'test';
+   //  // alert(ufemail + password);
+   // // var testfake = false;
+
+   //  var url = globalHost + '/list/' + ID '/' + code + '/' + credits + '/' + name;
+   var xhr = new XMLHttpRequest();
+   xhr.open('DELETE', url, true);
+    
+   xhr.send();
+}
 function createCourse(){
 
 // var code = "CEN3031";
