@@ -460,6 +460,11 @@ function populateTable(){
 
 
 }
+var selectedTable;
+function selectTable(id){
+    selectedTable = id;
+
+}
 
 function createTableElement(id){
     var div = document.getElementById('right_side');
@@ -467,6 +472,14 @@ function createTableElement(id){
     var headings = document.createElement('tr');
     var name = document.createElement('th');
     name.textContent = "Course Name";
+    //test area
+    var select = document.createElement('button');
+    select.textContent = 'Select';
+    name.appendChild(select);
+    select.setAttribute('onclick', 'selectTable(\"' + id + '\")');
+    //
+
+
     var code = document.createElement('th');
     code.textContent = "Code";
     var credits = document.createElement('th');
@@ -488,6 +501,11 @@ function createTableElement(id){
     // newTable.appendChild(tables);
     // var div = document.getElementById('tables_place');
     div.appendChild(newTable);
+
+    populateCoursesTable(id)
+
+
+
     
     
 }
@@ -514,6 +532,53 @@ function deleteTable(id){
     return false;
 
     
+
+}
+
+function populateCoursesTable(id){
+    var table = document.getElementById(toString(id));
+
+    var row = document.createElement('tr')
+    table.appendChild(row);
+    var name = document.createElement('td');
+    var code = document.createElement('td');
+    var credits = document.createElement('td');
+
+    var xhr = new XMLHttpRequest();
+    var url = 'list/' + id;
+    console.log(globalHost + url);
+    xhr.open('GET', globalHost + url, true );
+
+    xhr.onload = function(){
+        var list = this.response;
+        for(var i = 0; i < list.length; i++){
+            name.textContent = list[i].course;
+            code.textContent = list[i].course.name;
+            credits.textContent = list[i].course.credits;
+            
+            row.appendChild(name);
+            row.appendChild(code);
+            row.appendChild(credits);
+            //append the delete element
+            name = document.createElement('td');
+            code = document.createElement('td');
+            credits = document.createElement('td');
+            row = document.createElement('tr')
+            table.appendChild(row);
+
+
+        }
+        
+    }
+
+
+    xhr.send();
+
+}
+
+function courseToTable(id){
+    var table = document.getElementById(toString(id));
+
 
 }
 
