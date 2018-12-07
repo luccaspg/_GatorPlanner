@@ -539,6 +539,10 @@ function deleteTable(id){
 function populateCoursesTable(id){
     var table = document.getElementById(toString(id));
 
+    // while (table.firstChild) {
+    // table.removeChild(table.firstChild);
+    // }
+
     var row = document.createElement('tr')
     table.appendChild(row);
     var name = document.createElement('td');
@@ -554,6 +558,12 @@ function populateCoursesTable(id){
         
         var list = JSON.parse(this.response);
         console.log(this.response);
+
+        //clearing
+        // for(var i = 0; i < list.length - 1; i++){
+        //     table.removeChild(table.lastChild)
+        // }
+        //clean
         for(var i = 0; i < list.length; i++){
             name.textContent = list[i].course.name;
             code.textContent = list[i].course.deptCode;
