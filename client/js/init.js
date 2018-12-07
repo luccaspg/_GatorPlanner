@@ -463,6 +463,7 @@ function populateTable(){
 var selectedTable;
 function selectTable(id){
     selectedTable = id;
+    populateCoursesTable(id);
 
 }
 
@@ -502,7 +503,7 @@ function createTableElement(id){
     // var div = document.getElementById('tables_place');
     div.appendChild(newTable);
 
-    populateCoursesTable(id)
+    // populateCoursesTable(id)
 
 
 
@@ -545,15 +546,17 @@ function populateCoursesTable(id){
     var credits = document.createElement('td');
 
     var xhr = new XMLHttpRequest();
-    var url = 'list/' + id;
+    var url = 'lists/' + id;
     console.log(globalHost + url);
     xhr.open('GET', globalHost + url, true );
 
     xhr.onload = function(){
-        var list = this.response;
+        
+        var list = JSON.parse(this.response);
+        console.log(this.response);
         for(var i = 0; i < list.length; i++){
-            name.textContent = list[i].course;
-            code.textContent = list[i].course.name;
+            name.textContent = list[i].course.name;
+            code.textContent = list[i].course.deptCode;
             credits.textContent = list[i].course.credits;
             
             row.appendChild(name);
