@@ -523,6 +523,7 @@ function createNewTable(){
         request.open('POST', globalHost + 'table/' + userID[0]._id, true);
         request.onload = function(){
             var tableID = JSON.parse(this.response);
+            console.log(tableID);
             createTableElement(tableID._id);
         }
         request.send();
@@ -550,6 +551,7 @@ function populateTable(){
         request.open('GET', globalHost + 'table/' + userID[0]._id, true);
         request.onload =  function() {
             tableList = JSON.parse(this.response);
+            console.log(tableList[0]._id);
             for(var i = 0; i < tableList.length; i++){
 
                 createTableElement(tableList[i]._id);
@@ -574,6 +576,7 @@ function selectTable(id){
 }
 
 function createTableElement(id){
+    console.log(id);
     var div = document.getElementById('right_side');
     var newTable = document.createElement('table');
     var headings = document.createElement('tr');
@@ -596,7 +599,7 @@ function createTableElement(id){
     deleteBtn.appendChild(deleteClick);
     deleteClick.textContent = "Delete";
     deleteClick.setAttribute('onclick', 'deleteTable(\"' + id +'\")');
-    newTable.setAttribute('id', toString(id));
+    newTable.setAttribute('id', id);
 
 
     newTable.appendChild(headings);
@@ -634,7 +637,7 @@ function deleteTable(id){
 
     xhr.send();
 
-    var elem = document.getElementById(toString(id));
+    var elem = document.getElementById(id);
     elem.parentNode.removeChild(elem);
     return false;
 
@@ -643,7 +646,7 @@ function deleteTable(id){
 }
 
 function populateCoursesTable(id){
-    var table = document.getElementById(toString(id));
+    var table = document.getElementById(id);
 
     // while (table.firstChild) {
     // table.removeChild(table.firstChild);
