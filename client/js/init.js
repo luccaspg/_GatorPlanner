@@ -521,9 +521,13 @@ function createNewTable(){
         userID = JSON.parse(this.response)
         var request = new XMLHttpRequest();
         request.open('POST', globalHost + 'table/' + userID[0]._id, true);
+        request.onload = function(){
+            var tableID = JSON.parse(this.response);
+            createTableElement(tableID._id);
+        }
         request.send();
         // alert('table created');
-        createTableElement();
+        
     };
     xhr.send();
 }
