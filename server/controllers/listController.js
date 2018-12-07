@@ -35,7 +35,7 @@ exports.create = function(req, res) {
   });
 };
 
-//list all tables
+
 exports.getList = function(req, res){
   var id = req.params.ID;  //get org name from logged in user
   console.log("looking for table owned by " + id);

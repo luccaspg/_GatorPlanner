@@ -409,3 +409,41 @@ function createNewTable(){
         userID = parse.JSON(this.response)
     }
 }
+
+function createCourse(){
+
+
+
+var id = "559028";
+// var code = "CEN3031";
+// var credits = "4";
+// var name = "joseph order a pizza";
+
+// var code = document.getElementById('description_code').value;
+// var name = document.getElementById('description_name').value;
+// var credits = document.getElementById('description_credits').value;
+
+var code = document.getElementById("description_code").innerHTML;
+var name = document.getElementById('description_name').innerHTML;
+var credits = document.getElementById('description_credits').innerHTML;
+
+code = code.slice(5);
+name = name.slice(12);
+credits = credits.slice(8);
+
+var url = "http://localhost:8080/course/list/" + id + "/" + code + "/" + credits + "/" + name;
+   //  var course = document.getElementById('COURSE');
+   //  var name = course.elements[0].value;
+   //  // alert(ufemail);
+   //  var code = course.elements[1].value;
+   //  var credits = course.elements[2].value;
+   //  var ID = 'test';
+   //  // alert(ufemail + password);
+   // // var testfake = false;
+
+   //  var url = globalHost + '/list/' + ID '/' + code + '/' + credits + '/' + name;
+   var xhr = new XMLHttpRequest();
+   xhr.open('PUT', url, true);
+    
+   xhr.send();
+}
