@@ -52,7 +52,7 @@ function loginFunc(){
     // alert(ufemail + password);
     var testfake = false;
 
-    var url = "http://localhost:8080/course/user/" + ufemail;
+    var url = globalHost + "user/" + ufemail;
 	var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     
@@ -356,7 +356,7 @@ function updateUser(){
     email = globaluser[0].email;
 
 
-    var url = "http://localhost:8080/course/user/" + email;
+    var url = globalHost + "user/" + email;
     console.log(url);
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
@@ -382,7 +382,7 @@ function updateUsername(_id) {
 
 
 
-    var url = "http://localhost:8080/course/user/" + _id + "/" + fname + "/" + lname + "/" + password;
+    var url = globalHost + "user/" + _id + "/" + fname + "/" + lname + "/" + password;
     console.log(url);
 	var xhr = new XMLHttpRequest();
 	xhr.open('PUT', url, true);
@@ -409,7 +409,7 @@ function unhideCourse(){
 
 function getAllEmails() {
     $( ".printEmails" ).empty();
-    var url = "http://localhost:8080/course/e";
+    var url = globalHost + "e";
     console.log(url);
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
@@ -434,7 +434,7 @@ function deleteUser(){
     
     var emailReq = document.getElementById("emailDelete").value;
 
-    var url = "http://localhost:8080/course/user/" + emailReq;
+    var url = globalHost + "user/" + emailReq;
     console.log(url);
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
@@ -454,7 +454,7 @@ function deleteUser(){
 
 function deleteUsername(_id) {
 
-    var url = "http://localhost:8080/course/user/" + _id;
+    var url = globalHost + "user/" + _id;
     console.log(url);
 	var xhr = new XMLHttpRequest();
 	xhr.open('DELETE', url, true);
@@ -477,7 +477,7 @@ function updateCourse() {
 
     var prereq = "Prereq: " + courseId + " " + courseCode;
 
-    var url = "http://localhost:8080/course/" + selectedDepartment + "/" + courseToBeUpdated + "/" + courseName + "/" + prereq + "/" + courseCredits + "/" + courseDes;
+    var url = globalHost + selectedDepartment + "/" + courseToBeUpdated + "/" + courseName + "/" + prereq + "/" + courseCredits + "/" + courseDes;
 	var xhr = new XMLHttpRequest();
 	xhr.open('PUT', url, true);
 
@@ -523,6 +523,7 @@ function createNewTable(){
         request.open('POST', globalHost + 'table/' + userID[0]._id, true);
         request.onload = function(){
             var tableID = JSON.parse(this.response);
+            console.log(tableID);
             createTableElement(tableID._id);
         }
         request.send();
@@ -550,6 +551,9 @@ function populateTable(){
         request.open('GET', globalHost + 'table/' + userID[0]._id, true);
         request.onload =  function() {
             tableList = JSON.parse(this.response);
+            console.log(tableList[0]._id);
+
+
             for(var i = 0; i < tableList.length; i++){
 
                 createTableElement(tableList[i]._id);
@@ -574,6 +578,7 @@ function selectTable(id){
 }
 
 function createTableElement(id){
+    console.log(id);
     var div = document.getElementById('right_side');
     var newTable = document.createElement('table');
     var headings = document.createElement('tr');
@@ -596,7 +601,7 @@ function createTableElement(id){
     deleteBtn.appendChild(deleteClick);
     deleteClick.textContent = "Delete";
     deleteClick.setAttribute('onclick', 'deleteTable(\"' + id +'\")');
-    newTable.setAttribute('id', toString(id));
+    newTable.setAttribute('id', id);
 
 
     newTable.appendChild(headings);
@@ -634,7 +639,7 @@ function deleteTable(id){
 
     xhr.send();
 
-    var elem = document.getElementById(toString(id));
+    var elem = document.getElementById(id);
     elem.parentNode.removeChild(elem);
     return false;
 
@@ -643,7 +648,7 @@ function deleteTable(id){
 }
 
 function populateCoursesTable(id){
-    var table = document.getElementById(toString(id));
+    var table = document.getElementById(id);
 
     // while (table.firstChild) {
     // table.removeChild(table.firstChild);
@@ -654,6 +659,9 @@ function populateCoursesTable(id){
     var name = document.createElement('td');
     var code = document.createElement('td');
     var credits = document.createElement('td');
+
+    var removeCourse = document.createElement('td');
+    var removeBtn = document.createElement('button');
 
     var xhr = new XMLHttpRequest();
     var url = 'lists/' + id;
@@ -674,16 +682,24 @@ function populateCoursesTable(id){
             name.textContent = list[i].course.name;
             code.textContent = list[i].course.deptCode;
             credits.textContent = list[i].course.credits;
+
+            removeBtn.textContent = "X";
+            removeCourse.appendChild(removeBtn);
+            removeBtn.setAttribute('onclick', 'deleteCourse(\"' + list[i]._id + '\")');
             
             row.appendChild(name);
             row.appendChild(code);
             row.appendChild(credits);
             //append the delete element
+            row.appendChild(removeCourse);
             name = document.createElement('td');
             code = document.createElement('td');
             credits = document.createElement('td');
             row = document.createElement('tr')
             table.appendChild(row);
+
+            removeBtn = document.createElement('button');
+            removeCourse = document.createElement('td');
 
 
         }
@@ -701,6 +717,36 @@ function courseToTable(id){
 
 }
 
+function deleteCourse(ID){
+
+// var code = "CEN3031";
+// var credits = "4";
+// var name = "joseph order a pizza";
+
+// var code = document.getElementById('description_code').value;
+// var name = document.getElementById('description_name').value;
+// var credits = document.getElementById('description_credits').value;
+
+
+
+var url = globalHost + "lists/" + ID;
+   //  var course = document.getElementById('COURSE');
+   //  var name = course.elements[0].value;
+   //  // alert(ufemail);
+   //  var code = course.elements[1].value;
+   //  var credits = course.elements[2].value;
+   //  var ID = 'test';
+   //  // alert(ufemail + password);
+   // // var testfake = false;
+
+   //  var url = globalHost + '/list/' + ID '/' + code + '/' + credits + '/' + name;
+   var xhr = new XMLHttpRequest();
+   xhr.open('DELETE', url, true);
+    
+   xhr.send();
+
+   populateTables();
+}
 function createCourse(){
 
 // var code = "CEN3031";
@@ -719,7 +765,7 @@ code = code.slice(5);
 name = name.slice(12);
 credits = credits.slice(8);
 
-var url = "http://localhost:8080/course/list/" + selectedTable + "/" + code + "/" + credits + "/" + name;
+var url = globalHost + "list/" + selectedTable + "/" + code + "/" + credits + "/" + name;
    //  var course = document.getElementById('COURSE');
    //  var name = course.elements[0].value;
    //  // alert(ufemail);
@@ -734,13 +780,17 @@ var url = "http://localhost:8080/course/list/" + selectedTable + "/" + code + "/
    xhr.open('PUT', url, true);
     
    xhr.send();
+
+   populateTables();
+//    populateCoursesTable(selectedTable);
+    // selectTable(selectedTable);
 }
 
 function makeAdmin(){
     
     var emailAdmin = document.getElementById("giveAdmin").value;
 
-    var url = "http://localhost:8080/course/user/" + emailAdmin;
+    var url = globalHost + "user/" + emailAdmin;
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
 
@@ -760,7 +810,7 @@ function makeAdmin(){
 
 function grantAdmin(_id) {
 
-    var url = "http://localhost:8080/course/user/admin/" + _id;
+    var url = globalHost + "user/admin/" + _id;
     
 	var xhr = new XMLHttpRequest();
 	xhr.open('PUT', url, true);

@@ -90,7 +90,7 @@ exports.update = function(req, res) {
         // table.courses[table.courses.length-1]._id;
 
         console.log(addCourse);   
-        console.log( table.courses[1]._id);  
+        console.log(table.courses[1]._id);  
         console.log(table);
         
       }
