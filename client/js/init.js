@@ -716,7 +716,7 @@ function deleteCourse(ID){
 
 
 
-var url = globalHost + "/lists/" + ID;
+var url = globalHost + "lists/" + ID;
    //  var course = document.getElementById('COURSE');
    //  var name = course.elements[0].value;
    //  // alert(ufemail);
