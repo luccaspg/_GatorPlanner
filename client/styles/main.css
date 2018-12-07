@@ -264,6 +264,15 @@ th, td {
 #User{
 	display:none;
 }
+#logout{
+	display:none;
+}
+#adminUser{
+	display:none;
+}
+#upCourse{
+	display:none;
+}
 .modal2{
 	display:none;
 	position:fixed;
