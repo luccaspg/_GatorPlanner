@@ -584,9 +584,6 @@ function courseToTable(id){
 
 function createCourse(){
 
-
-
-var id = "559028";
 // var code = "CEN3031";
 // var credits = "4";
 // var name = "joseph order a pizza";
@@ -603,7 +600,7 @@ code = code.slice(5);
 name = name.slice(12);
 credits = credits.slice(8);
 
-var url = "http://localhost:8080/course/list/" + id + "/" + code + "/" + credits + "/" + name;
+var url = "http://localhost:8080/course/list/" + selectedTable + "/" + code + "/" + credits + "/" + name;
    //  var course = document.getElementById('COURSE');
    //  var name = course.elements[0].value;
    //  // alert(ufemail);
