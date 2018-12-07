@@ -685,12 +685,13 @@ function populateCoursesTable(id){
 
             removeBtn.textContent = "X";
             removeCourse.appendChild(removeBtn);
-            removeBtn.setAttribute(deleteCourse(list[i]._id));
+            removeBtn.setAttribute('onclick', 'deleteCourse(\"' + list[i]._id + '\")');
             
             row.appendChild(name);
             row.appendChild(code);
             row.appendChild(credits);
             //append the delete element
+            row.appendChild(removeCourse);
             name = document.createElement('td');
             code = document.createElement('td');
             credits = document.createElement('td');
@@ -743,6 +744,8 @@ var url = globalHost + "lists/" + ID;
    xhr.open('DELETE', url, true);
     
    xhr.send();
+
+   populateTables();
 }
 function createCourse(){
 
@@ -777,6 +780,10 @@ var url = globalHost + "list/" + selectedTable + "/" + code + "/" + credits + "/
    xhr.open('PUT', url, true);
     
    xhr.send();
+
+   populateTables();
+//    populateCoursesTable(selectedTable);
+    // selectTable(selectedTable);
 }
 
 function makeAdmin(){
