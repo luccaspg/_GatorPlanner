@@ -28,4 +28,4 @@ Some requests to the UF API return empty departments. So some departments in the
 When updating a course as an admin, reclick the go button next to the tree filter to refresh the tree view and to see the updated course.
 When subtmitting the update course form, changing the prerequitsites will change where the course will be drawn in the tree. Leaving the field empty will result in a standalone node.
 
-When adding a course to your planner, select the node you want to add. Clicking the corresponding add button requires clicking on a table to add the course to a certain table. Clicking the delete marker next to a course will delete that corresponding course.
+When adding a course to your planner, select the table select button you want to add to. Then you can click on the add button below the tree (once clicking on a tree node) to add to the table. Clicking the delete marker next to a course will delete that corresponding course. Adding and deleting the courses will reset the drop down of the table, so you must select the table again to see the changes.
