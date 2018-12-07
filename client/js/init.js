@@ -552,6 +552,8 @@ function populateTable(){
         request.onload =  function() {
             tableList = JSON.parse(this.response);
             console.log(tableList[0]._id);
+
+
             for(var i = 0; i < tableList.length; i++){
 
                 createTableElement(tableList[i]._id);
@@ -658,6 +660,9 @@ function populateCoursesTable(id){
     var code = document.createElement('td');
     var credits = document.createElement('td');
 
+    var removeCourse = document.createElement('td');
+    var removeBtn = document.createElement('button');
+
     var xhr = new XMLHttpRequest();
     var url = 'lists/' + id;
     console.log(globalHost + url);
@@ -677,6 +682,10 @@ function populateCoursesTable(id){
             name.textContent = list[i].course.name;
             code.textContent = list[i].course.deptCode;
             credits.textContent = list[i].course.credits;
+
+            removeBtn.textContent = "X";
+            removeCourse.appendChild(removeBtn);
+            removeBtn.setAttribute(deleteCourse(list[i]._id));
             
             row.appendChild(name);
             row.appendChild(code);
@@ -687,6 +696,9 @@ function populateCoursesTable(id){
             credits = document.createElement('td');
             row = document.createElement('tr')
             table.appendChild(row);
+
+            removeBtn = document.createElement('button');
+            removeCourse = document.createElement('td');
 
 
         }
