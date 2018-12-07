@@ -24,3 +24,6 @@ Stuck with a single web application as to provide ease when planning courses. We
 
 Tree/List View
 Some requests to the UF API return empty departments. So some departments in the filter may not respond with courses.
+
+When updating a course as an admin, reclick the go button next to the tree filter to refresh the tree view and to see the updated course.
+When subtmitting the update course form, changing the prerequitsites will change where the course will be drawn in the tree. Leaving the field empty will result in a standalone node.
