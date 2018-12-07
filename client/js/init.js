@@ -460,7 +460,7 @@ function deleteUsername(_id) {
 	xhr.open('DELETE', url, true);
 
     document.getElementById("emailDelete").value =  "";
-    alert("User succesfully updated!");
+    alert("User succesfully deleted!");
 
 	xhr.send();
 }
