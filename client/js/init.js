@@ -337,3 +337,52 @@ function profilePopup(){
 function unhideUser(){
     document.getElementById('Update Account').style = "display: block;";
 }
+
+function updateUser(){
+    
+    email = globaluser[0].email;
+
+
+    var url = "http://localhost:8080/course/user/" + email;
+    console.log(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+
+	xhr.onload = function(){
+
+    var data = JSON.parse(xhr.response);
+    console.log(data);
+
+    var id = data[0]._id;
+    console.log(id);
+    updateUsername(id);
+	};
+	
+	xhr.send();
+}
+
+function updateUsername(_id) {
+
+    fname = document.getElementById("updatefn").value;
+    lname = document.getElementById("updateln").value;
+    password = document.getElementById("updatepsw").value;
+
+
+
+    var url = "http://localhost:8080/course/user/" + _id + "/" + fname + "/" + lname + "/" + password;
+    console.log(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('PUT', url, true);
+
+	xhr.onload = function(){
+
+    document.getElementById("updatefn").value; "";
+    document.getElementById("updateln").value = "";
+    document.getElementById("updatepsw").value = "";
+
+    alert("User succesfully updated!")
+
+	};
+	
+	xhr.send();
+}

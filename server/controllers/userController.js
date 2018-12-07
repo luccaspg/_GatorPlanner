@@ -158,7 +158,7 @@ exports.userByID = function(req, res, next, id) {
 exports.updateUser = function(req, res){
   models.users.findById(req.params.id, function(err, user){
     if(!user)
-      return next(new Error('not found'));
+      return new Error('not found');
     else{
         user.password = req.params.password;
         user.fname = req.params.fname;
