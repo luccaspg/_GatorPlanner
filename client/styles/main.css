@@ -30,11 +30,19 @@ input {
 	font-size: 16px; /* Set a font size */
 	cursor: pointer; /* Mouse pointer on hover */
 }
+.btn2{
+	background-color: rgb(44, 63, 240); /* Blue background */
+	border: none; /* Remove borders */
+	color: white; /* White text */
+	padding: 12px 13px; /* Some padding */
+	font-size: 16px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
 .btn:hover{
 	background-color: #1F35EA;
 }
 .dropdown{
-	margin-top: 70px;
+	margin-top: 2%;
 	margin-left: 20px;
 }
 .table {
@@ -362,6 +370,16 @@ input[type=text], input[type=text], input[type=text], input[type=password]{
 	cursor: pointer;
 	width:85%;
 	font-size: 26px;
+}
+.authenticate2{
+	background-color:darkblue;
+	color:white;
+	padding: 14px 20px;
+	margin: 8px 26px;
+	border: none;
+	cursor: pointer;
+	width:40%;
+	font-size: 13px;
 }
 .authenticate:hover{
 	background-color:dodgerblue;

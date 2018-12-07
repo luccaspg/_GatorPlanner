@@ -761,7 +761,6 @@ function getDepartmentCode(){
 	var CODE;
     var value = document.getElementById('pickedDepartment').value;
     for (var i = 0; i < departmentCodes.length; i++){
-		console.log(departmentCodes[i]);
         if (departmentCodes[i].DESC == value){
 			var $scope = angular.element()
             console.log(departmentCodes[i].CODE);

@@ -265,22 +265,132 @@ exports.getCourse = function(req, res){
 // };
 
 exports.updateCourse = function(req, res){
-  CourseList.CourseList.findById(req.params.courseCode, function(err, user){
-    if(!user)
-      return next(new Error('not found'));
-    else{
-        console.log(user);
 
-        user.save().then(user =>{
-          res.json('updated');
+  code = req.params.deptCode;
+  courseCode = req.params.courseCode;
+  courseName = req.params.courseName;
+  prereq = req.params.prereq;
+  credits = req.params.credits;
+  description = req.params.description;
+  
+  CourseList.find({}, function(err, courses) {
+  
+  if(err) {
+  
+    console.log(err);
+    res.status(404).send(err);
+  }
+  
+  else{
+  
+    allCourses = [];
+    courses.forEach(function(index){
+    if(index.COURSES.length != 0 && index.COURSES != undefined){
+  
+      if(code == index.COURSES[0].sections[0].deptCode) {
+        var j = 0;
+        for(var i = 0; i < index.COURSES.length; i++){
+          console.log(index.COURSES[i].name);
+          if(index.COURSES[i].code == courseCode){
+          j = i;
+          }
+        }
+  // index.COURSES[j].code = courseCode;
+  
+        index.COURSES[j].name = courseName;
+        index.COURSES[j].prerequisites = prereq;
+        index.COURSES[j].sections[0].credits = credits;
+        index.COURSES[j].description = description;
+        
+        console.log(index.COURSES[j].name);
+        
+        index.save().then(index =>{
+        res.json(index.COURSES[j]);
         })
-        .catch(err =>{
-          res.status(400).send('not working');
-        });
+    
+    .catch(err =>{
+    // res.status(400).send('not working');
+    });
     }
-  });
+    }
+    });
+  
+  // var chosenCourse;
+  
+  // for(var i = 0; i < allCourses[0].length; i++){
+  
+  // // console.log(allCourses[0][i].code);
+  
+  // if(allCourses[0][i].code == courseCode){
+  
+  // chosenCourse = allCourses[0][i];
+  
+  // allCourses[0][i].code = courseCode;
+  
+  // allCourses[0][i].name = courseName;
+  
+  // allCourses[0][i].prerequisites = prereq;
+  
+  // allCourses[0][i].sections[0].credits = credits;
+  
+  // allCourses[0][i].description = description;
+  
+  
+  
+  // console.log(allCourses[0][i]);
+  
+  
+  
+  // allCourses[0][i].save().then(allCourses =>{
+  
+  // res.json('updated');
+  
+  // })
+  
+  // .catch(err =>{
+  
+  // // res.status(400).send('not working');
+  
+  // });
+  
+  // break;
+  
+  // }
+  
+  // }
+  
+  // //update
+  
+  
+  
+  
+  
+  
+      res.json("updated");
+  
+      }
+  
+    });
+  };
+  
+
+// exports.updateCourse = function(req, res){
+//   CourseList.CourseList.findById(req.params.courseCode, function(err, user){
+//     if(!user)
+//       return next(new Error('not found'));
+//     else{
+//         console.log(user);
+
+//         user.save().then(user =>{
+//           res.json('updated');
+//         })
+//         .catch(err =>{
+//           res.status(400).send('not working');
+//         });
+//     }
+//   });
 
 
 
 
-};
+// };
