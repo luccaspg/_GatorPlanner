@@ -31,6 +31,9 @@ router.route('/user/:email')
   // .post(users.create);
   console.log("router email");
 
+router.route('/user/admin/:id')
+.put(users.grantAdmin)  
+
 /* for calls to /api/functions/event */
 router.route('/dept')
   .get(departments.list)

@@ -198,3 +198,22 @@ exports.updateUser = function(req, res){
 
   
 };
+
+exports.grantAdmin = function(req, res){
+  models.users.findById(req.params.id, function(err, user){
+    if(!user)
+      return new Error('not found');
+    else{
+        user.isAdmin = true;
+
+        user.save().then(user =>{
+          res.json('updated');
+        })
+        .catch(err =>{
+          res.status(400).send('not working');
+        });
+    }
+  });
+
+  
+};
