@@ -744,6 +744,8 @@ var url = globalHost + "lists/" + ID;
    xhr.open('DELETE', url, true);
     
    xhr.send();
+
+   populateTables();
 }
 function createCourse(){
 
@@ -778,6 +780,10 @@ var url = "http://localhost:8080/course/list/" + selectedTable + "/" + code + "/
    xhr.open('PUT', url, true);
     
    xhr.send();
+
+   populateTables();
+//    populateCoursesTable(selectedTable);
+    // selectTable(selectedTable);
 }
 
 function makeAdmin(){
