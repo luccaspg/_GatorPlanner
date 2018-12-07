@@ -40,6 +40,18 @@ router.route('/table/:ID')
   //.get(tables.listUserTable)
   .post(tables.create);
 
+  router.route('/table/:ID')
+  //.get(tables.listUserTable)
+  .get(tables.listUserTable);
+
+  router.route('/table/:tableID/')
+  //.get(tables.listUserTable)
+  .delete(tables.delete);
+
+  router.route('/table/:add_delete/:code/:index/:ID')
+  .put(tables.update);
+  
+
   router.route('/user/:email/:fname/:lname/:password')
   .post(users.createUser);
 

@@ -1,5 +1,6 @@
-var mongoose = require('mongoose'),
+var mongoose = require('mongoose').set('debug',true),
   models = require('../models/model.js');
+  
 
 /* Create a table */
 exports.create = function(req, res) {
@@ -58,20 +59,66 @@ exports.delete = function(req, res) {
 
 //update table
 exports.update = function(req, res) {
+//table is the list of tables
+  // var table = models.tables.findById(req.params.ID);
+  var index = req.params.index;
+  var code = req.params.code;
+  var data = [{"deptCode" :"Test",
+  "credits" :"3",
+  "name": code
+}];
+  //  models.tables.courses();
+  var addCourse = data;
+  
 
-  var table = req.table;
+  models.tables.findById(req.params.ID, function(err, table){
+    if(!table)
+      return (new Error('not found'));
+    else{
+      if(req.params.add_delete == 1 && table.courses.length < 8){
+        // var newTable = new models.tables(table);
+        // table.courses.insert(addCourse);
+        table.courses.push(addCourse[0])
+        
+        table.courses[table.courses.length-1].name = code;
+        // table.courses[table.courses.length-1]._id;
 
-  table.userID = req.body.userID;
-  table.name= req.body.name;
+        console.log(addCourse);   
+        console.log( table.courses[1]._id);  
+        console.log(table);
+        
+      }
+      
+      else if (req.params.add_delete == 0){
+        table.courses.remove(index);
+        console.log(table);
+      }
 
-  table.save(function(err) {
-    if (err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(table);
+      // table.update({ _id: req.params.ID }, { '$push': { courses: [ { deptCode: 'Test', credits: '3', name: 'COP3530' } ] }, '$inc': { __v: 2 } }, function(err, doc){res.json("done");});
+        table.save()
+        .then(table =>{
+          console.log('updated');
+          res.json('updated');
+        })
+        .catch(err =>{
+          res.status(400).send('not working');
+        });
     }
   });
+
+  // table.userID = req.body.userID;
+  // table.name= req.body.name;
+  //1 for add 0 for delete course
+  // console.log(table);
+  // console.log()  
+  // table.save(function(err) {
+  //   if (err) {
+  //     console.log(err);
+  //     res.status(400).send(err);
+  //   } else {
+  //     res.json(table);
+  //   }
+  // });
 };
 
 exports.tableByID = function(req, res, next, id) {
@@ -79,7 +126,7 @@ exports.tableByID = function(req, res, next, id) {
     if(err) {
       res.status(400).send(err);
     } else {
-      req.table = table;
+      req.table = event;
       next();
     }
   });
