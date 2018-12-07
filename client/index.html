@@ -5,9 +5,11 @@
 	</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
+	  <script src="js/init.js"></script>
   <head>
   <body ng-app="gatorPlanner" ng-controller="ListingController">
 	<div id=banner></div>
+
 
 	<div class="left" style="position:absolute; top:3%;">
 		<div class="dropdown">
@@ -79,8 +81,10 @@
 		</table>
 	</div>
 	<div class ="right" style="position: absolute; right:3%;" id="right_side">
+
 		<input type ="button" class="btn" style ="position:absolute; margin-left:72%;" onclick="unhideL()" value="Login"/>
 		<input type="button" class ="btn" style ="position:absolute; margin-left:88%"  onclick="unhideR()" value="Register"/>
+
 		<!--<div style="display: none;" id='login'>-->
 		<div id="login" class="modal">
 
@@ -207,6 +211,65 @@
 
 		<!--</table>-->
 		<!-- <div id="tables_div"></div> -->
+	<div id="Users" class="modal">
+		<div class="container">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('Users').style.display='none'" class="close" title="Close">&times;</span>
+			</div>
+			<label>Users</label>
+			<!--<form name="">-->
+			<!--<input type="text" placeholder="Update First Name" id="updateF">-->
+			<!--<input type="text" placeholder="Update Last Name" id="updateL">-->
+			<!--<input type="password" placeholder="Update password" id="updateP">-->
+			<!--<input class="authenticate" type="button" onclick="" value="Update">-->
+			<!--</form>-->
+		</div>
+	</div>
+
+	<div id="Update Account" class="modal">
+		<div class="container">
+			<div aligin="left" class="imgcontainer">
+				<span onclick="document.getElementById('Update Account').style.display='none'" class="close" title="Close">&times;</span>
+			</div>
+			<div>
+				<center><label>Update User Information</label></center>
+			<form name="">
+				<input type="text" placeholder="Your UFL Email" id="email">
+				<input type="text" placeholder="Update first name" id="updatefn">
+				<input type="text" placeholder="Update last name" id="updateln">
+				<input type="text" placeholder="Update password" id="updatepsw">
+				<input class="authenticate" type="button" onclick="" value="Update">
+			</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="Course" class="modal">
+		<div class="container">
+			<div aligin="left" class="imgcontainer">
+				<span onclick="document.getElementById('Course').style.display='none'" class="close" title="Close">&times;</span>
+			</div>
+			<div>
+				<center><label>Update Course</label></center>
+				<form name="">
+					<input type="text" placeholder="e.g. CDA3101 type CDA" id="updateId">
+					<input type="text" placeholder="e.g. CDA3101 type 3101" id="updateN">
+					<input type="password" placeholder="Update Course Name" id="updateName">
+					<input type="password" placeholder="Update Pre-reqs" id="updatePre">
+					<input type="password" placeholder="Update Description" id="updateDes">
+					<input class="authenticate" type="button" onclick="" value="Update">
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<input  type ="button" class="btn"  style="position:absolute; left:89%; top:15%;" id="User" onclick="unhideUser()" value="Update Profile"/>
+	<input type="button" class="btn" style=" position:absolute; left:90%; top:1%;" id="logout" onclick="window.location.reload()" value="Logout"/>
+	<input type="button" class="btn" style=" position:absolute; left:73%; top:1%;" id="upCourse" onclick="unhideCourse()" value="Update Course"/>
+	<input type="button" class="btn" style="position:absolute; left: 77%; top:15%;" id="adminUser" onclick="unhideAdmin()" value="Manage Users"/>
+	<div id="UF">
+		<iframe src="http://www.ratemyprofessors.com/"></iframe>
+	</div>
 	</div>
 	
 
@@ -236,7 +299,7 @@
     <script src="js/factories/listingFactory.js"></script>
 	<script src="js/controllers/listingController.js"></script>
 	<!--<script src="js/tree.js"></script>-->
-	<script src="js/init.js"></script>
+	<!--<script src="js/init.js"></script>-->
 	<script src="js/controllers/createUser.js"></script>
 	<script src="js/controllers/getDepartment.js"></script>
   </body>

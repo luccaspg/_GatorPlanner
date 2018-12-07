@@ -53,6 +53,29 @@ exports.createUser = function(req, res){
   
 }
 
+exports.listEmails = function(req, res)
+{
+  models.users.find({ }).exec(function(err, users)
+  {
+    console.log("finding users");
+    if (err)
+    {
+      res.status(400).send(err);
+    }
+    else
+    {
+      var emailList = [];
+      users.forEach(function(item)
+      {
+        console.log(item);
+        emailList.push(item.email);
+      });
+      console.log(emailList);
+      res.json(emailList);
+    }
+    //console.log(userList);
+  });
+};
 exports.listByEmail = function(req, res)
  {
   
