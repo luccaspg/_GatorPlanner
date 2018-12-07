@@ -418,7 +418,7 @@ function createNewTable(){
     xhr.onload = function(){
         userID = JSON.parse(this.response)
         var request = new XMLHttpRequest();
-        request.open('POST', globalHost + 'table/' + userID, true);
+        request.open('POST', globalHost + 'table/' + userID[0]._id, true);
         request.send();
         // alert('table created');
         createTableElement();
@@ -441,7 +441,7 @@ function populateTable(){
     xhr.onload = function(){
         userID = JSON.parse(this.response);
         var request = new XMLHttpRequest();
-        request.open('GET', globalHost + 'table/' + userID, true);
+        request.open('GET', globalHost + 'table/' + userID[0]._id, true);
         request.onload =  function() {
             tableList = JSON.parse(this.response);
             for(var i = 0; i < tableList.length; i++){
