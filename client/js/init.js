@@ -520,10 +520,14 @@ function createNewTable(){
     xhr.onload = function(){
         userID = JSON.parse(this.response)
         var request = new XMLHttpRequest();
-        request.open('POST', globalHost + 'table/' + userID, true);
+        request.open('POST', globalHost + 'table/' + userID[0]._id, true);
+        request.onload = function(){
+            var tableID = JSON.parse(this.response);
+            createTableElement(tableID._id);
+        }
         request.send();
         // alert('table created');
-        createTableElement();
+        
     };
     xhr.send();
 }
@@ -543,7 +547,7 @@ function populateTable(){
     xhr.onload = function(){
         userID = JSON.parse(this.response);
         var request = new XMLHttpRequest();
-        request.open('GET', globalHost + 'table/' + userID, true);
+        request.open('GET', globalHost + 'table/' + userID[0]._id, true);
         request.onload =  function() {
             tableList = JSON.parse(this.response);
             for(var i = 0; i < tableList.length; i++){
@@ -565,6 +569,7 @@ function populateTable(){
 var selectedTable;
 function selectTable(id){
     selectedTable = id;
+    populateCoursesTable(id);
 
 }
 
@@ -604,7 +609,7 @@ function createTableElement(id){
     // var div = document.getElementById('tables_place');
     div.appendChild(newTable);
 
-    populateCoursesTable(id)
+    // populateCoursesTable(id)
 
 
 
@@ -640,6 +645,10 @@ function deleteTable(id){
 function populateCoursesTable(id){
     var table = document.getElementById(toString(id));
 
+    // while (table.firstChild) {
+    // table.removeChild(table.firstChild);
+    // }
+
     var row = document.createElement('tr')
     table.appendChild(row);
     var name = document.createElement('td');
@@ -647,15 +656,23 @@ function populateCoursesTable(id){
     var credits = document.createElement('td');
 
     var xhr = new XMLHttpRequest();
-    var url = 'list/' + id;
+    var url = 'lists/' + id;
     console.log(globalHost + url);
     xhr.open('GET', globalHost + url, true );
 
     xhr.onload = function(){
-        var list = this.response;
+        
+        var list = JSON.parse(this.response);
+        console.log(this.response);
+
+        //clearing
+        // for(var i = 0; i < list.length - 1; i++){
+        //     table.removeChild(table.lastChild)
+        // }
+        //clean
         for(var i = 0; i < list.length; i++){
-            name.textContent = list[i].course;
-            code.textContent = list[i].course.name;
+            name.textContent = list[i].course.name;
+            code.textContent = list[i].course.deptCode;
             credits.textContent = list[i].course.credits;
             
             row.appendChild(name);
