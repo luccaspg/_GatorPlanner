@@ -12,7 +12,11 @@ router.route('/')
 router.route('/:name')
   .get(courselist.getInfo);
   */
+router.route('/list')
+  .get(users.list);
 
+router.route('/e')
+  .get(users.listEmails);
 /* for calls to /api/functions/user */
 router.route('/user/:email')
 .get(users.listByEmail)
