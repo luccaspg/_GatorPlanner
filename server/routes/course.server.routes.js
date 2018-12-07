@@ -2,6 +2,7 @@ var courselist = require('../controllers/course.server.controller.js'),
     tables = require('../controllers/tableController.js'),
     users = require('../controllers/userController.js'),
     departments = require('../controllers/deptController.js'),
+    lists = require('../controllers/listController.js'),
     express = require('express'), 
     router = express.Router();
 
@@ -14,6 +15,13 @@ router.route('/:name')
   */
 router.route('/list')
   .get(users.list);
+
+router.route('/list/:ID/:code/:credits/:name')
+  .put(lists.create);
+
+router.route('/lists/:ID')
+  .get(lists.getList)
+  .delete(lists.delete);
 
 router.route('/e')
   .get(users.listEmails);
@@ -134,6 +142,7 @@ router.route('/dept/:deptID')
 // });
 
 router.param('tableID', tables.tableByID);
+//router.param('name', lists.listByID);
 //router.param('courseID', courses.courseByID);
 router.param('deptID', departments.deptByID);
 
