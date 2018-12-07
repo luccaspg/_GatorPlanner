@@ -229,8 +229,12 @@
 				<label>Users</label>
 				<ul style="padding:25" id="printEmails"></ul>
 				<form name="">
+						<input type="text" placeholder="New Admin User" id="giveAdmin">
+						<input class="authenticate2" type="button" onclick=makeAdmin() value="Grant Admin">
+					</form>
+				<form name="">
 					<input type="text" placeholder="Delete User" id="emailDelete">
-					<input class="authenticate2" type="button" onclick=deleteUser() value="Update">
+					<input class="authenticate2" type="button" onclick=deleteUser() value="Delete User">
 				</form>
 			</div>
 			<!--<form name="">-->

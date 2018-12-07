@@ -87,30 +87,6 @@ exports.getAll = function(req, res) {
   });
 };
 
-exports.getInfo = function(req,res){
-  var id = req.params['id']
-  console.log(id);
-  ParkingLot.findById(id, function(err, parkinglot){
-    if(err){
-      console.log(err);
-    }
-    res.json(parkinglot);
-  });
-};
-
-exports.updateRating = function(req, res){
-  var name = req.body.name
-  var email = req.body.email;
-  var rating = req.body.rateValue;
-  ParkingLot.findOneAndUpdate({'name': name}, {'rating': rating}, function(err, parkinglot){
-    if (err) throw err;
-      
-    console.log("Updated rating to " + name);
-    });
-   res.send("Updated rating in lot " + name + "!");
-};
-
-
 // exports.updatePrereq = function(req, res){
 //   var old = req.params.code;
 //   var newcode = req.params.newcode;

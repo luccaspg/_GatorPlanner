@@ -389,7 +389,7 @@ function updateUsername(_id) {
 
 	xhr.onload = function(){
 
-    document.getElementById("updatefn").value; "";
+    document.getElementById("updatefn").value = "";
     document.getElementById("updateln").value = "";
     document.getElementById("updatepsw").value = "";
 
@@ -717,4 +717,41 @@ var url = "http://localhost:8080/course/list/" + selectedTable + "/" + code + "/
    xhr.open('PUT', url, true);
     
    xhr.send();
+}
+
+function makeAdmin(){
+    
+    var emailAdmin = document.getElementById("giveAdmin").value;
+
+    var url = "http://localhost:8080/course/user/" + emailAdmin;
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+
+	xhr.onload = function(){
+
+        var data = JSON.parse(xhr.response);
+        console.log(data);
+
+        var id = data[0]._id;
+        console.log(id);
+
+        grantAdmin(id);
+	};
+	
+	xhr.send();
+}
+
+function grantAdmin(_id) {
+
+    var url = "http://localhost:8080/course/user/admin/" + _id;
+    
+	var xhr = new XMLHttpRequest();
+	xhr.open('PUT', url, true);
+
+    xhr.onload = function() {
+        document.getElementById("giveAdmin").value =  "";
+        alert("User Granted Admin");
+    }
+
+	xhr.send();
 }
