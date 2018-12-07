@@ -8,10 +8,15 @@
 	  <script src="js/init.js"></script>
   <head>
   <body ng-app="gatorPlanner" ng-controller="ListingController">
-	<div id=banner></div>
+	<div id=banner>
+			<input type="button" class="btn2" style="float:right; margin-left:12px; margin-top: 7px;" id="logout" onclick="window.location.reload()" value="Logout"/>
+			<input  type ="button" class="btn2"  style="float:right; margin-left:12px; margin-top: 7px;" id="User" onclick="unhideUser()" value="Update Profile"/>
+			<input type="button" class="btn2" style="float:right; margin-left:12px; margin-top: 7px;" id="upCourse" onclick="unhideCourse()" value="Update Course"/>
+			<input type="button" class="btn2" style="float:right; margin-left:12px; margin-top: 7px;" id="adminUser" onclick="unhideAdmin()" value="Manage Users"/>
+	</div>
 
 
-	<div class="left" style="position:absolute; top:3%;">
+	<div class="left" style="position:absolute; top:9%;">
 		<div class="dropdown">
 			<font size = "5" color="black">
 				<label>Choose a Department</label>
@@ -217,7 +222,17 @@
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('Users').style.display='none'" class="close" title="Close">&times;</span>
 			</div>
-			<label>Users</label>
+			<div>
+				<input class="btn" type="button" onclick="getAllEmails()" value="Get Emails"></input>
+			</div>
+			<div style="padding-top: 20px">
+				<label>Users</label>
+				<ul style="padding:25" id="printEmails"></ul>
+				<form name="">
+					<input type="text" placeholder="Delete User" id="emailDelete">
+					<input class="authenticate2" type="button" onclick=deleteUser() value="Update">
+				</form>
+			</div>
 			<!--<form name="">-->
 			<!--<input type="text" placeholder="Update First Name" id="updateF">-->
 			<!--<input type="text" placeholder="Update Last Name" id="updateL">-->
@@ -252,22 +267,22 @@
 			<div>
 				<center><label>Update Course</label></center>
 				<form name="">
-					<input type="text" placeholder="e.g. CDA3101 type CDA" id="updateId">
-					<input type="text" placeholder="e.g. CDA3101 type 3101" id="updateN">
-					<input type="password" placeholder="Update Course Name" id="updateName">
-					<input type="password" placeholder="Update Pre-reqs" id="updatePre">
-					<input type="password" placeholder="Update Description" id="updateDes">
-					<input class="authenticate" type="button" onclick="" value="Update">
+					<select style = " margin-left: 1%; font-size: 18px;width: 250px;height: 40px;" id="filterDepartment">
+							<option value="Select Department" id="filterDepartment" ng-model="selectedDepartment" ng-value="listing.department" ng-repeat="listing in listings track by $index | orderBy: DESC">{{listing.DESC}}</option>
+					</select>
+					<input type="text" placeholder="Course Code of Course to be Updated" id="updateCourseSel">
+					<input type="text" placeholder="Update Course Name" id="updateName">
+					<input type="text" placeholder="Update Prereq Code Name(e.g CDA)" id="updateId">
+					<input type="text" placeholder="Update Prereq ID (e.g 3101)" id="updateN">
+					<input type="text" placeholder="Update Credits" id="updateCredits">
+					<input type="text" placeholder="Update Description" id="updateDes">
+					<input class="authenticate" type="button" onclick=updateCourse() value="Update">
 				</form>
 			</div>
 		</div>
 	</div>
 
-	<input  type ="button" class="btn"  style="position:absolute; left:89%; top:15%;" id="User" onclick="unhideUser()" value="Update Profile"/>
-	<input type="button" class="btn" style=" position:absolute; left:90%; top:1%;" id="logout" onclick="window.location.reload()" value="Logout"/>
-	<input type="button" class="btn" style=" position:absolute; left:73%; top:1%;" id="upCourse" onclick="unhideCourse()" value="Update Course"/>
-	<input type="button" class="btn" style="position:absolute; left: 77%; top:15%;" id="adminUser" onclick="unhideAdmin()" value="Manage Users"/>
-	<!-- <div id="UF">
+	<div id="UF">
 		<iframe src="http://www.ratemyprofessors.com/"></iframe>
 	</div> -->
 	</div>

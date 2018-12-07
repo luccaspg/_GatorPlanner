@@ -407,6 +407,108 @@ function unhideCourse(){
 }
 
 
+function getAllEmails() {
+    $( ".printEmails" ).empty();
+    var url = "http://localhost:8080/course/e";
+    console.log(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+
+	xhr.onload = function(){
+        document.getElementById("printEmails").innerHTML = "";
+        var data = JSON.parse(xhr.response);
+
+        for (var i = 0; i < data.length; i++){
+            var item = data[i];
+            var ul = document.getElementById("printEmails");
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(item));
+            ul.appendChild(li);
+        }
+	};
+	
+    xhr.send();
+}
+
+function deleteUser(){
+    
+    var emailReq = document.getElementById("emailDelete").value;
+
+    var url = "http://localhost:8080/course/user/" + emailReq;
+    console.log(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+
+	xhr.onload = function(){
+
+        var data = JSON.parse(xhr.response);
+        console.log(data);
+
+        var id = data[0]._id;
+
+        deleteUsername(id);
+	};
+	
+	xhr.send();
+}
+
+function deleteUsername(_id) {
+
+    var url = "http://localhost:8080/course/user/" + _id;
+    console.log(url);
+	var xhr = new XMLHttpRequest();
+	xhr.open('DELETE', url, true);
+
+    document.getElementById("emailDelete").value =  "";
+    alert("User succesfully updated!");
+
+	xhr.send();
+}
+
+function updateCourse() {
+
+    var selectedDepartment = getDepartmentFilter();
+    var courseToBeUpdated = document.getElementById("updateCourseSel").value;
+    var courseName = document.getElementById("updateName").value;
+    var courseId = document.getElementById("updateId").value;
+    var courseCode = document.getElementById("updateN").value;
+    var courseCredits = document.getElementById("updateCredits").value;
+    var courseDes = document.getElementById("updateDes").value;
+
+    var prereq = "Prereq: " + courseId + " " + courseCode;
+
+    var url = "http://localhost:8080/course/" + selectedDepartment + "/" + courseToBeUpdated + "/" + courseName + "/" + prereq + "/" + courseCredits + "/" + courseDes;
+	var xhr = new XMLHttpRequest();
+	xhr.open('PUT', url, true);
+
+	xhr.onload = function(){
+
+        document.getElementById("updateCourseSel").value = "";
+        document.getElementById("updateName").value= "";
+        document.getElementById("updateId").value= "";
+        document.getElementById("updateN").value= "";
+        document.getElementById("updateCredits").value = "";
+        document.getElementById("updateDes").value = "";
+
+    alert("Course succesfully updated!")
+
+	};
+	
+	xhr.send();
+}
+
+function getDepartmentFilter(){
+	var newCode;
+    var newValue = document.getElementById('filterDepartment').value;
+    console.log(newValue);
+    for (var i = 0; i < departmentCodes.length; i++){
+        console.log(departmentCodes[i].CODE);
+        if (departmentCodes[i].DESC == newValue){
+            newCode = departmentCodes[i].CODE;
+			return newCode;
+        }
+    }
+}
 function createNewTable(){
     var userID;
 
