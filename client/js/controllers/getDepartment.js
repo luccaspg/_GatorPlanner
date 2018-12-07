@@ -773,7 +773,7 @@ function getDepartmentCode(){
 	//request to get the data and build the tree
 
 	
-	var url = "http://localhost:8080/course/" + CODE;
+	var url = "//ufgatorplanner.herokuapp.com/course/" + CODE;
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
 

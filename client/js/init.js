@@ -9,7 +9,7 @@ function unhideR(){
 var view = true;
 var globaluser;
 var testuser;
-var globalHost = "http://localhost:8080/course/";
+var globalHost = "//ufgatorplanner.herokuapp.com/course/";
 // Create a "close" button and append it to each list item
 //var myNodelist = document.getElementsByTagName("LI");
 //var i;

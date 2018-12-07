@@ -111,7 +111,7 @@ createApp.factory('createFactory', function($http){
 
     //sends post request to /api/functions
     createUserAccount: function(accInfo) {
-	     return $http.post('http://localhost:8080/course/user', accInfo);
+	     return $http.post('//ufgatorplanner.herokuapp.com/course/user', accInfo);
     }
 
   }; //end methods
